@@ -1,0 +1,1109 @@
+\documentclass[10pt,a4paper]{scrartcl}
+
+\usepackage[english]{babel}
+
+\input{../Headerfiles/Packages}
+\input{../Headerfiles/Titles}
+\input{../Headerfiles/Commands}
+\graphicspath{{Pictures/}}
+\parindent 0pt
+
+\title{Advanced Dynamics}
+\author{GianAndrea Müller}
+
+\begin{document}
+\begin{multicols*}{4}
+\maketitle
+\tableofcontents
+\end{multicols*}
+
+\begin{multicols*}{2}
+\section{Dynamics}
+\subsection{Coordinate frames}
+
+\subsubsection{Inertial coordinate frame}
+
+A frame of reference (coordinate system) that is not rotating and not accelerated.
+
+\subsubsection{Cartesian coordinate frame}
+
+\myspic{0.45}{Pictures/CartesianCoordinates}
+\begin{equation*}
+\vec{r}=\begin{pmatrix}x(t)\\y(t)\\z(t)\end{pmatrix}
+\enspace
+{\vec{v}=\begin{pmatrix}\dot{x}(t)\\\dot{y}(t)\\\dot{z}(t)\end{pmatrix}}
+\enspace
+{\vec{a}=\begin{pmatrix}\ddot{x}(t)\\\ddot{y}(t)\\\ddot{z}(t)\end{pmatrix}}
+\end{equation*}
+
+
+\subsubsection{Cylindrical coordinate frame}
+
+\myspic{0.45}{Pictures/CylindricalCoordinates}
+
+\begin{equation*}
+{\vec{r}=\begin{pmatrix} \rho(t) \\ \theta(t) \\ z(t) \\ \end{pmatrix}} 
+\enspace
+{\vec{v}=\begin{pmatrix} \dot{\rho}(t)  \\ \rho(t)\dot{\theta}(t) \\ \dot{z}(t) \\ \end{pmatrix}} 
+\enspace
+{\vec{a}=\begin{pmatrix} \ddot{\rho}(t)-\rho(t)\dot{\theta}(t)^2 \\ 2 \dot{\rho}(t)\dot{\theta}(t)+\rho(t)\ddot{\theta}(t) \\ \ddot{z}(t) \\ \end{pmatrix}}
+\end{equation*}
+
+\subsubsection{Spherical coordinate frame}
+
+\begin{center}
+\def\svgwidth{\linewidth}
+\input{Pictures/SphericalCoordinates.pdf_tex}
+\end{center}
+
+\begin{equation*}
+{\vec{r}=\begin{pmatrix} \rho(t) \\ \theta (t) \\ \psi (t) \\ \end{pmatrix}}   
+\enspace
+{\vec{v}=\begin{pmatrix} \dot{\rho} \\ \rho \dot{\theta} cos(\psi) \\ \rho \dot{\psi} \\ \end{pmatrix}}   
+\enspace
+{\vec{a}=\begin{pmatrix}  \ddot{\rho}-\rho \dot{\theta}^2 \cos^2 \psi - \rho \dot{\psi}^2  \\ 2 \dot{\rho} \dot{\theta} \cos(\psi) + \rho \ddot{\theta} \cos(\psi) - 2 \rho \dot{\theta} \dot{\psi} \sin(\psi)  \\ 2 \dot{\rho} \dot{\psi} + \rho \dot{\theta} \sin( \psi) \cos( \psi) + \rho \ddot{\psi} \\ \end{pmatrix}}
+\end{equation*}
+
+\subsection{Constraints}
+
+A constraint is a scalar relation that limits the possible displacement of particles.
+
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Rigid link}
+
+\[|\vec{r}_{AB}| = \sqrt{(x_A-x_B)^2+(y_A-y_B)^2+(z_A-z_B)^2} = const\]
+\item \textbf{Rotating tube}
+
+\[\begin{pmatrix}
+x_A\\y_A\\z_A
+\end{pmatrix}=\rho_A(t)\vec{e}(t)
+\]
+
+where $\vec{e}(t)$ denotes the direction of the rotating tube.
+\item \textbf{Planar motion}
+
+\[z_A = const\]
+\item \textbf{Rolling without slipping}
+\[\dot{x}=R\dot{\phi}\]
+\end{enumerate}
+
+\textbf{Holonomic constraint:}
+
+A holonomic constraint is a constraint that only depends on the current
+position of the particles involved and the current time. A non-holonomic constraint
+also depends on time-derivatives of the motion.
+
+\subsection{Generalized coordinates}
+
+A set of variables used to uniquely describe the configuration of a system
+are called generalized coordinates. This can comprise, e.g., distances or angles.
+
+\subsection{Degree of freedom}
+
+The degree of freedom (DOF) of a system is defined as the number of
+independent generalized coordinates necessary to describe the motion of the system
+completely and uniquely.
+
+\begin{equation*}
+\text{DOF} = dim\cdot n -k
+\end{equation*}
+
+\definitiontable{
+$dim$&dimension of the space\\
+$n$&number of particles in the system\\
+$k$&number of holonomic constraints applied to the system
+}
+
+\begin{itemize}
+\item There are always different possibilities of interpreting the DOF of a multi body system. Be sure that you define the constraints such that each body you consider is only moving in the exact way it is supposed to.
+\end{itemize}
+
+\subsection{Givens rotation}
+
+Givens rotation matrices define a rotation about one of the three coordinate directions about some angle $\alpha,\beta$, or $\gamma$ referring to a rotation about the x-axis, y-axis or z-axis respectively. 
+
+\begin{equation*}
+\begin{aligned}
+\tvec{R}_x&=\begin{pmatrix}1&0&0\\0&\cos\alpha&\sin\alpha\\0&-\sin\alpha&\cos\alpha\end{pmatrix}\\
+\tvec{R}_y&=\begin{pmatrix}\cos\beta&0&-\sin\beta\\0&1&1\\\sin\beta&0&\cos\beta\end{pmatrix}\\
+\tvec{R}_z&=\begin{pmatrix}\cos\gamma&\sin\gamma&0\\-\sin\gamma&\cos\gamma&0\\0&0&1\end{pmatrix}
+\end{aligned}
+\end{equation*}
+
+\subsection{Taylor series}
+
+The Taylor series of a function $f(x)$, which is infinitely differentiable at some number $a$ is given by,
+
+\begin{equation*}
+f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(a)}{3!}(x-a)^2+\cdots,
+\end{equation*}
+
+or equivalently,
+
+\begin{equation*}
+\sum\limits_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n.
+\end{equation*}
+
+\subsubsection{Small angle approximation}
+
+Based on a Taylor series of the second order some trigonometrical functions can be approximated well for small angles.
+
+\begin{center}
+\begin{tabular}{l@{$\;$}l}
+$\sin\theta$&$\approx\theta$\\
+$\cos\theta$&$\approx1-\frac{\theta^2}{2}$\\
+$\tan\theta$&$\approx\theta$
+\end{tabular}
+\end{center}
+
+\section{Single-particle dynamics}
+
+\subsection{Linear momentum}
+
+\begin{equation*}
+\vec{P}:=m\vec{v}
+\end{equation*}
+
+\definitiontable{
+$\vec{P}$&linear momentum &in& $\si{\kilo\gram\meter\per\second}$\\
+$m$&mass&in&$\si{\kilo\gram}$\\
+$v$&velocity&in&$\si{\meter\per\second}$
+}
+
+\subsection{Principle of linear momentum for a single particle (LMP)}
+The linear momentum principle is equivalent to Newton's second axiom. It states that a resultant forces acting on a particle causes an acceleration of the particle.
+
+\begin{equation*}
+\vecd{P} = m\vec{a} = \vec{F}
+\end{equation*}
+
+\definitiontable{
+$\vecd{P}$&change of linear momentum &in& $\si{\kilo\gram\meter\per\second\squared}$\\
+$m$&mass&in&$\si{\kilo\gram}$\\
+$\vec{a}$&acceleration&in&$\si{\meter\per\second\squared}$\\
+$\vec{F}$&resultant force&in&$\si{N}=\si{\kilo\gram\meter\per\second\squared}$
+}
+
+\begin{itemize}
+\item Use for problems based on linear motion.
+\item Use to find equation of motion based on the acting forces or find the acting forces based on a defined motion.
+\item If no resultant force is acting on the particle, the acceleration is zero and the linear momentum of the particle is conserved.
+\item The knowledge of all forces acting on a particle leads directly to its acceleration. If the initial velocity is known, the particle's velocity can be derived as a function of time. If the initial position is known additionally, the particle's position can be calculated as well.
+\item The LMP is described by a vectorial equation. Therefore you can set up a scalar equation for each coordinate direction.
+\item Only valid in an inertial frame!
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{Remark on LMP in cylindrical coordinates:}
+
+In case of a curvilinear motion where cylindrical coordinates are helpful, you need to express the vector $m \vec{a}$ as a function of the cylindrical coordinates $(\rho,\theta)$ and project it to the radial and azimuthal unit vectors $\vec{e}_\rho$,$\vec{e}_{\theta}$ afterwards. With this trick you get the linear momentum principle in cylindrical coordinates (forces acting on the particle are then expressed in the $\vec{e}_\rho$,$\vec{e}_{\theta}$ system).
+
+A special case of this is what has been derived in Problem 2.2, where we treat a circular motion with a constant velocity.
+
+\subsection{Angular momentum}
+
+\myspic{0.4}{Pictures/AngularMomentum}
+
+\begin{equation*}
+\vec{H}_B(t):=\vec{\varrho}_B(t)\times\vec{P}(t)
+\end{equation*}
+
+
+\definitiontable{
+$\vec{H}_B(t)$&angular momentum w.r.t. point B&in&$\si{\kilo\gram\meter\squared\per\second}$\\
+$\vec{\rho}_B(t)$&vector between point $B$ and the particle m&in&$\si{\meter}$\\
+$\vec{P}(t)$&linear momentum of particle m&in&$\si{\kilo\gram\meter\per\second}$
+}
+
+\subsection{Principle of angular momentum for a single particle w.r.t. $B$ (AMP)}
+The angular momentum principle can be seen as Newton's second axiom for rotation. It states that the angular momentum of a particle is influenced by the torque acting on the particle. The angular momentum itself can be calculated w.r.t an arbitrary reference point $B$ which can be fixed or moving.
+
+\begin{equation*}
+\vecd{H}_B+\vec{v}_B\times\vec{P} = \vec{M}_B
+\end{equation*}
+
+\definitiontable{
+$\vecd{H}_B$&change angular momentum w.r.t. $B$ &in& $\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$\vec{v}_B$&velocity of $B$&in&$\si{\meter\per\second}$\\
+$\vec{P}$&linear momentum&in&$\si{\kilo\gram\meter\per\second}$\\
+$\vec{M}_B$&resultant torque w.r.t. $B$&in&$\si{\newton\meter}=\si{\kilo\gram\meter\squared\per\second\squared}$
+}
+\begin{itemize}
+\item Often used if a particle is in curvilinear motion.
+\item If $\vec{v}_B =0$ or $\vec{v}_B || \vec{P}$ and $\vec{M}_B=0$, the angular momentum w.r.t point $B$ is conserved. 
+\item If the angular momentum is conserved and the particle's initial velocity is given, it is often useful to equate the initial angular momentum with the particle's angular momentum at a later time. 
+\item Choose points with $\vec{v}_B = 0$ to avoid calculating the terms of the cross product. 
+\item Although the AMP is a vectorial equation, it is convenient to write it in a scalar form if a 2D problem needs to be solved. In the 2D case, the angular momentum and therefore it's derivative are always normal to the plane of projection.
+\end{itemize}
+
+\subsection{Work-energy principle for a single particle}
+A force acting on a moving particle will change the particle's kinetic energy $T_i$. 
+
+\begin{equation*}
+W_{12}=T_2-T_1
+\end{equation*}
+
+\definitiontable{
+$W_{12}$&work done on particle between point 1 and 2&in& $\si{\joule} = \si{\kilo\gram\meter\squared\per\second\squared}$\\
+$T_i$&Kinetic energy at point i&in&$\si{\kilo\gram\meter\squared\per\second\squared}$
+}
+\begin{itemize}
+\item The kinetic energy of a particle is given by,
+\begin{equation*}
+T_i = \frac{1}{2}mv_i^2.
+\end{equation*}
+\item Used if only the initial and end state of a particle is of interest and not the states in between.
+\item Can easily be calculated if the force acting on the particle is parallel to the particle's velocity.
+\item The work done by a force is zero, if the force is normal to the particle's velocity.
+\item The work done on a particle by a force is given by,
+	
+	\begin{equation*}
+	W = \int_{P_1}^{P_2}\vec{F}\cdot \vec{dr} \ =\ \int_{P_1}^{P_2}|\vec{F}|\cos(\alpha)dS.
+	\end{equation*}  
+\end{itemize}
+
+\subsection{Definition of a potential force}
+A force is called potential force if a potential functions exists, such that the negative gradient of this function is equal to the force.
+
+\begin{equation*}
+\vec{F}=-\frac{\partial V}{\partial \vec{r}}=-\nabla V(\vec{r})
+\end{equation*}
+
+\definitiontable{
+$\vec{F}$&potential force&in& $\si{\newton}=\si{\kilo\gram\meter\per\second\squared}$\\
+$V$&potential function&in&$\si{\newton\meter}=\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$\vec{r}$&position vector&in&$\si{\meter}$
+}
+If a force has a potential, the work done by this force between two points does not depend on the path between the points. In this case, the work done by the force can be calculated by the difference of the values of the potential function in this points, i.e., $W_{12} = V_1 - V_2 = V(x_1,y_1,z_1) - V(x_2,y_2,z_2)$.
+
+\vspace{12pt}
+An example for a potential force is the gravitational force. It's potential is given by,
+\begin{equation*}
+V(\vec{r}) = mgz,
+\end{equation*} 
+because, 
+\begin{equation*}
+-\nabla V(\vec{r}) = \begin{pmatrix}
+0 \\ 0 \\ -mg \end{pmatrix}.
+\end{equation*}
+
+\subsection{Work-energy principle for a conservative system}
+The work energy principle for a conservative system holds true, if all forces acting on a system are either potential (=conservative) or do no work. In this case, the work done by potential forces can be expressed as the difference of the potentials at the start and the end point of the desired motion.
+
+\begin{equation*}
+T_1+V_1 =T_2+V_2\quad\Leftrightarrow\quad \ddt[T(t)+V(t)]=0
+\end{equation*}
+
+\definitiontable{
+$T_i$&Kinetic energy in point i&in&$\si{\joule}=\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$V_i$&Potential energy in point i&in&$\si{\joule}=\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$T(t)$&Kinetic energy at time t&in&$\si{\joule}=\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$V(t)$&Potential energy at time t&in&$\si{\joule}=\si{\kilo\gram\meter\squared\per\second\squared}$
+}
+
+\begin{itemize}
+\item Always check if the system of interest is conservative
+\item A conservative system has the advantage that you do not need to know the path of the particle to calculate the work done by the forces acting on it.
+\item If some of the forces are potential and some not, express the work done by the potential forces as a difference of the potentials and calculate the work done by the non-conservative forces with the standard procedure, if you know the path of the particle.
+\item Some common examples for potentials are given by:
+
+\begin{center}
+	\begin{tabular}{lr}
+		Force & Potential \\
+		\hline
+		Gravitation & $mgz$ \\
+		Linear spring & $-\frac{1}{2}kx^2$ \\
+		Torsional spring & $-\frac{1}{2}k\theta^2$
+	\end{tabular}
+\end{center}
+\end{itemize}
+
+\subsection{Mass accretion equation}
+
+\myspic{0.2}{Rocket}
+
+The mass accretion equation describes the motion of a particle that loses or gains mass and is under the influence of some external force. The loss or gain of mass is described by a change of momentum $\dot{m}\vec{u}$ where $\vec{u}$ denotes the velocity of the gained or ejected mass.
+
+\begin{equation*}
+\dot{m}\vec{v}+m\vecd{v}-\dot{m}\vec{u}=\vec{F}\quad\Leftrightarrow\quad m\vecd{v}=\vec{F}+\dot{m}\vec{v}_{rel}
+\end{equation*}
+
+\definitiontable{
+$m$&mass depending on time&in&$\si{\kilo\gram}$\\
+$\dot{m}$&change of mass&in&$\si{\kilo\gram\per\second}$\\
+$\vec{v}$&velocity of the particle&in&$\si{\meter\per\second}$\\
+$\vec{u}$&velocity of the ejected or gained mass&in&$\si{\meter\per\second}$\\
+$\vecd{v}$&acceleration&in&$\si{\meter\per\second\squared}$\\
+$\vec{F}$&resultant force&in&$\si{\newton}=\si{\kilo\gram\meter\per\second\squared}$\\
+$\vec{v}_{rel} = \vec{u}-\vec{v}$&relative velocity&in&$\si{\meter\per\second}$
+}
+
+An exemplary application of this principle is a rocket that fights gravity while it is loosing mass. In that case the acting force is the gravitational force, $v$ represents the velocity of the rocket, $\vec{u}$ represents the velocity of the exhaust gases. Note that the gravitational force varies as well since the mass of the rocket varies.
+
+\subsection{General transformation to a moving, rotating y-frame}
+
+Such a frame can be described as follows:
+
+\sbs{0.5}{0.4}{
+\begin{center}
+\def\svgwidth{0.8\linewidth}
+\input{Pictures/NonInertial.pdf_tex}
+\end{center}
+}{
+\[\tvec{Q}(t)=\tvec{R}_z=\begin{pmatrix}\cos\theta&-\sin\theta&0\\\sin\theta&\cos\theta&0\\0&0&1\end{pmatrix}\]
+}
+
+\begin{equation*}
+\vec{x}=\tvec{Q}(t)\vec{y}+\vec{b}(t)
+\end{equation*}
+
+\definitiontable{
+$\vec{x}$&position vector in inertial x-frame&in&$\si{\meter}$\\
+$\vec{y}$&position vector in non-inertial y-frame&in&$\si{\meter}$\\
+$Q(t)$&rotation matrix that aligns the $\vec{y}$ axes with the $\vec{x}$ axes\\
+&$\tvec{Q}^T=\tvec{Q}^{-1}$ and $\det\left(\tvec{Q}\right)=1$\\
+$b(t)$&translational vector between the two origins of the coordinate systems&in&$\si{\meter}$
+}
+
+\subsection{Linear momentum principle in a planar, rotating frame}
+
+Considering particles in non-inertial frames we have to consider the influence of non-inertial forces
+
+\begin{equation*}
+\begin{aligned}
+m\vecdd{y}&=\tilde{\vec{F}}+\vec{F}_{centrifugal}+\vec{F}_{Coriolis}+\vec{F}_{Euler}\\
+\vec{F}_{centrifugal}&=m\vec{\Omega}^2\vec{y}\\
+\vec{F}_{Coriolis}&=-2m\vec{\Omega}\times\vecd{y}\\
+\vec{F}_{Euler}&=-m\vecd{\Omega}\times\vec{y}
+\end{aligned}
+\end{equation*}
+
+\definitiontable{
+$m$&mass&in&$\si{\kilo\gram}$\\
+$\vecd{y}$&velocity in y-frame&in&$\si{\meter\per\second}$\\
+$\vecdd{y}$&acceleration in y-frame&in&$\si{\meter\per\second\squared}$\\
+$\tilde{\vec{F}}$&active and constraint force w.r.t. the moving frame&in&$\si{\newton}=\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$\vec{\Omega}$&angular velocity of the y-frame&in&$\si{\radian\per\second}$\\
+$\vecd{\Omega}$&angular acceleration of the y-frame&in&$\si{\radian\per\second\squared}$\\
+}
+
+\begin{itemize}
+\item Note that the y-frame denotes the moving frame.
+\end{itemize}
+
+\section{Multi-particle dynamics}
+
+\subsection{Center of mass for a system of particles}
+
+The center of mass represents the location in which the resultant gravitational force of all included particles attacks. Or in other words it is the point in which the resultant moment of all gravitational forces is zero.
+
+\begin{equation*}
+\vec{r}_C=\frac{1}{M}\sum\limits_{i=1}^n m_i\vec{r}_i,\quad \text{where}\ M=\sum\limits_{i=1}^n m_i
+\end{equation*}
+
+\definitiontable{
+$\vec{r}_C$&center of mass&in&$\si{\meter}$\\
+$M$&total mass of the system&in&$\si{\kilo\gram}$\\
+$m_i$&individual masses of particles&in&$\si{\kilo\gram}$\\
+$\vec{r}_i$&locations of particles&in&$\si{\meter}$\\
+$n$&number of particles
+}
+
+\subsection{Linear momentum of a system of particles}
+
+\begin{equation*}
+\vec{P}:=\sum\limits_{i=1}^n\vec{P}_i=\sum\limits_{i=1}^nm_i\vec{v}_i
+\end{equation*}
+
+\subsection{Resultant force on a system of particles}
+
+\begin{equation*}
+\vec{F}:=\sum\limits_{i=1}^n\vec{F}_i^{int}+\sum\limits_{i=1}^n\vec{F}_i^{ext}
+\end{equation*}
+
+\begin{itemize}
+\item Note that the sum of the inner forces is zero by definition.
+\end{itemize}
+
+\subsection{Linear momentum principle for a system of particles}
+
+The linear momentum principle for a system of particles is equivalent to Newton's second axiom. It states that a resultant forces acting on such a system causes an acceleration of the center of mass.
+
+\begin{equation*}
+\vecd{P}=M{\vec{a}_C}=\sum\limits_{i=1}^n \vec{F}_i^{ext}=\vec{F}^{ext}
+\end{equation*}
+
+\definitiontable{
+$\vecd{P}$&change of linear momentum&in&$\si{\kilo\gram\meter\per\second\squared}$\\
+$M$&total mass of the system&in&$\si{\kilo\gram}$\\
+$a_C$&acceleration of the center of mass&in&$\si{\meter\per\second\squared}$\\
+$\vec{F}_i^{ext}$&individual resultant forces on particles&in&$\si{\newton}=\si{\kilo\gram\meter\per\second\squared}$\\
+$\vec{F}^{ext}$&total resultant force on system&in&$\si{\newton}=\si{\kilo\gram\meter\per\second\squared}$\\
+$n$&number of particles&&
+}
+
+\begin{itemize}
+\item If no resultant force is acting on the system, the acceleration of the center of mass is zero and the linear momentum of the system is conserved.
+\item If all external forces on a system are known the acceleration of the center of mass can be determined. Vice versa if the acceleration of the center of mass is known the sum of the external forces can be calculated.
+\item Since the linear momentum principle is a vectorial equation it can be split up and considered in each coordinate direction separately. This means also that it can also be conserved in one direction while it changes in the other direction.
+\item Only valid in an inertial frame!
+\end{itemize}
+
+\subsection{Angular momentum principle for a system of particles w.r.t. a point $B$}
+
+The angular momentum principle is the same as in the case of a single particle. The only difference is, that $\vec{P}$ is equal to the linear momentum of the system of particles, $\vec{P} = m \vec{v}_{C}.$
+
+\begin{equation*}
+\vecd{H}_B+\vec{v}_B\times\vec{P}=\vec{M}_B^{ext}
+\end{equation*}
+
+
+\definitiontable{
+$\vecd{H}_B$&change of angular momentum w.r.t. $B$&in&$\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$\vec{v}_B$&velocity of point $B$&in&$\si{\meter\per\second}$\\
+$\vec{P}$&linear momentum of the system&in&$\si{\kilo\gram\meter\per\second}$\\
+$\vec{M}_B^{ext}$&external torque acting on the system&in&$\si{\newton\meter}=\si{\kilo\gram\meter\squared\per\second\squared}$
+}
+
+\begin{itemize}
+\item The angular momentum is conserved if and only if:
+\begin{itemize}
+\item $\vec{M}_B^{ext}\equiv 0$ AND either $\vec{v}_B\equiv 0$ or $\vec{P}\equiv 0$.
+\item Alternatively it is possible that: $\vec{M}_B^{ext}-\vec{v}_B\times\vec{P}\equiv 0$.
+\end{itemize}
+\item When considering impulsive forces it makes sense to assess the change of angular momentum over an infinitesimally short time, therefore allowing negligence of non-impulsive forces.
+\end{itemize}
+
+\subsection{Collision of two particles: coefficient of restitution}
+
+\begin{equation*}
+e=-\frac{\text{relative normal velocity after impact}}{\text{relative normal velocity before impact}}=-\frac{u_2^n-u_1^n}{v_2^n-v_1^n}
+\end{equation*}
+
+\definitiontable{
+$e$&coefficient of restitution&&\\
+$u_i^n$&individual normal velocities after impact&in&$\si{\meter\per\second}$\\
+$v_i^n$&individual normal velocities before impact&in&$\si{\meter\per\second}$
+}
+
+\begin{itemize}
+\item $e=1$ implies that we are dealing with a perfectly elastic collision.
+\item $e=0$ implies that we are dealing with a perfectly inelastic collision.
+\item Due to energy conservation $e$ must satisfy $0\leq e\leq 1$.
+\item $e$ can be interpreted as a measure of the kinetic energy preserved during the collision. The amount of energy lost goes into deformation of the bodies.
+\item The linear momentum of the individual particles is always conserved in tangential direction.
+\item The linear momentum of the system is always conserved, since no forces act in tangential direction and the forces in normal direction are opposite in direction and equal in magnitude and therefore cancel out.
+\end{itemize}
+
+\subsection{Velocity relation between velocities before and after impact}
+
+\begin{alignat}{3}
+u_1^n&=\frac{m_1-em_2}{m_1+m_2}v_1^n+&\frac{(1+e)m_2}{m_1+m_2}v_2^n \\
+u_2^n&=\frac{(1+e)m_1}{m_1+m_2}v_1^n+&\frac{m_2-em_1}{m_1+m_2}v_2^n
+\end{alignat}
+
+\definitiontable{
+$u_i^n$&individual normal velocities after impact&in&$\si{\meter\per\second}$\\
+$v_i^n$&individual normal velocities before impact&in&$\si{\meter\per\second}$\\
+$m_i$&individual masses&in&$\si{\kilo\gram}$\\
+$e$&coefficient of restitution&&
+}
+
+\subsection{Work-energy principle for a system of particles}
+
+\begin{equation*}
+W_{12}=T_2-T_1
+\end{equation*}
+
+\begin{equation*}
+T:=\sum\limits_{i=1}^n\onha m_i|\vec{v}_i|^2
+\end{equation*}
+
+\definitiontable{
+$W_{12}$&total work done by all forces on the particles between point $1$ and $2$&in&$\si{\joule}=\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$T_i$&total kinetic energy of the system at $t_i$&in&$\si{\joule}=\si{\kilo\gram\meter\squared\per\second\squared}$
+}
+
+\begin{itemize}
+\item Always check if the system is conservative. If so you can apply conservation of mechanical energy:
+
+\[T_1 + V_1 = T_2 + V_2\]
+\item If the system is not conservative split the work done in a conservative and a non-conservative part.
+\item To calculate the non-conservative part of the work keep in mind the definition of work. Only the component of the force that is parallel to the velocity of its point of attack does work!
+
+\[W_{12}^{nc}=\int_{P_1}^{P_2}\vec{F}\cdot\vec{dr}=\int_{P_1}^{P_2}|\vec{F}|\cos(\alpha)dS\]
+\item Check if the system is a rigid system of particles! If yes the work done by the internal forces is zero. $\rightarrow$ \ref{sec:RigidSystem}, \ref{sec:WERigidSystem}
+\end{itemize}
+
+
+\subsubsection{Rigid system of particles}
+\label{sec:RigidSystem}
+
+\begin{equation*}
+\ddt\left|\vec{r}_i-\vec{r}_j\right|^2 \equiv 0\ \forall\ i,j=1,\ldots,n
+\end{equation*}
+
+\definitiontable{
+$\vec{i}$&location of particle i&in&$\si{\meter}$\\
+$n$&number of particles
+}
+
+\subsection{Work-energy principle for a rigid system of particles}
+\label{sec:WERigidSystem}
+
+The difference compared to the work-energy principle for a general system of particles is that in the case of a rigid system of particles the work done by the internal forces equals zero.
+
+\begin{equation*}
+W_{12}^{ext}=T_2-T_1
+\end{equation*}
+
+\definitiontable{
+$W_{12}^{ext}$&total work done by external forces on the particles between point $1$ and $2$&in&$\si{\joule}=\si{\kilo\gram\meter\per\second\squared}$\\
+$T_i$&total kinetic energy of the system at $t_i$&in&$\si{\joule}=\si{\kilo\gram\meter\per\second\squared}$
+}
+
+\section{Rigid body dynamics}
+
+\subsubsection{Connection vector}
+
+\begin{equation*}
+\vec{r}_{AB} = \vec{r}_B-\vec{r}_A
+\end{equation*}
+
+\subsection{Velocity transfer formula for a rigid body}
+
+\begin{equation*}
+\vec{v}_B=\vec{v}_A+\vec{\omega}\times\vec{r}_{AB}
+\end{equation*}
+
+\definitiontable{
+$\vec{v}_B$&velocity in point $B$&in&$\si{\meter\per\second}$\\
+$\vec{v}_A$&velocity in point $A$&in&$\si{\meter\per\second}$\\
+$\vec{\omega}$&rotational velocity of $\mathcal{B}$&in&$\si{\rad\per\second}$\\
+$\vec{r}_{AB}$&connection vector between $A$ and $B$&in&$\si{\meter}$
+}
+
+\begin{itemize}
+\item Remember that angular velocities can be added up.
+\item It is not always necessary to do vector calculations. Clever usage of the SDPG (Theorem of projected velocities) and the instantaneous center of rotation can be a solution too.
+\end{itemize}
+
+\subsubsection{Instantaneous center of rotation}
+
+The instantaneous center of rotation $O$ of a planar rigid body $\mathcal{B}$ is defined as the point $O\in\mathcal{B}'$ for which
+
+\begin{equation*}
+\vec{v}_O=0
+\end{equation*}
+
+Hence the extended rigid body $\mathcal{B}'$ includes the original body $\mathcal{B}$ and the instantaneous center of rotation $O$.
+
+\begin{itemize}
+\item If the instantaneous center of rotation and the angular velocity of a body is known the velocity of any point that is part of the body can be easily calculated.
+\end{itemize}
+
+\subsubsection{Instantaneous axis of rotation}
+
+As seen in Mechanics I, in any moving rigid body there can be found an axis whose points only have translational velocity. This axis is called the instantaneous axis of rotation.
+
+\begin{figure}[h]
+\mypic{InstantaneousAxisOfRotation}
+\caption{Quelle: Ingenieurmechanik 1 - Grundlagen und Statik - 2. Auflage, p51}
+\end{figure}
+
+\subsection{Center of mass of a rigid body $\mathcal{B}$}
+
+\begin{equation*}
+\vec{r}_C=\frac{1}{M}\int_\mathcal{B}\vec{r}dm=\frac{1}{M}\int_\mathcal{B}\vec{r}\rho dV
+\end{equation*}
+
+\definitiontable{
+$\vec{r}_C$&location of the center of mass&in&$\si{\meter}$\\
+$M$&total mass of $\mathcal{B}$&in&$\si{\kilo\gram}$\\
+$\rho$&density of $\mathcal{B}$&in&$\si{\kilo\gram\per\meter\cubed}$
+}
+
+\begin{itemize}
+\item Normally this integral can be split up into a simple sum.
+\end{itemize}
+
+\subsection{Linear momentum principle for a rigid body $\mathcal{B}$}
+
+\begin{equation*}
+\vecd{P}=M\vec{a}_C=\vec{F}^{ext}
+\end{equation*}
+
+\definitiontable{
+$\vecd{P}$&change of linear momentum of $\mathcal{B}$&in&$\si{\kilo\gram\meter\per\second\squared}$\\
+$M$&total mass of $\mathcal{B}$&in&$\si{\kilo\gram}$\\
+$\vec{a}_C$&acceleration of the center of mass&in&$\si{\meter\per\second\squared}$\\
+$\vec{F}^{ext}$&resultant external force on the body&in&$\si{\newton}=\si{\kilo\gram\meter\per\second\squared}$
+}
+
+\begin{itemize}
+\item If no resultant force is acting on the body, the acceleration of the center of mass is zero and the linear momentum of the system is conserved.
+\item If all external forces on a system are known the acceleration of the center of mass can be determined. Vice versa if the acceleration of the center of mass is known the sum of the external forces can be calculated.
+\item Since the linear momentum principle is a vectorial equation it can be split up and considered in each direction separately. This means also that it can be conserved in one direction while it changes in the other direction.
+\item Only valid in an inertial frame!
+\end{itemize}
+
+\subsection{The angular momentum of a rigid body $\mathcal{B}$ w.r.t. a fixed point $B$, belonging to the body, or w.r.t. its center of mass $B\equiv C$}
+
+\begin{equation*}
+\vec{H}_B=\int_\mathcal{B}\vec{\varrho}_B\times(\vec{\omega}\times\vec{\varrho}_B)dm=\tvec{I}_B\vec{\omega}
+\end{equation*}
+
+\definitiontable{
+$\vec{H}_B$&angular momentum of $\mathcal{B}$ w.r.t. $B$&in&$\si{\kilo\gram\meter\squared\per\second}$\\
+$\vec{\varrho}_B$&distance from location of dm to point $B$&in&$\si{\meter}$\\
+$\vec{\omega}$&rotational velocity of $\mathcal{B}$&in&$\si{\rad\per\second}$\\
+$\tvec{I}_B$&moment of inertia of $\mathcal{B}$&in&$\si{\kilo\gram\meter\squared}$
+}
+
+\begin{itemize}
+\item Remember that angular momenta w.r.t. the same point can be added up.
+\item Do not forget to use the angular momentum transfer formula whenever necessary!
+\end{itemize}
+
+\subsection{Mass moments of inertia of a rigid body $\mathcal{B}$}
+
+$\tvec{I}_B$ is the \emph{moment of intertia tensor} of the body $\mathcal{B}$ w.r.t. the point B.
+
+\begin{equation*}
+\tvec{I}_B:=\begin{pmatrix}I_{xx}&I_{xy}&I_{xz}\\I_{xy}&I_{yy}&I_{yz}\\I_{xz}&I_{yz}&I_{zz}\end{pmatrix}
+\end{equation*}
+
+where
+
+\begin{center}
+\large
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{l@{$\qquad$}l@{$\qquad$}l}
+$I_{xx}=\int\limits_\mathcal{B}(y^2+z^2)\ dm$&
+$I_{xy}=-\int\limits_\mathcal{B}xy\ dm$&
+$I_{xz}=-\int\limits_\mathcal{B}xz\ dm$\\
+$I_{yy}=\int\limits_\mathcal{B}(x^2+z^2)\ dm$&
+$I_{yz}=-\int\limits_\mathcal{B}yz\ dm$&
+$I_{zz}=\int\limits_\mathcal{B}(x^2+y^2)\ dm$
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item The mass moments of inertia are always given at the exam, either as an equation or directly as a value.
+\item Remember that moments of inertia formulated w.r.t. to the same point can simply be added up.
+\item Remember to apply Steiner's theorem wherever necessary.
+\end{itemize}
+
+\subsection{Angular momentum principle for a rigid body $\mathcal{B}$ with respect to an arbitrary point $B$}
+
+\begin{equation*}
+\vecd{H}_B+\vec{v}_B\times\vec{P}=\vec{M}_B^{ext}
+\end{equation*}
+
+\definitiontable{
+$\vecd{H}_B$&change of angular momentum w.r.t. $B$&in&$\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$\vec{v}_B$&velocity of point $B$&in&$\si{\meter\per\second}$\\
+$\vec{P}$&linear momentum of $\mathcal{B}$&in&$\si{\kilo\gram\meter\per\second}$\\
+$\vec{M}_B^{ext}$&external torque acting on $\mathcal{B}$&in&$\si{\newton\meter}=\si{\kilo\gram\meter\squared\per\second\squared}$
+}
+
+\begin{itemize}
+\item $\vec{H}_B = \tvec{I}_B\cdot\vec{\omega}$ \textbf{if and only if Point B is fixed or coincides with the center of mass!}
+\item The angular momentum is conserved if and only if:
+\begin{itemize}
+\item $\vec{M}_B^{ext}\equiv 0$ AND either $\vec{v}_B\equiv 0$ or $\vec{P}\equiv 0$.
+\item Alternatively it is possible that: $\vec{M}_B^{ext}-\vec{v}_B\times\vec{P}\equiv 0$.
+\end{itemize}
+\item When considering impulsive forces it makes sense to assess the change of angular momentum over an infinitesimally short time, therefore allowing negligence of non-impulsive forces.
+\item When applying the angular momentum principle to a rolling cylinder it is possible to choose the contact point with the surface as a point of respect, since that way you get rid of the external moment of the contact force and $\vec{v_B}\times\vec{P}$, because in that case $\vec{v}_B\parallel\vec{v}_C$. However if the cylinder still slides consider the next tip:
+\item When applying the angular momentum principle in a point that is not the center of mass or that is not fixed you must use the angular momentum transfer formula!
+\end{itemize}
+
+\subsection{Angular momentum transfer formula for a rigid body $\mathcal{B}$ between two arbitrary points $A$ and $B$}
+
+\begin{equation*}
+\vec{H}_B=\vec{H}_A+\vec{P}\times\vec{r}_{AB}
+\end{equation*}
+
+\definitiontable{
+$\vec{H}_B$&angular momentum w.r.t. point $B$&in&$\si{\kilo\gram\meter\squared\per\second}$\\
+$\vec{H}_A$&angular momentum w.r.t. point $A$&in&$\si{\kilo\gram\meter\squared\per\second}$\\
+$\vec{P}$&linear momentum of $\mathcal{B}$&in&$\si{\kilo\gram\meter\per\second}$\\
+$\vec{r}_{AB}$&connection vector between $A$ and $B$
+}
+
+\subsection{Parallel axis theorem (Steiner's theorem)}
+
+\begin{equation*}
+\tvec{I}_O=\tvec{I}_C+M\left(|\vec{r}_{CO}|^2\tvec{\mathbb{I}}-\vec{r}_{CO}\vec{r}_{CO}^T\right)=\tvec{I}_C+M\begin{pmatrix}b^2+c^2&-ab&-ac\\-ab&a^2+c^2&-bc\\-ac&-bc&a^2+b^2\end{pmatrix}
+\end{equation*}
+
+\definitiontable{
+$\tvec{I}_O$&moment of inertia tensor of $\mathcal{B}$ w.r.t. some point $O$&in&$\si{\kilo\gram\meter\squared}$\\
+$\tvec{I}_C$&moment of inertia tensor of $\mathcal{B}$ w.r.t. the center of mass of $\mathcal{B}$&in&$\si{\kilo\gram\meter\squared}$\\
+$M$&total mass of $\mathcal{B}$&in&$\si{\kilo\gram}$\\
+$\vec{r}_{CO}$&connection vector between $C$ and $O$&in&$\si{\meter}$\\
+$\tvec{\mathbb{I}}$&unity matrix in $\mathbb{R}^3$
+}
+
+\subsection{Parallel axis theorem (Steiner's theorem) for planar bodies}
+
+\begin{equation*}
+I_A=I_C+M|\vec{r}_{CA}|^2
+\end{equation*}
+
+\definitiontable{
+$I_A$&moment of inertia of $\mathcal{B}$ w.r.t. point $A$&in&$\si{\kilo\gram\meter\squared}$\\
+$I_C$&moment of inertia of $\mathcal{B}$ w.r.t. point $C$&in&$\si{\kilo\gram\meter\squared}$\\
+$M$&total mass of $\mathcal{B}$&in&$\si{\kilo\gram}$\\
+$\vec{r}_{CA}$&connection vector between C and A&in&$\si{\meter}$
+}
+
+\subsection{Kinetic energy $T$ of a rigid body $\mathcal{B}$}
+
+\begin{equation*}
+T=\onha M|\vec{v}_C|^2+\onha \vec{\omega}^T\tvec{I}_C\vec{\omega}
+\end{equation*}
+
+\definitiontable{
+$T$&kinetic energy of $\mathcal{B}$&in&$\si{\joule}=\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$M$&total mass of $\mathcal{B}$&in&$\si{\kilo\gram}$\\
+$\vec{v}_C$&velocity of the center of mass of $\mathcal{B}$&in&$\si{\meter\per\second}$\\
+$\vec{\omega}$&rotational velocity of $\mathcal{B}$&in&$\si{\rad\per\second}$\\
+$\tvec{I}_C$&moment of inertia tensor of $\mathcal{B}$ w.r.t. its center of mass&in&$\si{\kilo\gram\meter\squared}$
+}
+
+\begin{itemize}
+\item For a fixed point $B$:
+\begin{equation*}
+T = \frac{1}{2}\vec{\omega}\tvec{I}_B\vec{\omega}
+\end{equation*}
+\end{itemize}
+
+\subsection{Work-energy principle for a rigid body}
+
+\begin{equation*}
+W_{12}^{ext}=T_2-T_1
+\end{equation*}
+
+\definitiontable{
+$W_{12}^{ext}$&total work done by all forces on $\mathcal{B}$&in&$\si{\joule}=\si{\kilo\gram\meter\squared\per\second\squared}$\\
+$T_i$&total kinetic energy of the system at $t_i$&in&$\si{\joule}=\si{\kilo\gram\meter\squared\per\second\squared}$
+}
+
+\subsection{Differentiation of quantities in moving frames}
+
+\begin{equation*}
+\vecd{u}=\mathring{\vec{u}}+\vec{\Omega}\times\vec{u}
+\end{equation*}
+
+\definitiontable{
+$\vecd{u}$&acceleration of $\mathcal{B}$ in moving frame&in&$\si{\meter\per\second\squared}$\\
+$\mathring{\vec{u}}$&velocity of $\mathcal{B}$ in moving frame&in&$\si{\meter\per\second}$\\
+$\vec{\Omega}$&rotational velocity of the moving frame&in&$\si{\radian\per\second}$\\
+$\vec{u}$&velocity of $\mathcal{B}$&in&$\si{\meter\per\second}$
+}
+
+\begin{itemize}
+\item Differentiation in moving frame makes sense since aligning the chosen coordinate system with the principle axes of the body in question simplifies calculations. The vector-matrix multiplications are much simpler if you have the principal moments of inertia instead of a general inertia tensor.
+\item The rotational velocity of the moving frame can coincide with the rotational velocity of the body but in general does not have to.
+\end{itemize}
+
+\subsubsection{Principal moments of inertia}
+
+Consider a basis $\begin{bmatrix}\vec{u}_1&\vec{u}_2&\vec{u}_3\end{bmatrix}$ in which the moment of inertia becomes diagonal.
+
+\begin{equation*}
+\tvec{I}_B=\begin{pmatrix}
+I_1&0&0\\0&I_2&0\\0&0&I_3
+\end{pmatrix}
+\end{equation*}
+
+$\begin{bmatrix}\vec{u}_1&\vec{u}_2&\vec{u}_3\end{bmatrix}$ are then called the principal axes of $\mathcal{B}$ and $I_i$ are the principal moments of inertia
+
+
+\subsection{Euler's equations of motion for a spinning top}
+
+\begin{equation*}
+\begin{aligned}
+I_1\dot{\omega}_1&+(I_3-I_2)\omega_3\omega_2=M_1\\
+I_2\dot{\omega}_2&+(I_1-I_3)\omega_1\omega_3=M_2\\
+I_3\dot{\omega}_3&+(I_2-I_1)\omega_2\omega_1=M_3
+\end{aligned}
+\end{equation*}
+
+\definitiontable{
+$I_i$&i$_{TH}$ principal moment of inertia&in&$\si{\kilo\gram\meter\squared}$\\
+$\dot{\omega}_i$&rotational acceleration in i-direction&in&$\si{\radian\per\second\squared}$\\
+$M_i$&torque on $\mathcal{B}$ in i-direction&in&$\si{\newton\meter}=\si{\kilo\gram\meter\squared\per\second\squared}$
+}
+
+\begin{itemize}
+\item The Euler equations are nothing else than the AMP applied to a fixed reference point or the center of mass of a body. A rotating, principal frame is used.
+\item As a result, they are only valid for a fixed point or the center of mass of a body.
+\item They can only be applied if a body fixed, principal frame is used.
+\item You can modify the equations to get a general formulation if the angular velocity of the coordinate frame is not equal to the angular velocity of the body.
+\end{itemize}
+
+\subsection{TSP-rule}
+
+\begin{equation*}
+\vec{\omega}_\varphi\times\vec{\omega}_\psi\approx\frac{1}{I_3}\vec{M}_O^{ext}
+\end{equation*}
+
+\definitiontable{
+$\vec{\omega}_\varphi$&precession&in&$\si{\radian\per\second}$\\
+$\vec{\omega}_\psi$&spin&in&$\si{\radian\per\second}$\\
+$\vec{M}_O^{ext}$&external torque acting on gyroscope&in&$\si{\newton\meter}=\si{\kilo\gram\meter\squared\per\second\squared}$
+}
+
+\begin{itemize}
+\item The TSP-Rule holds true for a fast spinning gyroscope.
+\item The external torque is aligned with the middle finger.
+\item Spin is aligned with the index finger.
+\item Precession axis is aligned with the thumb.
+\end{itemize}
+
+\section{Vibrations}
+
+\subsection{Equation of motion of a dampened, forced one degree of freedom oscillator}
+
+\begin{equation*}
+\ddot{x}+2\delta\dot{x}+\omega_0^2x=f_0(t)
+\end{equation*}
+
+where
+
+\begin{equation*}
+\delta=\frac{c}{2m}\qquad \omega_0=\sqrt{\frac{k}{m}}
+\end{equation*}
+
+\definitiontable{
+$c$&damper constant&in&$\si{\kilo\gram\per\second}$\\
+$m$&vibrating mass&in&$\si{\kilo\gram}$\\
+$\delta$&characteristic damping&in&$\si{\per\second}$\\
+$k$&spring constant&in&$\si{\kilo\gram\per\second\squared}$\\
+$\omega_0$&natural frequency&in&$\si{\radian\per\second}$
+}
+
+\subsection{General solution for free vibrations (one DOF) with distinct roots $\lambda_1\neq\lambda_2$}
+
+The solution in the time domain is
+
+\begin{equation*}
+x(t)=A_1e^{\lambda_1 t}+A_2e^{\lambda_2 t}
+\end{equation*}
+
+while in the phase space is
+
+\begin{equation*}
+\vecd{x}(t)=A_1\vec{s}_1e^{\lambda_1 t}+A_2\vec{s}_2e^{\lambda_2 t}
+\end{equation*}
+
+where $\lambda_{1,2}=-\delta\pm\sqrt{\delta^2-\omega_0^2}$ and $\vec{s}_j=(1,\lambda_j)$
+
+\definitiontable{
+$\delta$&characteristic damping&in&$\si{\per\second}$\\
+$\omega_0$&natural frequency&in&$\si{\radian\per\second}$
+}
+
+\subsection{General solution for free vibrations (one DOF) with repeated roots $\lambda= \lambda_1=\lambda_2$}
+The solution in the time domain is
+
+\begin{equation*}
+x(t)=A_1e^{\lambda t}+A_2te^{\lambda t}
+\end{equation*}
+
+while in the phase space is
+
+\begin{equation*}
+\vecd{x}(t)=(A_1\vec{s}_1+A_2\highlight{\tilde{\vec{s}}_1})e^{\lambda t}+A_2\vec{s}_2te^{\lambda t}
+\end{equation*}
+
+where $\lambda_{1,2}=-\delta = -\omega_0$, $\vec{s}_j=(1,\lambda)$ and $\highlight{\tilde{\vec{s}}_1=(0,1)}$
+
+\definitiontable{
+$\delta$&characteristic damping&in&$\si{\per\second}$\\
+$\omega_0$&natural frequency&in&$\si{\radian\per\second}$
+}
+
+\subsection{Forced harmonic response}
+
+\begin{equation*}
+\ddot{x}+2\delta\dot{x}+\omega_0^2x=f_0\sin(\omega t)
+\end{equation*}
+
+the steady state solution is
+
+\begin{equation*}
+x_p(t)=A\sin(\omega t-\phi)
+\end{equation*}
+
+where
+
+\begin{equation*}
+A=\frac{f_0}{\sqrt{(\omega_0^2-\omega^2)+4\delta\omega^2}}\quad\text{and}\quad\phi=\arctan\left(\frac{2\delta \omega}{\omega_0^2-\omega^2}\right)
+\end{equation*}
+
+or in the form
+
+\begin{equation*}
+x_p(t)=\frac{f_0}{\omega_0^2}V(\eta,D)\sin(\omega t-\phi(\eta, D))
+\end{equation*}
+
+where 
+
+\begin{equation*}
+V=\frac{1}{\sqrt{(1-\eta^2)^2+(2D\eta)^2}}\quad\text{and}\quad\phi=\arctan\left(\frac{2D\eta}{1-\eta^2}\right)
+\end{equation*}
+
+and
+
+\begin{equation*}
+\eta=\frac{\omega}{\omega_0}\quad\text{and}\quad D=\frac{\delta}{\omega_0}
+\end{equation*}
+
+\definitiontable{
+$\delta$&characteristic damping&in&$\si{\per\second}$\\
+$\omega_0$&natural frequency&in&$\si{\radian\per\second}$\\
+$\omega$&rotational velocity&in&$\si{\radian\per\second}$\\
+$\eta$&frequency ratio\\
+$D$&Lehr's damping
+}
+
+\myspic{0.5}{ForcedVibrations}
+
+\subsection{Equation for vibrations with $n$ degrees of freedom}
+
+\begin{equation*}
+\tvec{M}\vecdd{x}+\tvec{C}\vecd{x}+\tvec{K}\vec{x}=\vec{F}(t)
+\end{equation*}
+
+\definitiontable{
+$\vec{x}(t)$&deviation from the stable equilibrium&in&$\si{\meter}$\\
+$\tvec{M}$&positive definite, symmetric mass matrix&in&$\si{\kilo\gram}$\\
+$\tvec{C}$&positive semidefinite, symmetric damping matrix&in&$\si{\kilo\gram\per\second}$\\
+$\tvec{K}$&positive semidefinite, symmetric stiffness matrix&in&$\si{\kilo\gram\per\second\squared}$\\
+$\vec{F}(t)$&external force acting on the system&in&$\si{\kilo\gram\meter\per\second\squared}$
+}
+
+\subsection{Structural damping}
+
+\begin{equation*}
+\tvec{C}=a\tvec{M}+b\tvec{K}
+\end{equation*}
+
+\subsection{Generalized eigenvalue problem}
+
+\begin{equation*}
+(\lambda^2\tvec{M}+\tvec{K})\vec{u}=\vec{0}
+\end{equation*}
+
+\subsection{Purely imaginary eigenvalue pairs}
+
+$\lambda=\pm\ i\ \omega_j,\ \omega_j>0,\ \vec{u}_j\in\mathbb{R}^n$
+
+The solution in the time domain is
+
+\begin{equation*}
+\vec{x}_j(t)=\vec{u}_jA_j\sin(\omega_j t+\phi_j)
+\end{equation*}
+
+\subsection{Zero eigenvalue pairs} 
+
+$ \lambda = 0^2,\ \vec{u}\in\mathbb{R}^n $
+
+The solution in the time domain is
+
+\begin{equation*}
+\vec{x}_j(t)=u_j(B_j+C_jt)
+\end{equation*}
+
+\subsection{Modal decomposition of free, undampened vibrations}
+
+\begin{align}
+\tvec{U}^T\tvec{M}\tvec{U}&=\diag(m_1,m_2,\ldots,m_n)\\
+\tvec{U}^T\tvec{K}\tvec{U}&=\diag(k_1,k_2,\ldots,k_n)
+\end{align}
+
+\subsection{Modal equation of motion}
+
+\begin{equation*}
+m_j\ddot{y}_j+c_j\dot{y}_j+k_jy_j=f_j(t),\ j=1,\ldots n\qquad c_j=am_j+bk_j\geq 0
+\end{equation*}
+
+\subsection{Forced response to harmonic forcing of a $n$ degrees of freedom system}
+
+For harmonic forcing
+
+\begin{equation*}
+\vec{F}(t)=\vec{F}_0\sin(\omega t)
+\end{equation*}
+
+the steady-state solution of a generic modal amplitude $[y_P(t)]_j$ is given by
+
+\begin{equation*}
+[y_P(t)]_j=A_j^P\sin(\omega t+\phi_j)
+\end{equation*}
+
+with
+
+\begin{equation*}
+A_j^P=\frac{f_j^0}{\sqrt{(\omega_j^2-\omega^2)^2+c_j^2\omega^2}},\quad \phi_j=\arctan\left(\frac{c_j\omega}{\omega_j^2-\omega^2}\right)\quad\text{and}\quad f_j^0=(\tvec{U}^T\vec{F}_0)_j
+\end{equation*}
+
+\begin{itemize}
+\item Note that this solution is the particular solution to $\tvec{M}\vecdd{x}+\tvec{C}\vecd{x}+\tvec{K}\vec{x}=\vec{F}(t)$, transformed to modal coordinates such that the system is decoupled.
+
+Like that the system is described by a series of one DOF oscillators, one for each modal coordinate. For those the solutions for forced, damped vibrations are applicable again.
+\item Each mode has its resonance frequency $\omega_j = \sqrt{\frac{k_j}{m_j}}$.
+\item When the external forcing is given as above we only care about the particular solution as given above, since the transient response defined by the homogeneous solution decays after some time.
+\item Remember that from modal coordinates one needs to transform back to the original $\vec{x}$-coordinate frame.
+
+\begin{equation*}
+\vec{x}_p = \tvec{U}\vec{y}_p(t) = \begin{pmatrix}\vec{u}_1&\vec{u}_1&\cdots&\vec{u}_n\end{pmatrix}\begin{pmatrix}
+A_1^P\sin(\omega t+\phi_1\\\vdots\\ A_n^P\sin(\omega t+\phi_n)
+\end{pmatrix}
+\end{equation*} 
+
+which can be written as:
+
+\begin{equation*}
+\vec{x}_p(t)=\sum\limits_{k=1}^n A_k^P\vec{u}_k\sin(\omega t+\phi_k)
+\end{equation*}
+
+Based on that an amplification factor can be established where $B_j(\omega) =\sum\limits_{k=1}^n A_k^P(\vec{u}_k)_j$ is the amplitude of the particular response of the $j^{th}$ degree of freedom.
+
+\begin{equation*}
+V_j(\omega) = \frac{|B_j|}{|B_j(0)|}
+\end{equation*}
+
+That is the relation of the amplification at any frequency $\omega$ w.r.t. the amplification at a frequency of $\omega = 0$.
+
+\myspic{0.6}{AmplificationFactor}
+
+\item As seen in figure \ref{fig:Ampl} the amplification factor has maxima at each of the modal resonance frequencies and for the example shown here it has anti resonances between the maxima. However this depends on the underlying system. See Exercise 13.3 for a counterexample.
+
+\end{itemize}
+
+\section{Analytic Dynamics}
+\subsection{PDVL}
+\subsection{Lagrange equations}
+\subsection{Hamiltons principle}
+\subsection{Non-holonomic dynamics}
+\section{Linearization}
+\subsection{Equilibrium and stability}
+\subsection{Mass, stiffness and damping matrices}
+\subsection{Imposed motion}
+\section{Vibrations}
+\subsection{Vibration modes, Mode orthogonality}
+\subsection{Modal superposition}
+\subsection{Frequency response function}
+\subsection{Damped vibrations}
+\section{Advanced 3D Rigid Body Dynamics}
+\subsection{Parametrization of rotations}
+\subsection{Euler equations}
+\subsection{Lagrangian Dynamics for 3D multibody systems}
+\end{multicols*}
+
+\end{document}
