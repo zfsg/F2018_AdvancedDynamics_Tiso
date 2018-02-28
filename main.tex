@@ -1,3 +1,4 @@
+
 \documentclass[10pt,a4paper]{scrartcl}
 
 \usepackage[english]{babel}
@@ -10,6 +11,8 @@
 
 \title{Advanced Dynamics}
 \author{GianAndrea Müller}
+
+\newtheorem{define}{Definition}
 
 \begin{document}
 \begin{multicols*}{4}
@@ -667,7 +670,7 @@ $\tvec{I}_B$&moment of inertia of $\mathcal{B}$&in&$\si{\kilo\gram\meter\squared
 
 \subsection{Mass moments of inertia of a rigid body $\mathcal{B}$}
 
-$\tvec{I}_B$ is the \emph{moment of intertia tensor} of the body $\mathcal{B}$ w.r.t. the point B.
+$\tvec{I}_B$ is the \textbf{moment of intertia tensor} of the body $\mathcal{B}$ w.r.t. the point B.
 
 \begin{equation*}
 \tvec{I}_B:=\begin{pmatrix}I_{xx}&I_{xy}&I_{xz}\\I_{xy}&I_{yy}&I_{yz}\\I_{xz}&I_{yz}&I_{zz}\end{pmatrix}
@@ -1087,6 +1090,65 @@ That is the relation of the amplification at any frequency $\omega$ w.r.t. the a
 \end{itemize}
 
 \section{Analytic Dynamics}
+\subsubsection{Generalized Coordinates}
+The generalized coordinates are variables required to define the position of a body uniquely. They are not unique themselves.
+\subsubsection{Constraints}
+
+\begin{define}
+A \textbf{constraint} is a scalar function of generalized coordinates, generalized velocities and time. This constraint is \textbf{non-holonomic}.
+\textcolor{red}{Also accelerations, and higher derivatives?}
+
+\important{$f(\vec{q},\vecd{q},t)=0$}
+\end{define}
+
+\begin{define}
+A \textbf{sceleronomic} constraint is only a function of generalized coordinates.
+
+\important{$f(\vec{q})=0$}
+\end{define}
+
+\begin{define}
+A \textbf{rheonomic} constraint is only a function of generalized coordinates and time.
+
+\important{$f(\vec{q},t)$}
+\end{define}
+
+\begin{define}
+If non-holonomic constraints can be integrated, they will become holonomic and also eliminate DoFs.
+
+Every holonomic constraint can be given in \textbf{Pfaffian form} (exact differential):
+
+\important{$f(\vec{q},t)=0\quad\rightarrow\quad df=\sum\limits_{i=1}^n\frac{\partial f(\vec{q},t)}{\partial q_i}+\frac{\partial f(\vec{q},t)}{\partial t}dt=0$}
+\end{define}
+
+\begin{define}
+It can also be given in \textbf{velocity form} by dividing by $dt$:
+
+\important{$\frac{df}{dt}=\sum\limits_{i=1}^n\frac{\partial f(\vec{q},t)}{\partial \dot{q}_i}+\frac{\partial f(\vec{q},t)}{\partial t}=0$}
+\end{define}
+
+\begin{define}
+In practice many constraints are given in a \textbf{linear velocity form}:
+
+\important{$\sum\limits_{i=1}^na_i(\vec{q},t)\dot{q}_i+b(\vec{q},t)=0$}
+\end{define}
+
+\subsubsection{Showing that a constraint is holonomic}
+
+A constraint in \textbf{velocity form} is holonomic if its coefficients $a_i$ and $b_i$ can be mapped to a \textbf{pfaffian form}. If so then the velocity form is an exact differential
+
+\mportant{$\frac{df}{dt}=\sum\limits_{i=1}^na_i(\vec{q},t)\dot{q}_i+b(\vec{q},t)$}
+
+What remains to be showed is that:
+
+\mportant{$\frac{\partial f(\vec{q},t)}{\partial q_i}=Ca_i\quad,\quad \frac{\partial f(\vec{q},t)}{\partial t}=Cb,\quad\text{where }C=C(\vec{q},t)$}
+
+The condition for partial derivatives to be integrable
+
+\mportant{$\frac{\partial^2f(\vec{q},t)}{\partial q_k\partial q_i}=\frac{\partial^2f(\vec{q},t)}{\partial q_i\partial q_k}\Rightarrow\frac{\partial C a_i}{\partial q_k=\partial C a_i}{\partial q_i}\quad;\quad \frac{\partial Cb}{\partial q_k}=\frac{\partial Ca_i}{\partial t}$}
+
+If $C=0$ the integration constant does not exist, the trivial solution of the problem is found. Thus the constraint is non-holonomic.
+
 \subsection{PDVL}
 \subsection{Lagrange equations}
 \subsection{Hamiltons principle}
