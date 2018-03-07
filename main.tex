@@ -1259,8 +1259,74 @@ The projection of the active forces onto the admissible direction dictated by th
 
 \important{$Q_k=\sum\limits_{i=1}^N\vec{F}_i\cdot\frac{\partial \vec{r}_i}{\partial q_k}$}
 \end{define}
-\subsection{PDVL}
 \subsection{Lagrange equations}
+\begin{define}
+Consider a system of $N$ particles. The \textbf{kinetic energy} is defined as:
+
+\important{$\mathcal{T}=\sum\limits_{i=1}^N\onha m_i\vecd{r}_i\cdot\vecd{r}_i=\sum\limits_{i=1}^N\onha m_i|\vecd{r}_i|^2$}
+\end{define}
+
+Note that:
+
+\mportant{$\ddt\left(\frac{\partial\mathcal{T}}{\partial \vecd{r}_i}\right)=m_i\vecdd{r}_i$}
+
+And therefore d'Alembert's priciple can be written as:
+
+\mportant{$\sum\limits_{i=1}^N\left[\ddt\left(\frac{\partial\mathcal{R}}{\partial\vecd{r}_i}\right)-\vec{F}_i\right]\cdot\delta\vec{r}_i=0\Rightarrow\sum\limits_{k=1}^p\sum\limits_{i=1}^N\left[\ddt\left(\frac{\partial\mathcal{T}}{\partial\vecd{r}_i}\right)-\vec{F}_i\right]\cdot\frac{\partial \vec{r}_i}{\partial q_k}\delta q_k=0$}
+
+If the GC's are kinematically admissible, then
+
+\mportant{$\sum\limits_{i=1}^N\left[\ddt\left(\frac{\partial\mathcal{T}}{\partial \vecd{r}_i}\right)-\vec{F}_i\right]\cdot\frac{\partial\vec{r}_i}{\partial q_k}=0\quad k=1,\ldots,p$}
+
+Note that:
+
+\mportant{$\ddt\left(\frac{\partial\mathcal{T}}{\partial\vecd{r}_i}\cdot\frac{\partial\vec{r}_i}{\partial q_k}\right)=\ddt\left(\frac{\partial\mathcal{T}}{\partial\vecd{r}_i}\cdot\frac{\partial\vec{r}_i}{\partial q_k}\right)+\frac{\partial\mathcal{T}}{\partial\vecd{r}_i}\cdot\ddt\left(\frac{\partial\vec{r}_i}{\partial q_k}\right)$}
+
+and therefore:
+
+\mportant{$\ddt\left(\frac{\partial\mathcal{T}}{\partial\vecd{r}}\right)\cdot\frac{\partial \vec{r}_i}{\partial q_k}=-\frac{\partial\mathcal{T}}{\partial\vecd{r}_i}\cdot\ddt\left(\frac{\partial\vec{r}_i}{\partial q_k}\right)+\ddt\left(\frac{\partial \mathcal{T}}{\partial\vecd{r}_i}\cdot\frac{\partial\vec{r}_i}{\partial q_k}\right)$}
+
+Substitution yields:
+
+\mportant{$\sum\limits_{i=1}^N\left[-\frac{\partial\mathcal{T}}{\partial\vecd{r}_i}\cdot\textcolor{red}{\ddt\left(\frac{\partial\vec{r}_i}{\partial q_k}\right)}+\ddt\left(\textcolor{blue}{\frac{\partial\mathcal{T}}{\partial\vecd{r}_i}\cdot\frac{\partial\vec{r}_i}{\partial q_k}}\right)-\vec{F}_i\cdot\frac{\partial\vec{r}_i}{\partial q_k}\right]=0\quad k=1,\ldots,p$}
+
+Now consider \textcolor{red}{red}:
+
+\mportant{$\frac{\partial\mathcal{T}}{\partial\vecd{r}_i}\cdot\ddt\left(\frac{\partial\vec{r}_i}{\partial q_k}\right)=\frac{\partial\mathcal{T}}{\partial\vecd{r}_i}\cdot\frac{\partial\vecd{r}_i}{\partial q_k}=\frac{\partial\mathcal{T}}{\partial q_k}$}
+
+Then consider \textcolor{blue}{blue}:
+
+\mportant{$\vecd{r}_i=\sum\limits_{i=1}^p\frac{\partial\vec{r}_i}{\partial q_k}\dot{q}_k+\frac{\partial \vec{r}_i}{\partial t}\quad\Rightarrow\quad \frac{\partial\vecd{r}_i}{\partial\dot{q}_k}=\frac{\partial\vec{r}_i}{\partial q_k}$}
+
+and therefore
+
+\mportant{$\textcolor{blue}{\frac{\partial\mathcal{T}}{\partial \vecd{r}_i}\cdot\frac{\partial\vec{r}_i}{\partial q_k}}=\frac{\partial\mathcal{T}}{\partial\vecd{r}_i}\cdot\frac{\partial\vecd{r}_i}{\partial \dot{q}_i}=\frac{\partial \mathcal{T}}{\partial q_k}$}
+
+\important{$\ddt\left(\frac{\partial\mathcal{T}}{\partial\dot{q}_k}\right)-\frac{\partial\mathcal{T}}{\partial q_k}-Q_k=0,\quad k=1,\ldots,p$}
+
+\begin{itemize}
+\item LEs are nothing else than d'Alembert's principle, written in terms of kinetic energies.
+\item As such, the chosen generalized coordinates are supposed to identically satisfy the constraints (i.e. the are \textbf{unconstrained coordinates}.
+\item By working with energy, the inertial terms involve less algebra than the d'Alembert's principle.
+\end{itemize}
+
+\subsubsection{Potential active forces}
+
+If all active forces are potential:
+
+\mportant{$\vec{F}_i=-\frac{\partial\mathcal{V}}{\partial\vec{r}_i}+\vec{F}_i^{nc}$}
+
+Therefore the generalized forces become:
+
+\mportant{$Q_k=\sum\limits_{i=1}^N\vec{F}_i\cdot\frac{\partial\vec{r}_i}{\partial q_k}=-\sum\limits_{i=1}^N\left[\frac{\partial\mathcal{V}}{\partial\vec{r}_i}\cdot\frac{\partial\vec{r}_i}{\partial q_k}+\vec{F}_i^{nc}\cdot\frac{\partial \vec{r}_i}{\partial q_k}\right]=-\frac{\partial\mathcal{V}}{\partial q_k}+Q_k^{nc}$}
+
+And then the LEs could be written as:
+
+\important{$\ddt\left(\frac{\partial\mathcal{T}}{\partial \dot{q}_k}\right)-\frac{\partial\mathcal{T}}{\partial q_k}+\frac{\partial\mathcal{V}}{\partial q_k}-Q_k^{nc}=0,\quad k=1,\ldots,p$}
+
+\important{$\ddt\left(\frac{\partial\mathcal{T}}{\partial\dot{\vec{q}}}\right)-\frac{\partial\mathcal{T}}{\partial\vec{q}}+\frac{\partial\mathcal{V}}{\partial\vec{q}}=0$}
+
+\subsubsection{Lagrange equations for constrained coordinates}
 \subsection{Hamiltons principle}
 \subsection{Non-holonomic dynamics}
 \section{Linearization}

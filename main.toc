@@ -1,0 +1,97 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Dynamics}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Coordinate frames}{2}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Inertial coordinate frame}{2}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Cartesian coordinate frame}{2}{subsubsection.1.1.2}
+\contentsline {subsubsection}{\numberline {1.1.3}Cylindrical coordinate frame}{2}{subsubsection.1.1.3}
+\contentsline {subsubsection}{\numberline {1.1.4}Spherical coordinate frame}{2}{subsubsection.1.1.4}
+\contentsline {subsection}{\numberline {1.2}Constraints}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Generalized coordinates}{3}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Degree of freedom}{3}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Givens rotation}{3}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Taylor series}{3}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}Small angle approximation}{3}{subsubsection.1.6.1}
+\contentsline {section}{\numberline {2}Single-particle dynamics}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Linear momentum}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Principle of linear momentum for a single particle (LMP)}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Angular momentum}{4}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Principle of angular momentum for a single particle w.r.t. $B$ (AMP)}{4}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Work-energy principle for a single particle}{4}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Definition of a potential force}{4}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Work-energy principle for a conservative system}{5}{subsection.2.7}
+\contentsline {subsection}{\numberline {2.8}Mass accretion equation}{5}{subsection.2.8}
+\contentsline {subsection}{\numberline {2.9}General transformation to a moving, rotating y-frame}{5}{subsection.2.9}
+\contentsline {subsection}{\numberline {2.10}Linear momentum principle in a planar, rotating frame}{6}{subsection.2.10}
+\contentsline {section}{\numberline {3}Multi-particle dynamics}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Center of mass for a system of particles}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Linear momentum of a system of particles}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Resultant force on a system of particles}{6}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Linear momentum principle for a system of particles}{6}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Angular momentum principle for a system of particles w.r.t. a point $B$}{6}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Collision of two particles: coefficient of restitution}{7}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Velocity relation between velocities before and after impact}{7}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}Work-energy principle for a system of particles}{7}{subsection.3.8}
+\contentsline {subsubsection}{\numberline {3.8.1}Rigid system of particles}{7}{subsubsection.3.8.1}
+\contentsline {subsection}{\numberline {3.9}Work-energy principle for a rigid system of particles}{7}{subsection.3.9}
+\contentsline {section}{\numberline {4}Rigid body dynamics}{7}{section.4}
+\contentsline {subsubsection}{\numberline {4.0.1}Connection vector}{7}{subsubsection.4.0.1}
+\contentsline {subsection}{\numberline {4.1}Velocity transfer formula for a rigid body}{8}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Instantaneous center of rotation}{8}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Instantaneous axis of rotation}{8}{subsubsection.4.1.2}
+\contentsline {subsection}{\numberline {4.2}Center of mass of a rigid body $\mathcal {B}$}{8}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Linear momentum principle for a rigid body $\mathcal {B}$}{8}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}The angular momentum of a rigid body $\mathcal {B}$ w.r.t. a fixed point $B$, belonging to the body, or w.r.t. its center of mass $B\equiv C$}{8}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Mass moments of inertia of a rigid body $\mathcal {B}$}{8}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Angular momentum principle for a rigid body $\mathcal {B}$ with respect to an arbitrary point $B$}{9}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}Angular momentum transfer formula for a rigid body $\mathcal {B}$ between two arbitrary points $A$ and $B$}{9}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}Parallel axis theorem (Steiner's theorem)}{9}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.9}Parallel axis theorem (Steiner's theorem) for planar bodies}{9}{subsection.4.9}
+\contentsline {subsection}{\numberline {4.10}Kinetic energy $T$ of a rigid body $\mathcal {B}$}{9}{subsection.4.10}
+\contentsline {subsection}{\numberline {4.11}Work-energy principle for a rigid body}{9}{subsection.4.11}
+\contentsline {subsection}{\numberline {4.12}Differentiation of quantities in moving frames}{9}{subsection.4.12}
+\contentsline {subsubsection}{\numberline {4.12.1}Principal moments of inertia}{10}{subsubsection.4.12.1}
+\contentsline {subsection}{\numberline {4.13}Euler's equations of motion for a spinning top}{10}{subsection.4.13}
+\contentsline {subsection}{\numberline {4.14}TSP-rule}{10}{subsection.4.14}
+\contentsline {section}{\numberline {5}Vibrations}{10}{section.5}
+\contentsline {subsection}{\numberline {5.1}Equation of motion of a dampened, forced one degree of freedom oscillator}{10}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}General solution for free vibrations (one DOF) with distinct roots $\lambda _1\not =\lambda _2$}{10}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}General solution for free vibrations (one DOF) with repeated roots $\lambda = \lambda _1=\lambda _2$}{10}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Forced harmonic response}{11}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Equation for vibrations with $n$ degrees of freedom}{11}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Structural damping}{11}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}Generalized eigenvalue problem}{11}{subsection.5.7}
+\contentsline {subsection}{\numberline {5.8}Purely imaginary eigenvalue pairs}{11}{subsection.5.8}
+\contentsline {subsection}{\numberline {5.9}Zero eigenvalue pairs}{12}{subsection.5.9}
+\contentsline {subsection}{\numberline {5.10}Modal decomposition of free, undampened vibrations}{12}{subsection.5.10}
+\contentsline {subsection}{\numberline {5.11}Modal equation of motion}{12}{subsection.5.11}
+\contentsline {subsection}{\numberline {5.12}Forced response to harmonic forcing of a $n$ degrees of freedom system}{12}{subsection.5.12}
+\contentsline {section}{\numberline {6}Analytic Dynamics}{12}{section.6}
+\contentsline {subsubsection}{\numberline {6.0.1}Generalized Coordinates}{12}{subsubsection.6.0.1}
+\contentsline {subsubsection}{\numberline {6.0.2}Constraints}{13}{subsubsection.6.0.2}
+\contentsline {subsubsection}{\numberline {6.0.3}Showing that a constraint is holonomic}{13}{subsubsection.6.0.3}
+\contentsline {subsection}{\numberline {6.1}Virtual displacements}{13}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Sceleronomic constraint}{13}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Rheonomic constraint}{13}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}Kinematical method to compute virtual displacements}{14}{subsubsection.6.1.3}
+\contentsline {subsection}{\numberline {6.2}D'alemberts principle}{14}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Reaction forces}{14}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Projected Newton's equations}{14}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}Generalized forces}{14}{subsubsection.6.2.3}
+\contentsline {subsection}{\numberline {6.3}Lagrange equations}{15}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Potential active forces}{15}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}Lagrange equations for constrained coordinates}{15}{subsubsection.6.3.2}
+\contentsline {subsection}{\numberline {6.4}Hamiltons principle}{15}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Non-holonomic dynamics}{15}{subsection.6.5}
+\contentsline {section}{\numberline {7}Linearization}{15}{section.7}
+\contentsline {subsection}{\numberline {7.1}Equilibrium and stability}{15}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Mass, stiffness and damping matrices}{15}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Imposed motion}{15}{subsection.7.3}
+\contentsline {section}{\numberline {8}Vibrations}{15}{section.8}
+\contentsline {subsection}{\numberline {8.1}Vibration modes, Mode orthogonality}{15}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Modal superposition}{15}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Frequency response function}{15}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Damped vibrations}{15}{subsection.8.4}
+\contentsline {section}{\numberline {9}Advanced 3D Rigid Body Dynamics}{15}{section.9}
+\contentsline {subsection}{\numberline {9.1}Parametrization of rotations}{15}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Euler equations}{15}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Lagrangian Dynamics for 3D multibody systems}{15}{subsection.9.3}
