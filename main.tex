@@ -1149,6 +1149,116 @@ The condition for partial derivatives to be integrable
 
 If $C=0$ the integration constant does not exist, the trivial solution of the problem is found. Thus the constraint is non-holonomic.
 
+\subsection{Virtual displacements}
+\subsubsection{Sceleronomic constraint}
+\importname{Actual path}{$\hat{\vec{r}}(t)=q_1\hat{\vec{e}}_1+\cdots+q_n\hat{\vec{e}}_n$}
+\importname{Variational path}{$\tilde{\vec{r}}(t)=\tilde{q}_1\hat{\vec{e}}_1+\cdots+\tilde{q}_n\hat{\vec{e}}_n$}
+\importname{Virtual displacement}{$\delta\hat{\vec{r}}=\tilde{\vec{r}}-\hat{\vec{r}}=\delta q_1\hat{\vec{e}}_1+\cdots+\delta q_n\hat{\vec{e}}_n$}
+\begin{itemize}
+\item The virtual displacement is the difference between the actual and the virtual path.
+\item It is equivalent to freezing time and moving to a possible, close path.
+\item Possible means that all constraints are satisfied, i.e. $\tilde{\vec{r}}(t)$ and $\hat{\vec{r}}(t)$  must lie on $f(\vec{q})=0$.
+\importname{Infinitesimal displacement}{$d\hat{\vec{r}}=\frac{\partial \hat{\vec{r}}}{\partial q_1}dq_1+\cdots+\frac{\partial\hat{\vec{r}}}{\partial q_n}dq_n$}
+\importname{Generalized velocity}{$\hat{\vec{v}}=\frac{\partial\hat{\vec{r}}}{\partial q_1}\dot{q}_1+\cdots+\frac{\partial\hat{\vec{r}}}{\partial q_n}\dot{q}_n$}
+
+%\begin{itemize}
+\item $d\hat{\vec{r}}$ is tangent to the trajectory, $\delta\hat{\vec{r}}$ is not.
+\end{itemize}
+
+\importname{Normal vector}{$\vec{n}=\frac{\nabla f}{|\nabla f|}=\frac{1}{|\nabla f|}\left(\frac{\partial f}{\partial q_1}\hat{\vec{e}}_1+\cdots+\frac{\partial f}{\partial q_n}\hat{\vec{e}}_2\right)$}
+
+\begin{itemize}
+\item  Both are perpendicular to the gradient of the constraint plane. Thus the following conditions must hold.
+\end{itemize}
+
+\begin{align*}
+\nabla f\cdot d\hat{\vec{r}}=0&\Rightarrow\frac{\partial f}{\partial q_1}dq_1+\cdots+\frac{\partial f}{\partial q_1}dq_n=0\\
+\nabla f\cdot \partial\hat{\vec{r}}=0&\Rightarrow\frac{\partial f}{\partial q_1}\delta q_1+\cdots+\frac{\partial f}{\partial q_n}\delta q_n =0
+\end{align*}
+
+\subsubsection{Rheonomic constraint}
+
+\begin{itemize}
+\item $d\hat{\vec{r}}$ and $\hat{\vec{v}}$ do not lay on the constraint surface $\nabla f\cdot d\hat{\vec{r}}\neq 0$
+\item $\delta\hat{\vec{r}}$ does lay on the tangent plane  $\nabla f\cdot \delta\hat{\vec{r}}=\delta f=0$
+\end{itemize}
+
+\subsubsection{Kinematical method to compute virtual displacements}
+
+Recall the definition of velocity:
+
+\important{$\vec{v}=\frac{d\vec{r}}{dt}=\sum\limits_{i=1}^n\textcolor{red}{\frac{\partial\vec{r}}{\partial q_i}}\dot{q}_i+\frac{\partial \vec{r}}{\partial t}$}
+
+and of virtual displacements:
+
+\important{$\delta \vec{r}=\sum\limits_{i=1}^n\textcolor{red}{\frac{\partial\vec{r}}{\partial q_i}}\delta q_i$}
+
+\begin{enumerate}
+\item Take the velocity formula.
+\item Identify the linear terms in $\dot{q}_i$.
+\item Discard the rest.
+\item Replace $\dot{q}_i$ with $\delta q_i$.
+\end{enumerate}
+
+\textbf{Use this method when only the velocity is known.}
+
+\subsection{D'alemberts principle}
+\subsubsection{Reaction forces}
+A constraint force keeps the system on the surface $f(\vec{q},t)=0$ in the configuration space.
+
+\importname{Constraint force}{$\vec{R}=R\vec{n}$}
+
+\begin{define}
+The \textbf{virtual work} is the work done by a force onto a virtual displacement.
+\end{define}
+
+\textbf{The virtual work of a constraint force is zero.}
+
+\begin{define}
+An \textbf{ideal constraint} is such that the associated constraint force does not do work along virtual displacements compatible with the constraint.
+\end{define}
+\subsubsection{Projected Newton's equations}
+\begin{enumerate}
+\item Assume a system of $N$ particles of mass $m_i$, subjected to holonomic constraints. The LMP writes:
+
+\mportant{$m_i\ddot{\vec{r}}_i=\vec{F}_i+\vec{R}_i$}
+
+\item Choose generalized coordinates $\vec{q}$ compatible with the constraints \emph{(admissible)}:
+
+\mportant{$\vec{r}_i=\vec{r}_i(\vec{q},t)$}
+
+and the corresponding virtual displacement:
+
+\mportant{$\delta\vec{r}_i=\frac{\partial\vec{r}_i}{\partial \vec{q}}\delta\vec{q}$}
+\item Bring all terms of the LMP to the LHS \emph{(dynamic equilibrium)}
+
+\mportant{$m_i\ddot{\vec{r}}_i-\vec{F}_i-\vec{R}_i=\vec{0}$}
+\item Project the dynamic equilibrium onto the virtual displacement:
+
+\mportant{$\sum\limits_{i=1}^N\delta \vec{r}_i\cdot(m_i\vecdd{r}_i-\vec{F}_i-\vec{R}_i)=0$}
+
+\item Reaction forces do not do work on an admissible virtual displacement:
+
+\mportant{$\sum\limits_{i=1}^N\delta\vec{r}_i\cdot\vec{R}_i=0$}
+\end{enumerate}
+
+\importname{D'alembers principle}{$\sum\limits_{i=1}^N\delta\vec{r}_i\cdot(m_i\vecdd{r}_i-\vec{F}_i)=0$}
+
+\begin{enumerate}\addtocounter{enumi}{4}
+\item Recall the definition of the virtual displacements
+
+\mportant{$\delta\vec{r}_i=\frac{\partial\vec{r}_i}{\partial\vec{q}}\delta\vec{q}=\sum\limits_{k=1}^p\frac{\partial\vec{r}_i}{\partial q_k}\delta q_k$}
+\item And insert it into d'alemberts principle
+\mportant{$\sum\limits_{i=1}^N(m_i\vecdd{r}_i-\vec{F}_i)\cdot\sum\limits_{k=1}^p\frac{\partial\vec{r}_i}{\partial q_k}\delta q_k=0$}
+\item Since all general coordinates can be varied independently (admissible) we can write $p$ independent equations:
+\important{$\sum\limits_{i=1}^N(m_i\vecdd{r}_i-\vec{F}_i)\cdot\frac{\partial \vec{r}_i}{\partial q_k}=0,\quad \forall k=1,\cdots ,p$}
+\end{enumerate}
+\subsubsection{Generalized forces}
+\begin{define}
+The projection of the active forces onto the admissible direction dictated by the variation of $q_k$ is called \textbf{generalized force}.
+
+\important{$Q_k=\sum\limits_{i=1}^N\vec{F}_i\cdot\frac{\partial \vec{r}_i}{\partial q_k}$}
+\end{define}
 \subsection{PDVL}
 \subsection{Lagrange equations}
 \subsection{Hamiltons principle}
