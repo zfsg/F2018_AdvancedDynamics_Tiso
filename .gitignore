@@ -1,7 +1,4 @@
-Contraves_Zenit_1.pdf
-Literature/
-RORO_IREC_Competition Report_Team14.pdf
-blender/
+
 *.aux
 *.bbl
 *.bcf
@@ -16,4 +13,4 @@ blender/
 *.out
 *.run.xml
 *.synctex.gz
-*.toc
+*.toc main.pdf *.log
