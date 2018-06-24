@@ -1326,18 +1326,1701 @@ And then the LEs could be written as:
 
 \important{$\ddt\left(\frac{\partial\mathcal{T}}{\partial\dot{\vec{q}}}\right)-\frac{\partial\mathcal{T}}{\partial\vec{q}}+\frac{\partial\mathcal{V}}{\partial\vec{q}}=0$}
 
+\subsubsection{Example: Equation of motion of a 2D rigid body: D'alembert's principle}
+
+\myspic{0.5}{Dalembert2D}
+
+\begin{enumerate}
+\item $\vec{r}_k = \vec{r}_P+\vec{r}_{Pk}(\theta)$
+\item Virtual displacement: $\delta\vec{r}_k =\delta\vec{r}_P+\delta\vec{r}_{Pk}(\theta)$
+\item Obtain the virtual displacement $\delta \vec{r}_{Pk}$: Take the variation of the rigid body constraint:
+
+$\vec{r}_{Pk}\cdot\vec{r}_{Pk}=const\Rightarrow 2\delta\vec{r}_{Pk}\cdot\vec{r}_{Pk}=0$
+
+Thus $\delta\vec{r}_{Pk}$ has to be orthogonal to $\vec{r}_{Pk}$.
+\item The LMP of each particle: $m_k\vecdd{r}_k-\vec{F}_k-\vec{R}_k = 0$
+\item Projected onto the virtual displacement: 
+
+$\sum\limits_{k=1}^N\delta\vec{r}_k\cdot(m_k\vecdd{r}_k-\vec{F}_k-\vec{R}_k)=\vec{0}\qquad \sum\limits_{k=1}^N\delta\vec{r}_k\cdot\vec{R}_k = 0$
+\item Substitution yields: $\sum\limits_{k=1}^N\left(\delta\vec{r}_P+\delta\theta\vec{e}_z\times\vec{r}_{Pk}\right)\cdot\left(m_k\vecdd{r}_k-\vec{F}_k\right)=0$
+\item Since the virtual displacements are arbitrary we can write 2 different equations \textcolor{red}{why is arbitrariness necessary?}
+
+\begin{align*}
+\sum\limits_{k=1}^N\delta\vec{r}_P\cdot\left(m_k\vecdd{r}_k-\vec{F}_k\right)&=0\\
+\sum\limits_{k=1}^N\left(\delta\theta\vec{e}_z\times\vec{r}_{Pk}\right)\cdot\left(m_k\vecdd{r}_k-\vec{F}_k\right)&=0
+\end{align*}
+
+\important{$\vec{a}\cdot(\vprod{b}{c})=\vec{b}\cdot(\vprod{c}{a})=\vec{c}\cdot(\vprod{a}{b})$}
+
+\item
+$\sum\limits_{k=1}^N\vec{r}_{Pk}\times\left(m_k\vecdd{r}_k-\vec{F}_k\right)\cdot\delta\theta\vec{e}_z=0$
+\item Which results in the equations:
+
+\begin{align*}
+\sum\limits_{k=1}^Nm_k\vecdd{r}_k&=\sum\limits_{k=1}^N\vec{F}_k\\
+\sum\limits_{k=1}^Nm_k\vec{r}_{Pk}\times\vecdd{r}_k&=\sum\limits_{k=1}^N\vec{r}_{Pk}\times\vec{F_k}
+\end{align*}
+\item Now these equations need to be represented in terms of the general coordinates $\vec{r}_P$ and $\theta$:
+
+\begin{align*}
+\vecd{r}_k&=\vecd{r}_P+\dot{\theta}\vec{e}_z\times\vec{r}_{Pk}\\
+\vecdd{r}_k&=\vecdd{r}_P+\ddot{\theta}\vec{e}_z+\dot{\theta}\vec{e}_z\times\vec{r}_{Pk}\\
+&=\vecdd{r}_P+\ddot{\theta}\vec{e}_z\times\vec{r}_{Pk}+\dot{\theta}\vec{e}_z\times\left(\dot{\theta}\vec{e}_z\times\vec{r}_{Pk}\right)\\
+&=\vecdd{r}_P+\ddot{\theta}\vec{e}_z\times\vec{r}_{Pk}-\dot{\theta}^2\vec{r}_{Pk}
+\end{align*}
+
+\mportant{$\vec{r}_{PC}=\frac{1}{m_{tot}}\sum\limits_{k=1}^Nm_k\vec{r}_{Pk},\qquad m_{tot} =\sum\limits_{k=1}^Nm_k$}
+\item 
+\begin{align*}
+m_{tot}\left(\vecdd{r}_P+\ddot{\theta}\vec{e}_z\times\vec{r}_{PC}-\dot{\theta}^2\vec{r}_{PC}\right)&=\sum\limits_{k=1}^N\vec{F}_k=\vec{F}\\
+m_{tot}\vec{r}_{PC}\times\vecdd{r}_P+\sum\limits_{i=1}^Nm_k\vec{r}_{Pk}\times\left(\vec{e}_z\times\vec{r}_{Pk}\right)\ddot{\theta}&=\sum\limits_{i=1}^N\vec{r}_{Pk}\times\vec{F}_k=\vec{M}_P
+\end{align*}
+
+Note that:
+
+\mportant{$\sum\limits_{k=1}^Nm_k\vprod{\vec{r}_{Pk}}{\left(\vprod{\vec{e}_z}{\vec{r}_{Pk}}\right)}=\sum\limits_{k=1}^Nm_k\left|\vec{r}_{Pk}\right|^2\vec{e}_z=I_P\vec{e}_z$}
+\item The equations of motion for the 2D rigid body become:
+
+\begin{align*}
+m_{tot}\left(\vecdd{r}_P+\ddot{\theta}\vec{e}_z\times\vec{r}_{PC}-\dot{\theta}^2\vec{r}_{PC}\right)&=\vec{F}\\
+m_{tot}\vec{r}_{PC}\times\vecdd{r}_P+I_P\ddot{\theta}\vec{e}_z=\vec{M}_P
+\end{align*}
+
+\item Special cases : $\ddt\vec{r}_P\equiv 0$ und $P=C\quad\Rightarrow\quad \vec{r}_{PC}\equiv 0$
+\end{enumerate}
+
+\subsubsection{Equation of motion of a 2D rigid body: Lagrange equations}
+\begin{enumerate}
+\item 
+
+\begin{align*}
+\mathcal{T}&=\onha\sum\limits_{k=1}^Nm_k\vecd{r}_k\cdot\vecd{r}_k\\
+&=\onha\sum\limits_{k=1}^Nm_k\left(\vecd{r}_P+\dot{\theta}\vec{e}_z\times\vec{r}_{Pk}\right)\cdot\left(\vecd{r}_P+\dot{\theta}\vec{e}_z\times\vec{r}_{Pk}\right)\\
+&=\onha\sum\limits_{k=1}^Nm_k\vecd{r}_P\cdot\vecd{r}_p+\onha\sum\limits_{k=1}^Nm_k\left(\dot{\theta}\vec{e}_z\times\vec{r}_{Pk}\right)\cdot\left(\dot{\theta}\times\vec{r}_{Pk}\right)+\sum\limits_{k=1}^Nm_k\vecd{r}_P\cdot\left(\dot{\theta}\vec{e}_z\times\vec{r}_{Pk}\right)\\
+&=\onha m_{tot}\vecd{r}_P\cdot\vecd{r}_P+\onha I_P\dot{\theta}^2+\underbrace{m_{tot}\dot{\theta}\vecd{r}_P\cdot\left(\vec{e}_z\times\vec{r}_{PC}\right)}_{\text{Coupling term }P\neq C}
+\end{align*}
+
+\item For the translation:
+
+\begin{align*}
+\frac{\partial\mathcal{T}}{\partial\vecd{r}_P}&=m_{tot}\vecd{r}_P+m_{tot}\dot{\theta}\vec{e}_z\times\vec{r}_{PC}\\
+\ddt\left(\frac{\partial\mathcal{T}}{\partial\vecd{r}_P}\right)&=m_{tot}\vecdd{r}_P+m_{tot}\ddot{\theta}\vec{e}_z\times\vec{r}_{PC}+m_{tot}\dot{\theta}^2\vec{e}_z\times\left(\vec{e}_z\times\vec{r}_{PC}\right)\\
+\frac{\partial\mathcal{T}}{\partial\vec{r}_P}&=\vec{0}
+\end{align*}
+\item For the rotation:
+
+\begin{align*}
+\frac{\partial\mathcal{T}}{\partial\dot{\theta}}&=I_P\dot{\theta}+m_{tot}\vecd{r}_P\cdot\left(\vec{e}_z\times\vec{r}_{PC}\right)\\
+\ddt\left(\frac{\partial\mathcal{T}}{\partial\dot{\theta}}\right)&=I_P\ddot{\theta}+m_{tot}\vecdd{r}\cdot\left(\vec{e}_z\times\vec{r}_{PC}\right)+m_{tot}\dot{\theta}\vecd{r}_P\cdot\left(\vec{e}_z\times\left(\vec{e}_z\times\vec{r}_{PC}\right)\right)\\
+\frac{\partial\mathcal{T}}{\partial\theta}&=m_{tot}\dot{\theta}\vec{r}_P\cdot\left(\vec{e}_z\times\frac{\partial\vec{r}_{PC}}{\partial\theta}\right)=m_{tot}\dot{\theta}\vecd{r}_P\cdot\left(\vec{e}_z\times\left(\vec{e}_z\times\vec{r}_{PC}\right)\right)
+\end{align*}
+\item The generalized force for the translation DoFs are:
+
+\mportant{$Q_{\vec{r}_P}=\sum\limits_{k=1}^N\vec{F}_k\cdot\frac{\partial\vec{r}_k}{\partial\vec{r}_P}=\sum\limits_{k=1}^N\vec{F}_k=\vec{F}$}
+
+\item And for rotation:
+
+\mportant{$Q_{\theta}=\sum\limits_{k=1}^N\vec{F}_i\cdot\frac{\partial\vec{r}_k}{\partial\theta}=\sum\limits_{k=1}^N\vec{F}_k\cdot\left(\vec{e}_z\times\vec{r}_{Pk}\right)=\sum\limits_{k=1}^N\vec{e}_z\left(\vec{r}_{Pk}\times\vec{F}_k\right)=\vec{e}_z\cdot\vec{M}_P$}
+\item Carrying out the Lagrange equations yields the same equations as for the D'alembert's principle.
+\end{enumerate}
+
+\subsubsection{Lagrange equations for a 3D rigid body}
+
+
+
 \subsubsection{Lagrange equations for constrained coordinates}
+
+\begin{itemize}
+\item Complicated constraint equations
+\item Active forces depend on constraint forces
+\item Non-holonomic constraints
+\end{itemize}
+
+lead to the necesity of choosing GC, which do not fully satisfy the constraints, such that the constraint forces do appear in the EoM.
+
+In tat case the virtual displacement does not lay on the tangent to the constraint surface:
+
+\mportant{$\delta\hat{\vec{r}}\cdot\vec{n}\neq0$}
+
+Thus the mapping between GCs and positions does not identically satisfy the $m$ constraints applied to the system and the constraints have to be enforced!
+
+\mportant{$m_i\vecdd{r}_k-\vec{F}_k-\vec{R}_k=\vec{0}$}
+
+The virtual work done on the virtual displacement is:
+
+\mportant{$\sum\limits_{k=1}^N\delta\vec{r}_k\cdot\left(m_k\vecdd{r}_k-\vec{F}_k-\vec{R}_k\right)=0$}
+
+The work of the reaction forces does not vanish!
+
+What is known is the direction of the reaction force, which is aligned with the gradient of the constraint.
+
+\begin{align*}
+f_i(\vec{q},t)&=0,\quad i=1,\ldots,m\\
+\vec{r}_k&=\vec{r}_k(\vec{q},t),\quad k=1,\ldots,N\\
+\vec{R}_k^{(i)}=\lambda_i\frac{\partial f_i}{\partial\vec{r}_k}
+\end{align*}
+
+The constraint force on particle $k$ due to constraint $i$, where $\lambda_i$ is proportional to the magnitude of the scalar force, but is not the magnitude of the constraint force since $\left|\frac{\partial f_i}{\partial\vec{r}_k}\right|\neq 1$!
+
+The total constraint force is then:
+
+\mportant{$\vec{R}_k=\sum\limits_{i=1}^m\vec{R}_k^{(i)}=\sum\limits_{i=1}^m\lambda_i\frac{\partial f_i}{\partial\vec{r}_k}$}
+
+The virtual work of the constraint force does not vanish and the constraint forces cannot be eliminated!
+
+\begin{align*}
+\sum\limits_{k=1}^N\vec{R}_k\cdot\delta\vec{r}_k=\sum\limits_{k=1}^N\vec{R}_k\cdot\frac{\partial\vec{r}_k}{\partial\vec{q}}\delta\vec{q}=\sum\limits_{k=1}^N\sum\limits_{i=1}^m\lambda_i\frac{\partial f_i}{\partial\vec{r}_k}\cdot\frac{\partial\vec{r}_k}{\partial \vec{q}}\delta\vec{q}\\
+=\sum\limits_{i=1}^m\lambda_i\frac{\partial f_i}{\partial\vec{q}}\delta\vec{q}=\sum\limits_{j=1}^n\sum\limits_{i=1}^m\lambda_i\frac{\partial f_i}{\partial q_j}\delta q_j
+\end{align*}
+
+Therefore the LEs gain an additional term representing the generalized constraint forces:
+
+\important{$\ddt\left(\frac{\partial\mathcal{T}}{\partial\dot{q}_j}\right)-\frac{\partial\mathcal{T}}{\partial q_j}+\frac{\partial\mathcal{V}}{\partial q_j}+Q_j^{nc}-\sum\limits_{i=1}^m\lambda_i\frac{\partial f_i}{\partial q_j}=0\quad j=1,\ldots,n$}
+
+which must be completed by $m$ constrains:
+
+\mportant{$f_i(\vec{q},t)=0,\quad i=1,\ldots,m$}
+
+\subsubsection{Non-holonomic constraints}
+
+\mportant{$\sum\limits_{i=1}^n a_i(\vec{q},t)\dot{q}_i+b(\vec{q},t)=0$}
+
+When holding time fixed:
+
+\mportant{$\sum\limits_{i=1}^na_i(\vec{q},t)\delta q_i=0$}
+
+Which compactly writes as:
+
+\mportant{$\vec{q}\cdot\delta\vec{q}=0$}
+
+Therefore the reaction force is defined es $\vec{R}=\lambda\vec{a}$
+
+And the LEs write out as:
+
+\begin{align*}
+\ddt\left(\frac{\partial\mathcal{T}}{\partial\vecd{q}}\right)-\frac{\partial\mathcal{T}}{\partial\vec{q}}+\frac{\partial\mathcal{V}}{\partial\vec{q}}+\vec{Q}^{nc}-\sum\limits_{i=1}^m\lambda_i\vec{a}_i=\vec{0},\quad\vec{q}\in\mathbb{R}^n\\
+\vec{a}_i\cdot\vec{q}_i+\vec{b}_i=0,\quad i=1,\ldots,m
+\end{align*}
+
 \subsection{Hamiltons principle}
-\subsection{Non-holonomic dynamics}
+
+\mportant{$\sum\limits_{j=1}^n\int_{t_1}^{t_2}\left(\ddt\left(\frac{\partial\mathcal{T}}{\partial\dot{q}_j}\right)-\frac{\partial\mathcal{T}}{\partial q_j}+\frac{\partial\mathcal{V}}{\partial q_j}\right)\delta q_j dt = 0$}
+
+Consider a virtual displacement that vanishes at $t_1$ and $t_2$: \textcolor{red}{What constraints does that impose on $t_1$ and $t_2$?}
+
+\mportant{$\delta \vec{r}_k(t_1)=\delta\vec{r}_k(t_2)=\vec{0}$}
+
+By integrating by part the second term then vanishes as:
+
+\mportant{$\int_{t_1}^{t_2}\ddt\left(\frac{\partial\mathcal{T}}{\partial\dot{q}_j}\right)\delta q_jdt=-\int_{t_1}^{t_2}\frac{\partial\mathcal{T}}{\partial\dot{q}_j}dt$}
+
+Thus the initial equation can be written as:
+
+\mportant{$\sum\limits_{j=1}^n\int_{t_1}^{t_2}\left(-\frac{\partial\mathcal{T}}{\partial \dot{q}_j}\delta\dot{q}_j-\frac{\partial\mathcal{T}}{\partial q_k}\delta q_j+\frac{\partial\mathcal{V}}{\partial q_j}\delta q_j\right)dt=0$}
+
+Note that the first two terms are the variation of the kinetic energy:
+
+\mportant{$\sum\limits_{j=1}\left(\frac{\partial\mathcal{T}}{\partial\dot{q}_j}\delta\dot{q}_j+\frac{\partial\mathcal{T}}{\partial q_j}\delta q_j\right)=\delta \mathcal{T}$}
+
+We finally obtain:
+
+\begin{align*}
+\delta\int_{t_1}^{t_2}\left(\mathcal{T}-\mathcal{V}\right)dt=0\\
+\delta\vec{q}(t_1)=\delta\vec{q}(t_2)=\vec{0}
+\end{align*}
+
+The Hamilton's principle can be stated as: The real trajectory of a system is such that the integral
+
+\important{$\int_{t_1}^{t_2}\left(\mathcal{T}-\mathcal{V}\right)dt$}
+
+stays stationary with respect to any compatible virtual displacement which vanishes at the end of the considered time interval. The integral above is called the \textbf{action}, thus the Hamilon's principle is referred to as the \textbf{principle of stationary action}.
+
+\subsubsection{Hamilton's principle for continuous systems}
+
+Let us consider a 1D continuum body of length $l$, laying on the x axis and assume that
+
+\mportant{$\mathcal{T}=\int_0^lT(x,t)dx\quad\mathcal{V}=\int_0^lV(x,t)dx$}
+
+are the kinetic and potential energy densities. The system motion is given by 
+
+\mportant{$v=v(x,t)$}
+
+Assuming the following dependencies:
+
+\mportant{$T=T(v,\dot{v},v',\dot{v}')\quad V=V(v,v',v'')$}
+
+such that the Lagrangian density function acquires the dependency
+
+\mportant{$L=T-V=L(v,v',v'',\dot{v},\dot{v}')$}
+
+The Hamilton's principle then writes 
+
+\important{$\int_{t_1}^{t_2}\int_0^l\delta L dx dt=\int_{t_1}^{t_2}\int_0^l\left[\underbrace{\frac{\partial L}{\partial v}\delta v}_{A}+\underbrace{\frac{\partial L}{\partial v'}\delta v'}_{B}+\underbrace{\frac{\partial L}{\partial v''}\delta v''}_{C}+\underbrace{\frac{\partial L}{\partial\dot{v}}\delta\dot{v}}_{D}+\underbrace{\frac{\partial L}{\partial \dot{v}'}\delta\dot{v}'}_{E}\right]dxdt=0$}
+
+All terms $A-E$ need to be expressed in $\delta v$ only to make integration possible.
+
+\begin{align*}
+(B)\quad&\int_0^l\frac{\partial L}{\partial v'}\delta v' dx = \left[\colorboxed{red}{\frac{\partial L}{\partial v'}}\delta v\right]_0^l-\int_0^l\colorboxed{green}{\frac{d}{dx}\left(\frac{\partial L}{\partial v'}\right)}\delta v dx\\
+(C)\quad&\int_0^l\frac{\partial L}{\partial v''}\delta v''dx = \left[\frac{\partial L}{\partial v''}\delta v'\right]_0^l-\int_0^l\frac{d}{dx}\left(\frac{\partial L}{\partial v''}\right)\delta v' dx\\
+&=\left[\colorboxed{blue}{\frac{\partial L}{\partial v''}}\delta v'-\colorboxed{red}{\frac{d}{dx}\left(\frac{\partial L}{\partial v''}\right)}\delta v\right]_0^l+\int_0^l\colorboxed{green}{\frac{d^2}{dx^2}\left(\frac{\partial L}{\partial v''}\right)}\delta v dx\\
+(D)\quad&\int_{t_1}^{t_2}\frac{\partial L}{\partial \dot{v}}\delta\dot{v} dt=\underbrace{\left[\frac{\partial L}{\partial\dot{v}}\delta v\right]_{t_1}^{t_2}}_{\textcolor{violet}{=0}}-\int_{t_1}^{t_2}\colorboxed{green}{\frac{\partial }{\partial t}\left(\frac{\partial L}{\partial \dot{v}}\right)}\delta v d t\\
+(E)\quad&\int_{t_1}^{t_2}\int_0^l\frac{\partial L}{\partial \dot{v}'}\delta \dot{v}'dx dt = \underbrace{\left[\int_0^L\frac{\partial L}{\partial\dot{v}'}\delta v' dx\right]_{t_1}^{t_2}}_{\textcolor{violet}{\tiny \delta v(t_1)=\delta v(t_2) = 0}}-\int_{t_1}^{t_2}\int_0^l\frac{\partial}{\partial t}\left(\frac{\partial L}{\partial \dot{v}'}\right)\delta v' dx dt \\
+&=\left[\left[\frac{\partial L}{\partial \dot{v}'}\delta v\right]_{t_1}^{t_2}\right]_0^l-\left[\int_0^l\frac{\partial}{\partial x}\left(\frac{\partial L}{\partial \dot{v}'}\right)\delta v dx\right]_{t_1}^{t_2}-\int_{t_1}^{t_2}\left[\colorboxed{red}{\frac{\partial}{\partial t}\left(\frac{\partial L}{\partial\dot{v}'}\right)}\delta v\right]_0^ldt\\
+&+\int_{t_1}^{t_2}\int_0^l\colorboxed{green}{\frac{\partial}{\partial x}\left(\frac{\partial}{\partial t}\left(\frac{\partial L}{\partial\dot{v}'}\right)\right)}\delta v dx dt
+\end{align*}
+
+\important{$\int_{t_1}^{t_2}\left(\int_0^l\ \colorboxed{green}{\phantom{\sum}}\ \delta v dx+\left[\ \colorboxed{blue}{\phantom{\sum}}\ \delta v'\right]_0^l+\left[\ \colorboxed{red}{\phantom{\sum}}\ \delta v\right]_0^l\right)dt=0$}
+
+\begin{align*}
+&\text{Governing PDE:}\\
+\colorboxed{green}{\phantom{|}}\quad& \frac{\partial L}{\partial v}-\frac{\partial}{\partial x}\left(\frac{\partial L}{\partial v'}\right)+\frac{\partial^2}{\partial x^2}\left(\frac{\partial L}{\partial v''}\right)-\frac{\partial }{\partial t}\left(\frac{\partial L}{\partial \dot{v}}\right)+\frac{\partial }{\partial x}\left(\frac{\partial }{\partial t}\left(\frac{\partial L}{\partial\dot{v}'}\right)\right)=0,\quad x\in[0;l]\\
+&\text{Boundary conditions:}\\
+\colorboxed{red}{\phantom{|}}\quad& \left[\frac{\partial L}{\partial v'}-\frac{\partial}{\partial x}\left(\frac{\partial L}{\partial v''}\right)-\frac{\partial}{\partial t}\left(\frac{\partial L}{\partial \dot{v}'}\right)\right]\delta v=0,\quad x=0,l\\
+\colorboxed{blue}{\phantom{|} }\quad& \frac{\partial L}{\partial v''}\delta v'=0,\quad x=0,l
+\end{align*}
+
+\section{Rotations and angular velocity}
+
+\begin{define}
+A \textbf{rotation} $\tvec{R}$ is a linear operator that preserves length and respective orientation of vectors.
+\end{define}
+
+\importname{Length preservation}{$|\vec{r}|=|\tvec{R}\vec{r}|\ \forall\vec{r}\in\mathbb{R}^3$}
+
+\mportant{$\tvec{R}$ is orthogonal}
+
+\begin{align*}
+|\vec{r}|^2=\vec{r}\cdot\vec{r}=\left(\tvec{R}\vec{r}\right)\cdot\left(\tvec{R}\vec{r}\right)=\left(\tvec{R}\vec{r}\right)^T\left(\tvec{R}\vec{r}\right)=\vec{r}^T\tvec{R}^T\tvec{R}\vec{r}=\vec{r}\cdot\left(\tvec{R}^T\tvec{R}\vec{r}\right)\\
+\Longrightarrow\tvec{R}^T\tvec{R}=\tvec{I}\Longrightarrow\tvec{R}^T=\tvec{R}^{-1}
+\end{align*}
+
+\mportant{$\tvec{R}$ preserves orthogonality}
+
+\begin{align*}
+\vec{r}\bot\vec{s},\ \forall \vec{r},\vec{s}\in\mathbb{R}^3-\vec{0}\rightarrow\vec{r}\cdot\vec{s}=0=\left(\tvec{R}\vec{r}\right)\cdot\left(\tvec{R}\vec{s}\right)=\vec{r}^T\tvec{R}^T\tvec{R}\vec{s}=\vec{r}\cdot\vec{s}
+\end{align*}
+
+\mportant{$\tvec{R}$ preserves orientation}
+
+Imagine a cube described by $\left(\vec{e}_x,\vec{e}_y,\vec{e}_z\right)$ with volume $V=1$ since:
+
+\mportant{$\det\left(\left[\vec{e}_x;\vec{e}_y;\vec{e}_z\right]\right)=\vec{e}_z\cdot\left(\vec{e}_x\times\vec{e}_y\right)=1$}
+
+Including a rotation:
+
+\mportant{$\det\left(\left[\tvec{R}\vec{e}_x;\tvec{R}\vec{e}_y;\tvec{R}\vec{e}_z\right]\right)=\det\left(\tvec{R}\right)\det\left(\left[\vec{e}_x;\vec{e}_y\vec{e}_z\right]\right)=\det\left(\tvec{R}\right)=1$}
+
+\important{$\det\left(\tvec{R}\right)=1$}
+
+\begin{define}
+Linear operators satisfying length preservation and orientation preservation belong to the \textbf{Special Orthogonality Group in 3D SO(3).}
+\end{define}
+
+Reflections do not belong to SO(3) but only to O(3) since the orientation preservation is not satisfied.
+
+\subsection{Eigenvalues and eigenvectors of a rotation matrix}
+
+\mportant{$\tvec{R}\vec{v}_i=\lambda_i\vec{v}_i,\ i=1,2,3\quad\Rightarrow\quad \tvec{R}\tvec{V}=\tvec{\Lambda}\tvec{V}$}
+
+where $\tvec{V}=\left[\vec{v}_1;\vec{v}_2;\vec{v}_3\right]$ and $\tvec{\Lambda}=\diag\left(\lambda_1;\lambda_2;\lambda_3\right)$
+
+\mportant{$\tvec{\Lambda}=\tvec{V}^{-1}\tvec{R}\tvec{V}$}
+
+\begin{align*}
+\det\left(\tvec{\Lambda}\right)=\lambda_1\lambda_2\lambda_3=\det\left(\tvec{V}^{-1}\right)\det\left(\tvec{R}\right)\det\left(\tvec{V}\right)=\det\left(\tvec{V}^{-1}\right)\det\left(\tvec{V}^{-1}\right)=\det\left(\tvec{V}^{-1}\tvec{V}\right)=1
+\end{align*}
+
+\important{$\det\left(\tvec{R}\right)=\lambda_1\lambda_2\lambda_3=1$}
+
+$(\phantom{x})^\ast$ signifies complex conjugation and transpose.
+
+\mportant{$\vec{v}^\ast\tvec{R}^T=\bar{\lambda}_i\vec{v}_i^\ast$}
+
+\begin{align*}
+\vec{v}_i^\ast\tvec{R}^T\tvec{R}\vec{v}_i=\vec{v}_i^\ast\vec{v}_i=\bar{\lambda}_i\lambda_i\vec{v}_i^\ast\vec{v}_i=|\lambda_i|^2\vec{v}_i^\ast\vec{v}_i
+\end{align*}
+
+\important{$|\lambda_1|=|\lambda_2|=|\lambda_3|=1$}
+
+\important{$\lambda_1\lambda_2\lambda_3=1$}
+
+A general solution of the above is
+
+\important{$\lambda_1=1;\ \lambda_2=e^{i\Phi};\ \lambda_3=e^{-i\Phi}$}
+
+The eigenvector associated to $\lambda_1=1$ is $\tvec{R}\vec{v}=\vec{v}$ which is the \textbf{axis of rotation}.
+
+\subsection{Angle-axis representation}
+
+\mportant{$\tvec{R}\vec{n}=\vec{n}$}
+
+\begin{define}
+The \textbf{Hermitian} of a matrix $\tvec{V}$ is written as $\tvec{V}^\ast$ which writes out as:
+
+\end{define}
+
+\mportant{$\tvec{V}=\begin{bmatrix}
+\vec{n}&\vec{u}+i\vec{w}&\vec{u}-i\vec{w}
+\end{bmatrix}
+\qquad\tvec{V}^\ast=
+\begin{bmatrix}
+\vec{n}^T\\\left(\vec{u}-i\vec{w}^T\right)^T\\\left(\vec{u}-i\vec{w}\right)^T
+\end{bmatrix}$}
+
+\begin{align*}
+\tvec{V}^\ast\tvec{V}=\begin{bmatrix}
+\vec{n}^T\vec{n}&\vec{n}^T\left(\vec{u}+i\vec{w}\right)&\vec{n}^T\left(\vec{u}-i\vec{w}\right)\\
+\left(\vec{u}-i\vec{w}\right)^T\vec{n}&\left(\vec{u}-i\vec{w}\right)^T\left(\vec{u}+i\vec{w}\right)&\left(\vec{u}-i\vec{w}\right)^T\left(\vec{u}-i\vec{w}\right)\\
+\left(\vec{u}+i\vec{w}\right)^T\vec{n}&\left(\vec{u}+i\vec{w}\right)^T\left(\vec{u}+i\vec{w}\right)&\left(\vec{u}+i\vec{w}\right)^T\left(\vec{u}-i\vec{w}\right)
+\end{bmatrix}=\tvec{I}
+\end{align*}
+
+which requires
+
+\begin{align*}
+\vec{n}^T\vec{u}&=\vec{n}^T\vec{w}=0\\
+\vec{u}^T\vec{w}=0\\
+\vec{u}^T\vec{u}+\vec{w}^T\vec{w}&=1\\
+\vec{u}^T\vec{u}=\vec{w}^T\vec{w}
+\end{align*}
+
+Introducing the eigenvectors in the eigenvalue problem:
+
+\begin{align*}
+\tvec{R}\left(\vec{u}+i\vec{w}\right)&=e^{i\Phi}\left(\vec{u}+i\vec{w}\right)\\
+\tvec{R}\left(\vec{u}+i\vec{w}\right)&=e^{i\Phi}\left(\vec{u}+i\vec{w}\right)
+\end{align*}
+
+Using Euler's formula and by summing and subtracting:
+
+\begin{align*}
+\tvec{R}\vec{u}&=\left(\vec{u}\cos\Phi-\vec{w}\sin\Phi\right)\\
+\tvec{R}\vec{w}&=\left(\vec{u}\cos\Phi+\vec{w}\sin\Phi\right)
+\end{align*}
+
+\myspic{0.45}{Pictures/RotationVect}
+
+The two eigenvectors of the rotation matrix span the plane perpendicular to the rotation axis $\vec{n}$. An arbitrary vector $\vec{x}$ can be written as:
+
+\important{$\vec{x}=\underbrace{\left(\vec{x}\cdot\vec{n}\right)\vec{n}}_{\vec{x}_\parallel}-\underbrace{\vec{n}\times\left(\vec{n}\times\vec{x}\right)}_{\vec{x}_bot}$}
+
+The rotated vector can then be expressed by the \textbf{Rodriguez formulae.}
+
+\begin{align*}
+\vec{y}=&\tvec{R}\vec{x}=\left(\vec{x}\cdot\vec{n}\right)\vec{n}-\vec{n}\times\left(\vec{n}\times\vec{x}\right)\cos\Phi+\left(\vec{n}\times\vec{x}\right)\sin\Phi\\
+\vec{y}&=\tvec{R}\vec{x}=\vec{x}+\left(\vec{n}\times\vec{x}\right)\sin\Phi+(1-\cos\Phi)\vec{n}\times\left(\vec{n}\times\vec{x}\right)
+\end{align*}
+
+\important{$\tvec{N}=\begin{bmatrix}
+0&-n_3&n_2\\n_3&0&-n_1\\-n_2&n_1&0
+\end{bmatrix}$}
+
+\mportant{$\tvec{N}\vec{x}=\vec{n}\times\vec{x}$}
+
+\begin{align*}
+\vec{y}&=\vec{x}+\sin\Phi\tvec{N}\vec{x}+(1-\cos\Phi)\tvec{N}^2\vec{x}=\tvec{R}\vec{x}\\
+\tvec{R}&=\tvec{I}+\sin\Phi\tvec{N}+\left(1-\cos\Phi\right)\tvec{N}^2
+\end{align*}
+
+\subsection{Exponential map}
+
+Consider a rotation: $\vec{r}=\tvec{R}\vec{r}_0$
+
+\begin{align*}
+\frac{\partial\vec{r}}{\partial \Phi}&=\frac{\partial\tvec{R}}{\partial \Phi}\vec{r}_0=\frac{\partial\tvec{R}}{\partial\Phi}\tvec{R}^T\vec{r}\\
+&\text{where}\\
+\frac{\partial\tvec{R}}{\partial\Phi}&=-\cos\Phi\tvec{N}+\sin\Phi\tvec{N}^2\\
+&\text{which leads to}\\
+\frac{\partial\tvec{R}}{\partial\Phi}\tvec{R}^T&=\left(-\cos\Phi\tvec{N}+\sin\Phi\tvec{N}^2\right)\left[\tvec{I}+\sin\Phi\tvec{N}+\left(1-\cos\Phi\tvec{N}^2\right)\right]^T
+\end{align*}
+
+Note that the following hold:
+
+\begin{align*}
+\tvec{N}^T=-\tvec{N}&\tvec{N}^3=-\tvec{N}\\
+\tvec{N}^4=\tvec{N}\tvec{N}^3&=\tvec{N}(-\tvec{N})=-\tvec{N}^2
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+\frac{\partial\tvec{R}}{\partial\Phi}\tvec{R}^T=\tvec{N}\\
+\text{with boundary condition: } \vec{r}(\Phi = 0)=\vec{r}_0\\
+\frac{\partial\vec{r}}{\partial\Phi}=\tvec{N}\vec{r}
+\end{align*}
+
+which, as a solution of the differential equation posed, admits the solution:
+
+\important{$\vec{r}=e^{\tvec{N}\Phi}\vec{r}_0$}
+
+\subsection{Small rotations}
+
+\importname{\\Rotations are \textbf{NOT} commutative}{$\tvec{R}_1\tvec{R}_2=e^{\tvec{N}_1\Phi_1}e^{\tvec{N}_2\Phi_2}\neq e^{(\tvec{N}_1\Phi_1+\tvec{N}_2\Phi_2)}$}
+
+\begin{align*}
+\vec{y}&=\tvec{R}_1\vec{v}=\vec{v}+(\vec{n}_1\times\vec{v})\sin\Phi_1+(1-\cos\Phi_1(\vec{n}_1\times(\vec{n}_1\times\vec{v}))\\
+&\approx\vec{v}+(\vec{n}_1\times\vec{v})d\Phi_1+(1-1)\vec{n}_1\times(\vec{n}_1\times\vec{v})=\vec{v}+(\vec{n}_1\times\vec{v})d\Phi_1
+\end{align*}
+
+When applying another small rotation it can be seen that the order can be reversed:
+
+\begin{align*}
+\vec{y}_2&=\vec{v}+(\vec{n}_1\times\vec{v})d\Phi_1+\vec{n}_2\times\left[\vec{v}+(\vec{n}_1\times\vec{v})d\Phi_1\right]d\theta_2\\
+&=\vec{v}+(\vec{n}_1\times\vec{v})d\Phi_1+(\vec{n}_2\times\vec{v})d\Phi_2+\mathcal{O}(d\Phi_1^2,d\Phi_2^2,d\Phi_1d\Phi_2)
+\end{align*}
+
+\subsection{Cartesian Representation of Rotations}
+
+\myspic{0.5}{CartesianRepresentation}
+
+\mportant{$\vec{v}=v_x^\MA\vec{e}_x^\MA+v_y^\MA\vec{e}_y^\MA+v_z^\MA\vec{e}_z^\MA$}
+
+After rotation we have:
+
+\mportant{$\tvec{R}\vec{v}=v_x^\MA\tvec{R}\vec{e}_x^\MA+v_y^\MA\tvec{R}\vec{e}_y^\MA+v_z^\MA\tvec{R}e_z^\MA$}
+
+Let's consider a B-frame that follows the rotation:
+
+\begin{align*}
+\tvec{R}\vec{v}&=v_x^\MB\vec{e}_x^\MB+v_y^\MB\vec{e}_y^\MB+v_z^\MB\vec{e}_z^\MB\\
+&=v_x^\MA\vec{e}_x^\MB+v_y^\MA\vec{e}_y^\MB+v_z^\MA\vec{e}_z^\MB
+\end{align*}
+
+The components of the rotated vector in the A-frame are:
+
+\begin{align*}
+w_x^\MA&=\tvec{R}\vec{v}\cdot\vec{e}_x^\MA&=\left(v_x^\MA\vec{e}_x^\MB+v_y^\MA\vec{e}_y^\MB+v_z^\MA\vec{e}_z^\MB\right)\cdot\vec{e}_x^\MA\\
+w_y^\MA&=\tvec{R}\vec{v}\cdot\vec{e}_y^\MA&=\left(v_x^\MA\vec{e}_x^\MB+v_y^\MA\vec{e}_y^\MB+v_z^\MA\vec{e}_z^\MB\right)\cdot\vec{e}_y^\MA\\
+w_z^\MA&=\tvec{R}\vec{v}\cdot\vec{e}_z^\MA&=\left(v_x^\MA\vec{e}_x^\MB+v_y^\MA\vec{e}_y^\MB+v_z^\MA\vec{e}_z^\MB\right)\cdot\vec{e}_z^\MA
+\end{align*}
+
+which writes in matrix form as:
+
+\importname{\\Active rotation matrix}{$\begin{bmatrix}
+\basesca{w}{x}{A}\\\basesca{w}{y}{A}\\\basesca{w}{z}{A}
+\end{bmatrix}=\begin{bmatrix}
+\basevec{e}{x}{B}\cdot\basevec{e}{x}{A}&\basevec{e}{y}{B}\cdot\basevec{e}{x}{A}&\basevec{e}{z}{B}\cdot\basevec{e}{x}{A}\\\basevec{e}{x}{B}\cdot\basevec{e}{y}{A}&\basevec{e}{y}{B}\cdot\basevec{e}{y}{A}&\basevec{e}{z}{B}\cdot\basevec{e}{y}{A}\\\basevec{e}{x}{B}\cdot\basevec{e}{z}{A}&\basevec{e}{y}{B}\cdot\basevec{e}{z}{A}&\basevec{e}{z}{B}\cdot\basevec{e}{z}{A}
+\end{bmatrix}
+\begin{bmatrix}
+\basesca{v}{x}{A}\\\basesca{v}{y}{A}\\\basesca{v}{z}{A}
+\end{bmatrix}$}
+
+Consider now a frame rotation:
+
+\begin{align*}
+\vec{v}&=\basesca{v}{x}{B}\basevec{e}{x}{B}+\basesca{v}{y}{B}\basevec{e}{y}{B}+\basesca{v}{z}{B}\basevec{e}{z}{B}\\
+&=\basesca{v}{x}{A}\basevec{e}{x}{A}+\basesca{v}{y}{A}\basevec{e}{y}{A}+\basesca{v}{z}{A}\basevec{e}{z}{A}
+\end{align*}
+
+The components of $\vec{v}$ in the B-frame are given by:
+
+\begin{align*}
+\basesca{v}{x}{B}&=\vec{v}\cdot\basevec{e}{x}{B}&=\left(\basesca{v}{x}{A}\basevec{e}{x}{A}+\basesca{v}{y}{A}\basevec{e}{y}{A}+\basesca{v}{z}{A}\basevec{e}{z}{A}\right)\cdot\basevec{e}{x}{B}\\
+\basesca{v}{y}{B}&=\vec{v}\cdot\basevec{e}{y}{B}&=\left(\basesca{v}{x}{A}\basevec{e}{x}{A}+\basesca{v}{y}{A}\basevec{e}{y}{A}+\basesca{v}{z}{A}\basevec{e}{z}{A}\right)\cdot\basevec{e}{y}{B}\\
+\basesca{v}{z}{B}&=\vec{v}\cdot\basevec{e}{z}{B}&=\left(\basesca{v}{x}{A}\basevec{e}{x}{A}+\basesca{v}{y}{A}\basevec{e}{y}{A}+\basesca{v}{z}{A}\basevec{e}{z}{A}\right)\cdot\basevec{e}{z}{B}
+\end{align*}
+
+written in matrix form:
+
+\importname{\\Passive rotation matrix}{$\begin{bmatrix}
+\basesca{v}{x}{B}\\
+\basesca{v}{y}{B}\\
+\basesca{v}{z}{B}
+\end{bmatrix}
+=
+\underbrace{\begin{bmatrix}
+\basevec{e}{x}{A}\cdot\basevec{e}{x}{B}&
+\basevec{e}{y}{A}\cdot\basevec{e}{x}{B}&
+\basevec{e}{z}{A}\cdot\basevec{e}{x}{B}\\
+\basevec{e}{x}{A}\cdot\basevec{e}{y}{B}&
+\basevec{e}{y}{A}\cdot\basevec{e}{y}{B}&
+\basevec{e}{z}{A}\cdot\basevec{e}{y}{B}\\
+\basevec{e}{x}{A}\cdot\basevec{e}{z}{B}&
+\basevec{e}{y}{A}\cdot\basevec{e}{z}{B}&
+\basevec{e}{z}{A}\cdot\basevec{e}{z}{B}\\
+\end{bmatrix}}_ {\rotmat{B}{R}{A}}
+\begin{bmatrix}
+\basesca{v}{x}{A}\\
+\basesca{v}{y}{A}\\
+\basesca{v}{z}{A}
+\end{bmatrix}
+$}
+
+\subsection{Euler Angles}
+
+\myspic{0.5}{EulerAngles}
+
+\importname{\\Precession}{$\begin{bmatrix}
+x'\\y'\\z'
+\end{bmatrix}
+=\tvec{R}_\Psi\begin{bmatrix}
+X\\Y\\Z
+\end{bmatrix}
+=\begin{bmatrix}
+\cos\Psi&\sin\Psi&0\\
+-\sin\Psi&\cos\Psi&0\\
+0&0&1
+\end{bmatrix}
+\begin{bmatrix}
+X\\Y\\Z
+\end{bmatrix}
+$}
+
+\importname{\\Nutation}{$
+\begin{bmatrix}
+x''\\y''\\z''
+\end{bmatrix}
+=
+\tvec{R}_\theta\begin{bmatrix}
+x'\\y'\\z'
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos\theta&0&-\sin\theta\\
+0&1&0\\
+\sin\theta&0&\cos\theta
+\end{bmatrix}
+\begin{bmatrix}
+x'\\y'\\z'
+\end{bmatrix}
+$}
+
+\importname{\\Spin}{$
+\begin{bmatrix}
+x\\y\\z
+\end{bmatrix}
+=\tvec{R}_\Phi\begin{bmatrix}
+x'\\y'\\z'
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos\theta&\sin\theta&0\\
+-\sin\theta&\cos\theta&0\\
+0&0&1
+\end{bmatrix}
+\begin{bmatrix}
+x''\\y''\\z''
+\end{bmatrix}
+$}
+
+The resulting rotation is a incommutable sequence of three rotations.
+
+\mportant{$\begin{bmatrix}
+x\\y\\z
+\end{bmatrix}=
+\underbrace{\tvec{R}_\Phi\tvec{R}_\theta\tvec{R}_\Psi}_{\tvec{R}}\begin{bmatrix}
+X\\Y\\Z
+\end{bmatrix}$}
+
+\important{$
+\tvec{R}=\begin{bmatrix}
+\cos\Phi\cos\theta\cos\Psi-\sin\Phi\sin\Psi&
+\cos\Phi\cos\theta\sin\Psi+\sin\Phi\cos\Psi&
+-\cos\Phi\cos\theta\\
+\sin\Phi\cos\theta\cos\Psi-\cos\Phi\sin\Psi&
+-\sin\Phi\cos\theta\sin\Psi+\cos\Phi\cos\Psi&
+\sin\Phi\cos\theta\\
+\sin\theta\cos\Psi&\sin\theta\sin\Psi&\cos\theta
+\end{bmatrix}
+$}
+
+\begin{small}
+\begin{align*}
+\tvec{R}(\Psi,\theta,\Phi)&=\tvec{R}(\Psi+\pi,-\theta,\Phi+\pi)&=\tvec{R}(\Psi+\pi,-\theta,\Phi-\pi)\\
+&=\tvec{R}(\Psi-\pi,-\theta,\Phi+\pi)=\tvec{R}(\Psi-\pi,-\theta,\Phi-\pi)
+\end{align*}
+\end{small}
+
+Therefore the range of angles is restricted to:
+
+\important{$0\leq\Psi<2\pi;\ 0\leq\theta\leq\pi;\ 0\leq\Psi<2\pi$}
+
+\subsection{Angular velocity}
+
+Consider a time dependent rotation, smooth in t
+
+\mportant{$\vec{r}(t)=\tvec{R}(t)\vec{r}(0)\quad \tvec{R}(t)\in SO(3)$}
+
+The velocity is given by:
+
+\begin{align*}
+\vecd{r}(t)&=\tvec{\dot{R}}(t)\vec{r}(0)=\tvec{\dot{R}}\tvec{R}^{-1}\vec{r}(t)=\tvec{\dot{R}}\tvec{R}^T\vec{r}(t)\\
+\tvec{R}\tvec{R}^T&=\tvec{I}\Rightarrow\tvec{\dot{R}}\tvec{R}^T+\tvec{R}\tvec{\dot{R}}^T=\tvec{0};\quad \tvec{\dot{R}}\tvec{R}^T=-\tvec{R}\tvec{\dot{R}}^T=-(\tvec{\dot{R}}\tvec{R}^T)^T
+\end{align*}
+
+\begin{define}
+Define $t\vec{\Omega}=\tvec{\dot{R}}\tvec{R}^T$ as the \textbf{angular velocity}. It is a skew symmetric matrix: $\tvec{\Omega}=-\tvec{\Omega}^T$
+\end{define}
+
+The velocity becomes:
+
+\important{$\vecd{r}(t)=\tvec{\Omega}(t)\vec{r}(t)$}
+
+The structure of the velocity matrix allows to write:
+
+\mportant{$\tvec{\Omega}=-\tvec{\Omega}^T\Rightarrow\tvec{\Omega}\vec{r}=\begin{bmatrix}
+0&\omega_{12}&\omega_{13}\\-\omega_{12}&0&\omega_{23}\\-\omega_{13}&-\omega_{23}&0
+\end{bmatrix}
+\begin{bmatrix}
+r_1\\r_2\\r_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+\omega_{12}r_2-\omega_{13}r_3\\
+-\omega_{12}r_1+\omega_{23}r_3\\
+-\omega_{13}r_1-\omega_{23}r_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+\vec{e}_1&\vec{e}_2&\vec{e}_3\\
+-\omega_{23}&\omega_{13}&\omega_{12}\\
+r_1&r_2&r_3
+\end{bmatrix}
+=
+\vec{\omega}\times\vec{r}$}
+
+\important{$\vecd{r}(t)=\vec{\omega}(t)\times\vec{r}(t)\quad\text{where}\quad\vec{\omega}=\begin{bmatrix}
+-\omega_{23}\\\omega_{13}\\-\omega_{12}
+\end{bmatrix}$}
+
+\subsubsection{Uniqueness of the angular velocity}
+
+\begin{align*}
+\vec{v}_C&=\vec{v}_A+\vec{\omega}_A\times\vec{r}_{AC}\\
+\vec{v}_C&=\vec{v}_B+\vec{\omega}_B\times\vec{r}_{BC}
+\vec{v}_B-\vec{v}_A=\vec{\omega}_A\times\vec{r}_{AB}=-\vec{\omega}_B\times\vec{r}_{BC}+\vec{\omega}_A\times\vec{r}_{AC}\\
+&\Rightarrow\vec{\omega}_A\times(\vec{r}_{AB}-\vec{r}_{AC})=-\vec{\omega}_B\times\vec{r}_{BC}
+(\vec{\omega}_A-\vec{\omega}_B)\times\vec{r}_{BC}=\vec{0}\\
+&\Longrightarrow\vec{\omega}_A=\vec{\omega}_B,\ \forall\ A,B\in\mathcal{B}
+\end{align*}
+
+\subsubsection{Finding the angular velocity}
+
+\begin{enumerate}
+\item Use the velocity transfer formula twice:
+
+\begin{align*}
+\vec{v}_B-\vec{v}_A&=\vec{\omega}\times\vec{r}_{AB}\\
+\vec{v}_C-\vec{v}_A&=\vec{\omega}\times\vec{r}_{AC}
+\end{align*}
+
+\item The two planes spanned by $(\vec{r}_{AB},\vec{omega})$ and $\vec{r}_{AC},\vec{\omega})$ define $\vec{e}_\omega$ with their intersection.
+
+\item The magnitude of omega can be found by inserting $\omega\cdot\vec{e}_{\omega}$ into one of the equations.
+\end{enumerate}
+
+Special case: $\vec{v}_B=\vec{v}_A\Rightarrow\vec{\omega}\times\vec{r}_{AB}=0\Rightarrow\vec{\omega}\parallel\vec{r}_{AB}$
+
+This relation defines the instantaneous axis of rotation.
+
+\subsubsection{Additivity of Rotational Velocities}
+
+Rotations are not additive: $(\tvec{A}\tvec{B}\neq\tvec{B}\tvec{A})\forall\tvec{A},\tvec{B}\in SO(3)$
+
+\begin{align*}
+\vec{r}_{AB}(t)=\tvec{R}_n(t)\tvec{R}_{n-1}(t)\ldots\tvec{R}_1(t)\vec{r}_{AB}(0)
+\end{align*}
+
+Then the velocity writes as:
+
+\begin{align*}
+\vecd{r}_{AB}(t)=\left(\tvec{\dot{R}}_n(t)\tvec{R}_{n-1}(t)\ldots\tvec{R}_1(t)+\tvec{R}_n(t)\tvec{\dot{R}}_{n-1}(t)\ldots\tvec{R}_1(t)+\tvec{R}_n\tvec{R}_{n-1}\ldots\tvec{\dot{R}}_1(t)\right)\vec{r}_{AB}(0)
+\end{align*}
+
+The time derivative of a rotation evaluates as:
+
+\mportant{$\tvec{R}\tvec{R}^T=\tvec{I}\Rightarrow\tvec{\dot{R}}\tvec{R}^T+\tvec{R}\tvec{\dot{R}}^T=\tvec{0}\quad\tvec{\dot{R}}\tvec{R}^T\tvec{R}=-\tvec{R}\tvec{\dot{R}}^T\tvec{R}\quad\tvec{\dot{R}}=-\tvec{R}\tvec{\dot{R}}^T\tvec{R}$}
+
+Substitution yields:
+
+\mportant{\small$\vecd{r}_{AB}=\left(-\tvec{R}_n\tvec{\dot{R}}_n^T\tvec{R}_n\tvec{R}_{n-1}\ldots\tvec{R}_1+\tvec{R}_n(-\tvec{R}_{n-1}\tvec{\dot{R}}_{n-1}^T\tvec{R}_{n-1})\tvec{R}_{n-2}\ldots\tvec{R}_1+\tvec{R}_n\ldots(-\tvec{R}_1\tvec{\dot{R}}_1^T\tvec{R}_1)\right)\vec{r}_{AB}(0)$\normalsize}
+
+\mportant{If $t\rightarrow 0\quad\tvec{R}_i\rightarrow\tvec{I}\quad-\tvec{R}_i\tvec{\dot{R}}_i^T=\tvec{\Omega}_i\Rightarrow$}
+
+\mportant{$\vecd{r}_{AB}=(\tvec{\Omega}_n+\tvec{\Omega}_{n-1}+\ldots+\tvec{\Omega}_1)\vec{r}_{AB}(0)=\sum\limits_{i=1}^n\vec{\omega}_i\times\vec{r}_{AB}(0)$}
+
+But we also found: $\vecd{r}_{AB}=\vec{v}_{AB}=\vec{\omega}\times\vec{r}_{AB}(0)\Rightarrow$
+
+\important{$\vec{\omega}=\sum\limits_{i=1}^n\vec{\omega}_i$}
+
+\subsection{Jacobian of Rotation}
+
+\myspic{0.5}{EulerAnglesJacobian}
+
+The rotational velocity based on euler angles is calculated as follows:
+
+\mportant{$\vec{\omega}=\dot{\Psi}\vec{K}+\dot{\theta}\vec{j}'+\dot{\Phi}\vec{k}$}
+
+We need a common set of components: $\begin{bmatrix}
+\vec{i}&\vec{j}&\vec{k}
+\end{bmatrix}$
+
+Use rotations to express $\vec{K}$ and $\vec{j}'$ in the $\begin{bmatrix}
+\vec{i}&\vec{j}&\vec{k}
+\end{bmatrix}$ frame.
+
+\mportant{$\vec{k}=\tvec{R}_\Phi\tvec{R}_\theta\tvec{R}_\Psi\vec{K}=\tvec{R}_\Phi\tvec{R}_\theta\begin{bmatrix}
+0\\0\\1
+\end{bmatrix}=\tvec{R}_\Phi\begin{bmatrix}
+-\sin\theta\\0\\\cos\theta
+\end{bmatrix}=\begin{bmatrix}
+-\cos\Phi\sin\theta\\
+\sin\Phi\sin\theta\\
+\cos\theta
+\end{bmatrix}$}
+
+\mportant{$\vec{j}=\tvec{R}_\Phi\tvec{R}_\theta\vec{j}'=\begin{bmatrix}
+\sin\Phi\\
+\cos\Phi\\
+0
+\end{bmatrix}$}
+
+Thus the angular velocity expressed in the body frame is:
+
+\mportant{$\vec{\omega}=\begin{bmatrix}
+-\dot{\Psi}\sin\theta\cos\Phi+\dot{\theta}\sin\Phi\\
+-\dot{\Psi}\sin\theta\sin\Phi+\dot{\theta}\cos\Phi\\
+-\dot{\Phi}+\dot{\Psi}\cos\theta
+\end{bmatrix}$}
+
+which can be written as:
+
+\important{$\vec{\omega}^B=\begin{bmatrix}
+-\sin\theta\cos\Phi&\sin\Phi&0\\
+-\sin\theta\sin\Phi&\cos\Phi&0\\
+\cos\theta&0&-1
+\end{bmatrix}\begin{bmatrix}
+\dot{\Psi}\\
+\dot{\theta}\\
+\dot{\Phi}
+\end{bmatrix}
+=\tvec{J}^B(\vec{q})\vecd{q}$}
+
+\begin{itemize}
+\item Having the angular velocity of the body allows calculating the change of the angles, by inverting the Jacobian (only possible for certain configurations) and integrating the resulting angle-velocities.
+\end{itemize}
+
+Likewise the angular velocity can be expressed in fixed axes:
+
+\mportant{$\vec{\omega}=\dot{\Psi}\vec{K}+\dot{\theta}\vec{j}'+\dot{\Phi}\vec{k}$}
+
+The intermediate axes are projected onto the initial axes:
+
+\mportant{$\vec{k}=\tvec{R}_\Phi\tvec{R}_\theta\tvec{R}_\Psi\vec{K} \Rightarrow \vec{K}=\tvec{R}_\Psi^T\tvec{R}_\theta^T\tvec{R}_\Phi^T\vec{k}\qquad\vec{j}'=\tvec{R}_\Psi\vec{J}\Rightarrow\tvec{R}_\Psi^T\vec{j}'$}
+
+and therefore
+
+\begin{align*}
+\vec{\omega}&=\dot{\Psi}\begin{bmatrix}
+0\\0\\1
+\end{bmatrix}+\dot{\theta}\tvec{R}_\Psi^T\begin{bmatrix}
+0\\1\\0
+\end{bmatrix}+\dot{\Phi}\tvec{R}_\Psi^T\tvec{R}_\theta^T\tvec{R}_\Phi^T\begin{bmatrix}
+0\\0\\1
+\end{bmatrix}\\
+&=\dot{\Psi}\begin{bmatrix}
+0\\0\\1
+\end{bmatrix}+\dot{\theta}\begin{bmatrix}
+0\\\cos\theta\\\sin\theta
+\end{bmatrix}+\dot{\Phi}\begin{bmatrix}
+\sin\Phi\sin\theta\\
+-\cos\Phi\sin\theta\\
+\cos\theta
+\end{bmatrix}
+\end{align*}
+
+which can be written as:
+
+\important{$\vec{\omega}^I=\begin{bmatrix}
+0&0&\sin\Phi\sin\theta\\
+0&\cos\theta&-\cos\Phi\sin\theta\\
+1&\sin\theta&\cos\theta
+\end{bmatrix}
+\begin{bmatrix}
+\dot{\Psi}\\
+\dot{\theta}\\
+\dot{\Phi}
+\end{bmatrix}
+=\tvec{J}^I(\vec{q})\vecd{q}$}
+
+\subsection{Derivative of a vector in a moving frame}
+
+\mportant{$\vecd{u}=\sum\limits_{i=1}^3\dot{u}_i\vec{e}_i+\sum\limits_{i=1}^3 u_i\vecd{e}_i=\sum\limits_{i=1}^3 \dot{u}_i\vec{e}_i+\sum\limits_{i=1}^3 u_i\vec{\omega}\times\vec{e}_i$}
+
+\important{$\vecd{u}=\vec{\overset{\circ}{u}}+\vec{\omega}\times\vec{u}$}
+
+\begin{itemize}
+\item $\vec{\overset{\circ}{u}}$ is the derivative of the considered quantity without knowing that we are in a rotating frame $\rightarrow$ calculate the derivative naïvely.
+\end{itemize}
+
+\subsection{Euler equations}
+
+\begin{align*}
+I_1\dot{\omega}_1+(I_3-I_2)\omega_2\omega_3&=M_1\\
+I_2\dot{\omega}_2+(I_1-I_3)\omega_1\omega_3&=M_2\\
+I_3\dot{\omega}_3+(I_2-I_1)\omega_1\omega_2&=M_3
+\end{align*}
+\mportant{Rotational Euler equations}
+
+When using body components of $\vec{v}_C$, the LMP becomes:
+
+\mportant{$\vecd{v}_C=\overset{\circ}{\vec{v}_C+\vec{\omega}\times\vec{v}_C}$}
+
+
+\begin{align*}
+m_{tot}\left[\dot{v}_1+v_3\omega_2-v_2\omega_3\right]&=F_1\\
+m_{tot}\left[\dot{v}_2+v_1\omega_3-v_3\omega_1\right]&=F_2\\
+m_{tot}\left[\dot{v}_3+v_2\omega_1-v_1\omega_2\right]&=F_3
+\end{align*}
+\mportant{Translational Euler Equations}
+
+To find the orientation of the body, the relation between the angular velocity and the rates of the rotation parameters have to be found $\rightarrow$ 
+
+%TODO complete this paragraph
+
+\section{Equations of Motion of a 3D rigid body using Lagrange Formalism}
+
+\begin{align*}
+\MT&=\onha m_{tot}|\vec{v}_C|^2+\onha\vec{\omega}^T\tvec{I}_C\vec{\omega}\\
+\MT&=\onha m_{tot}|\vec{v}_C|^2+\onha\vecd{q}^T\tvec{J}^T(\vec{q})\tvec{I}_C\tvec{J}(\vec{q})\vecd{q}
+\end{align*}
+
+with generalized coordinates chosen as $\vec{q}=\begin{bmatrix}
+x_C&y_C&z_C&\Psi&\theta&\Phi
+\end{bmatrix}$
+
+The virtual direction to compute the generalized forces can be obtained by the kinematic method applied to the Jacobians:
+
+\begin{align*}
+\omegavec&=\begin{bmatrix}
+-\sin\theta\cos\Phi&\sin\Phi&0\\
+-\sin\theta\sin\Phi&\cos\Phi&0\\
+\cos\theta&0&-1
+\end{bmatrix}\begin{bmatrix}
+\Psid\\\thetad\\\Phid
+\end{bmatrix}
+=\tvec{J}_\omega(\vec{q})\vecd{q}\\
+\vec{\delta\theta}&=\begin{bmatrix}
+-\sin\theta\cos\Phi&\sin\Phi&0\\
+-\sin\theta\sin\Phi&\cos\Phi&0\\
+\cos\theta&0&-1
+\end{bmatrix}
+\begin{bmatrix}
+\delta\Psi\\
+\delta\theta\\
+\delta\Phi
+\end{bmatrix}
+=
+\tvec{J}_\omega(\vec{q})\delta\vec{q}
+\end{align*}
+
 \section{Linearization}
 \subsection{Equilibrium and stability}
-\subsection{Mass, stiffness and damping matrices}
-\subsection{Imposed motion}
+\subsubsection{Definition of equilibrium}
+\begin{define}
+An \textbf{equilibrium} is a time independent configuration in the generalized coordinates.
+\end{define}
+
+\important{$\vec{q}(t)=\vec{q}(0)=\vec{q}_{eq}\ \forall t\Longrightarrow\vecd{q}(t)=\vec{0}\ \vecdd{q}(t)=\vec{0}$}
+
+Consider the Lagrange equations:
+
+\mportant{$\ddt\left(\frac{\partial\MT}{\partial\vecd{q}}\right)=\frac{\partial\MT}{\partial\vec{q}}+\frac{\partial\MV}{\partial\vec{q}}-\vec{Q}^{nc}=\vec{0}$}
+
+Which can be compactly written as 
+
+\mportant{$\vec{f}(\vec{q},\vecd{q},\vecdd{q},t)=\vec{0}$}
+
+For the equilibrium:
+
+\important{$\vec{f}(\vec{q}=\vec{q}_{eq},\vecd{q}=\vec{0},\vecdd{q}=\vec{0})=\vec{0}$}
+
+In general: $\vec{r}_k=\vec{r}_k(\vec{q},t)$ is the cartesian position of particle $k$. The velocity of that particle is:
+
+\mportant{$\vecd{r}_k=\frac{\partial\vec{r}_k}{\partial\vec{q}}\vecd{q}+\frac{\partial\vec{r}_k}{\partial t}=\tvec{A}_k(\vec{q},\vecd{q},t)\vecd{q}+\vec{b}_k(\vec{q},\vecd{q},t)$}
+
+Thus the kinetic energy is composed by three terms:
+
+\important{\small$\MT=\underbrace{\sum\limits_{k=1}^n\onha m_k\left(\frac{\partial\vec{r}_k}{\partial t}\right)^T\left(\frac{\partial\vec{r}_k}{\partial t}\right)}_{T_0}+\underbrace{\onha\sum\limits_{k=1}^n m_k\left(\frac{\partial\vec{r}_k}{\partial t}\right)^T\left(\frac{\partial\vec{r}_k}{\partial \vec{q}}\right)\vecd{q}}_{T_1}+\underbrace{\onha\sum\limits_{k=1}^nm_k\vecd{q}^T\left(\frac{\partial\vec{r}_k}{\partial\vec{q}}\right)^T\left(\frac{\partial\vec{r}_k}{\partial\vec{q}}\right)\vecd{q}}_{T_2}$\normalsize}
+
+$T_0$, the transport kinetic energy describes the KE only due to the imposed overall motion proper of rheonomic systems. $T_2$, the relative kinetic energy does not depend on the overall motion, but only on the motion relative to the imposed movement. $T_1$ is the coupling kinetic energy.
+
+\subsubsection{Equilibrium for sceleronomic systems}
+
+When no imposed motion is present the general velocity reduces to:
+
+\mportant{$\vec{r}_k=\pfrac{\vec{r}_k}{\vec{q}}\vecd{q}=\tvec{A}_k(\vec{q},\vecd{q},t)\vecd{q}$}
+\textcolor{red}{CORRECtION needed in next formula}
+\mportant{$\Longrightarrow \MT = T_2 = \onha\vecd{q}^T\tvec{M}(\vec{q},t)\vecd{q}\quad \tvec{M}(\vec{q}=\sum\left(\pfrac{\vec{r}_k}{\vecd{q}}\right)^T\left(\pfrac{\vec{r}_k}{\vecd{q}}\right)$}
+
+Consider a conservative system:
+
+\mportant{$\underbrace{\ddt\left(\pfrac{\MT}{\vecd{q}}\right)-\pfrac{\MT}{\vec{q}}_{\vec{f}_\MT}}+\underbrace{\pfrac{\MV}{\vec{q}}}_{\vec{f}_\MV}=\vec{0}\qquad \vec{f}_\MT+\vec{f}_\MV=\vec{0}$}
+
+At equilibrium the contributions to the LE are individually zero since both contain terms in $\vecd{q},\vecdd{q}$ which are zero by definition.
+
+\mportant{$\ddt\pfrac{\MT}{\vecd{Q}}-\pfrac{\MT}{\vec{q}}=0$}
+
+\important{$\vec{f}_\MV=\pfrac{\MV}{\vec{q}}=\vec{0}$}
+
+The equilibrium equation for holonomic, conservative systems. In general this is a nonlinear set of equations that admits multiple (even non-physical) solutions.
+
+\subsubsection{Newton-Raphson method}
+
+How to find $\vec{q}_{eq}$ ?
+
+\mportant{$\vec{f}_\MV(\vec{q}_{eq}=\vec{0}$}
+
+\begin{enumerate}
+\item Start from a guess $\vec{q}_0$
+\item Evaluate an equilibrium residual
+
+\mportant{$\vec{f}_\MV(\vec{q}_0)=\vec{e}_0\neq\vec{0}$}
+\item Correct initial guess
+
+\mportant{$\vec{q}_{eq}=\vec{q}_0+\Delta\vec{q}$}
+\item Expand equilibrium equation in Taylor series around $\vec{q}_0$:
+
+\mportant{$\vec{f}_\MV(\vec{q}_0+\Delta\vec{q})=\vec{f}_\MV(\vec{q}_0)+\left.\pfrac{\vec{f}_\MV}{\vec{q}}\right|_{vec{q}_0}\Delta\vec{q}+\ldots=\vec{0}$}
+\item Solve for correction
+
+\mportant{$\left.\pfrac{\vec{f}_\MV}{\vec{q}}\right|_{\vec{q}_0}\Delta\vec{q}=-\vec{f}_\MV(\vec{q}_0)=\vec{e}_0$}
+
+\item Judge convergence
+
+\mportant{$\vec{f}_\MV(\vec{q}_0+\Delta\vec{q})=\vec{f}_\MV(\vec{q}_1)=\vec{e}_1$}
+
+If $||\vec{e}_1||>Tolerance$, $\vec{q}_2=\vec{q}_1+\Delta\vec{q}$ go to 4. and repeat until convergence.
+\end{enumerate}
+
+If non conservative generalized forces are present:
+
+\important{$\vec{f}_V(\vec{q}_{eq})-\vec{Q}^{nc}(\vec{q}_{eq},\vecd{q}=\vec{0})=\vec{0}$}
+
+\subsubsection{Equilibrium for rheonomic systems}
+
+\mportant{$\MT=T_0(\vec{q},t)+T_1(\vec{q},\vecd{q},t)+T_2(\vec{q},\vecd{q},t)$}
+
+where $T_0$ is $0^{th}$ order in $\vecd{q}$, $T_1$ is linear in $\vecd{q}$ and $T_2$ is quadratic in $\vecd{q}$. All are arbitrary in $\vec{q}$.
+
+\mportant{$\vec{f}_T=\ddt\pfrac{\MT}{\vecd{q}}-\pfrac{\MT}{\vec{q}}\qquad\vec{f}_\MV=\pfrac{\MV}{\vec{q}}\qquad\vec{Q}^{nc}=\vec{Q}^{nc}(\vec{q},\vecd{q})$}
+
+\mportant{$\left.\vec{f}_\MT\right|_{eq}=\left.\left[\ddt\left(\pfrac{T_0}{\vecd{q}}+\pfrac{T_1}{\vecd{q}}+\pfrac{T_2}{\vecd{q}}\right)-\pfrac{T_0}{\vec{q}}-\pfrac{T_1}{\vec{q}}-\pfrac{T_2}{\vec{1}}\right]\right|_{eq}$}
+
+The equilibrium equation for rheonomic systems writes:
+
+\important{$\ddt\left.\pfrac{T_1}{\vecd{q}}\right|_{eq}-\left.\pfrac{T_0}{\vec{q}}\right|_{eq}+\left.\pfrac{\MV}{\vec{q}}\right|_{eq}-\left.\vec{Q}^{nc}\right|_{eq}=\vec{0}$}
+
+For conservative systems define: $\MV^+=\MV - T_0$
+
+\important{$\ddt\left.\pfrac{T_1}{\vecd{q}}\right|_{eq}+\left.\pfrac{\MV^+}{\vec{q}}\right|_{eq}=\vec{0}$}
+
+The major difference with sceleronomic systems is that the imposed motion brings extra generalized forces.
+
+\subsubsection{Linearized equations}
+
+Assumption: $\vec{q}=\vec{q}_{eq}+\vec{\tilde{q}}$ $\vecd {q}=\vecd{\tilde{q}}$ $\vecdd{q}=\vecdd{\tilde{q}}$ with $\vec{\tilde{q}}$ \textbf{small.}
+
+\mportant{$\vec{f}(\vec{q},\vecd{q},\vecdd{q})=\underbrace{\vec{f}(\vec{q}_{eq},\vec{0},\vec{0})}_{0 by def.}+\left.\pfrac{\vec{f}}{\vec{q}}\right|_{eq}\vec{\tilde{q}}+\left.\pfrac{\vec{f}}{\vecd{q}}\right|_{eq}\vecd{\tilde{q}}+\left.\pfrac{\vec{f}}{\vecdd{q}}\right|_{eq}\vecdd{\tilde{q}}+H.O.T.$}
+
+\begin{align*}
+\left.\pfrac{\vec{f}}{\vec{q}}\right|_{eq}&=\tvec{K}&\text{Stiffness matrix}\\
+\left.\pfrac{\vec{f}}{\vecd{q}}\right|_{eq}&=\tvec{D}&\text{Damping matrix}\\
+\left.\pfrac{\vec{f}}{\vecdd{q}}\right|_{eq}&=\tvec{M}&\text{Mass matrix}
+\end{align*}
+
+Thus the system can be compactly written as 
+
+\important{$\tvec{M}\vecdd{\tilde{q}}+\tvec{D}\vecd{\tilde{q}}+\tvec{K}\vec{\tilde{q}}=\vec{0}$}
+
+\subsection{Linearized equations for sceleronomic systems}
+
+\mportant{$\vec{f}(\vec{q},\vecd{q},\vecdd{q})=\vec{f}_\MT(\vec{q},\vecd{q},\vecdd{Q})+\vec{f}_\MV(\vec{q})-\vec{Q}^{nc}(\vec{q},\vecd{q})=\vec{0}$}
+
+For sceleronomic systems $\MT=T_2(\vecd{q},\vec{q})$ quadratic in $\vecd{q}$.
+
+\mportant{\small$\tvec{M}=\left.\pfrac{\vec{f}_\MT}{\vecdd{q}}\right|_{eq}=\pfrac{}{\vecdd{q}}\left[\ddt\left(\pfrac{\MT_2}{\vecd{q}}\right)-\pfrac{\MT_2}{\vec{q}}\right]=\pfrac{}{\vecdd{q}}\left[\textcolor{red}{\pfrac{}{\vec{q}}\left(\pfrac{\MT_2}{\vecd{q}}\right)\vecd{q}}+\textcolor{green}{\pfrac{}{\vecd{q}}\left(\pfrac{\MT_2}{\vecd{q}}\right)\vecdd{q}}-\textcolor{blue}{\pfrac{\MT_2}{\vec{q}}}\right]$\normalsize}
+
+\begin{align*}
+\pfrac{}{\vecdd{q}}\textcolor{red}{\left[\pfrac{}{\vec{q}}\left(\pfrac{\MT_2}{\vecd{q}}\right)\vecd{q}\right]}&=\vec{0}\\
+\pfrac{}{\vecdd{q}}\textcolor{green}{\left[\pfrac{}{\vec{q}}\left(\pfrac{\MT_2}{\vecd{q}}\right)\vecdd{q}\right]}&=\frac{\partial^2\MT_2}{\partial\vecd{q}\partial\vecd{q}}\\
+\pfrac{}{\vecdd{q}}\textcolor{blue}{\left[-\pfrac{\MT_2}{\vec{q}}\right]}&=\vec{0}
+\end{align*}
+
+Thus the mass matrix can be described as:
+
+\important{$\tvec{M}= \left.\frac{\partial^2\MT_2}{\partial\vecd{q}\partial\vecd{q}}\right|_{eq}$}
+
+The mass matrix is symmetric:
+
+\mportant{$M_{ij}=\frac{\partial^2\MT_2}{\partial\vecd{q}_i\partial\vecd{q}_j}=\frac{\partial^2\MT_2}{\partial\vecd{q}_j\partial\vecd{q}_i}=M_{ji}$}
+
+Further the mass matrix is positive definite and the kinetic energy is a quadratic form of the mass matrix:
+
+\mportant{$\frac{\partial^2\MT_2}{\partial\vecd{q}_i\partial\vecd{q}_j}=\tvec{M}\Longrightarrow\MT_2=\onha\vecd{q}^T\tvec{M}\vecd{q}>0\ \forall\vecd{q}$}
+
+Stiffness matrix: Consider a conservative system $\vec{Q}^{nc}=\vec{0}$:
+
+\mportant{$\left.\left[\pfrac{\vec{f}_\MT}{\vec{q}}+\pfrac{\vec{f}_\MV}{\vec{q}}\right]\right|_{eq}=\textcolor{red}{\pfrac{}{\vec{q}}\left.\left[\ddt\left(\pfrac{\MT_2}{\vecd{q}}\right)+\pfrac{\MT_2}{\vec{q}}\right]\right|_{eq}}+\textcolor{green}{\left.\pfrac{\vec{f}_\MV}{\vec{q}}\right|_{eq}}$}
+
+\begin{itemize}
+\item \textcolor{red}{All the terms will contain $\vecd{q},\vecdd{q}\ \Longrightarrow$ at the equilibrium this term vanishes.}
+\item \textcolor{green}{$\left.\pfrac{\vec{f}_\MV}{\vec{q}}\right|_{eq}=\left.\frac{\partial^2\MV}{\partial\vec{q}\partial\vec{q}}\right|_{eq}$}
+\end{itemize}
+
+Thus the stiffness matrix can be described as:
+
+\important{$\tvec{K}=\left.\frac{\partial^2\MV}{\partial\vec{q}\partial\vec{q}}\right|_{eq}$}
+
+Further the stiffness matrix is symmetric:
+
+\mportant{$K_{ij}=\frac{\partial^2\MV}{\partial\vec{q}_i\partial\vec{q}_j}=\frac{\partial^2\MV}{\partial\vec{q}_j\partial\vec{q}_i}=K_{ji}$}
+
+For small motions, the potential energy is a quadratic form of the stiffness matrix:
+
+\mportant{$\MV=\onha\vec{q}^T\tvec{K}\vec{q}$}
+
+\textbf{Thus there is no need to know the EOM to linearize the system!}
+
+\subsubsection{Linearized equations for rheonomic systems}
+
+\important{$\tilde{\tvec{K}}=\left.\pfrac{(\vec{f}_\MT+\vec{f}_\MV)}{\vec{q}}=\pfrac{}{\vec{q}}\left[\ddt\pfrac{(T_0+T_1+T_2)}{\vecd{q}}-\pfrac{(T_0+T_1+T_2)}{\vec{q}}\right]\right|_{eq}+\left.\frac{\partial^2\MV}{\partial\vec{q}\partial\vec{q}}\right|_{eq}=\ldots+\textcolor{red}{\left.\frac{\partial^2\MV}{\partial\vec{q}\partial\vec{q}}\right|_{eq}}=\textcolor{red}{\tvec{K}}+\tvec{B}$}
+
+\textcolor{red}{Same as for sceleronomic systems}
+
+The extra contributions $\tvec{B}$ are typically centrifugal forces.
+
+\vspace{3ex}
+
+The mass matrix is left unchanged.
+
+\important{$\tilde{\tvec{M}}=\pfrac{\vec{f}_\MT}{\vecdd{q}}=\ldots=\tvec{M}$}
+
+The damping is found as:
+
+\important{$\tilde{\tvec{D}}=\pfrac{\vec{f}_\MT}{\vecd{q}}=\pfrac{}{\vecd{q}}\left[\ddt\pfrac{(T_0+T_1+T_2)}{\vecd{q}}-\pfrac{(T_0+T_1+T_2)}{\vec{q}}\right]=\ldots=\left.\frac{\partial^2T_2}{\partial\vecd{q}\partial\vec{q}}-\frac{\partial^2T_1}{\partial\vec{q}\partial\vecd{q}}\right|_{eq}\neq\tvec{0}$}
+
+The damping matrix is skew symmetric. (\textbf{Gyroscopic matrix}) It is usually called $\tvec{G}$.
+
+\mportant{$D_{ij}=\frac{\partial^2T_1}{\partial\dot{q}_i\dot{q}_j}-\frac{\partial^2T_1}{\partial q_iq_j}=-D_{ji}$}
+
+Note also that $\vecd{q}^T\tvec{G}\vecd{q}=0$, thus the power of gyroscopic forces is zero, they do not extract power from the system!
+
+\important{$\tvec{M}\vecdd{q}+(\tvec{G}+\tvec{C})\vecd{q}+(\tvec{K}+\tvec{B})\vec{q}=\vec{0}$}
+
+where $\tvec{C}$ accounts for physical damping.
+
 \section{Vibrations}
-\subsection{Vibration modes, Mode orthogonality}
+
+\subsection{Stability of conservative systems}
+
+Consider the case when $\MT = T_2(\vecd{q},\vec{q})$ and $\vec{Q}^{nc}=\vec{0}$.
+
+\begin{align*}
+\MT&=T_2(\vec{q},\vecd{q})\Longrightarrow \vecd{q}^t\pfrac{\MT}{\vecd{q}}=2T\\
+&\text{Differentiating w.r.t. time}\\
+2\pfrac{\MT}{t}&=\vecdd{q}^T\pfrac{\MT}{\vecd{q}}+\vecd{q}^t\ddt\left(\pfrac{\MT}{\vecd{q}}\right)\\
+&\text{It also holds that:}\\
+\pfrac{\MT}{t}&=\vecdd{q}^T\pfrac{\MT}{\vecd{q}}+\vecd{q}^T\pfrac{\MT}{\vec{q}}\\
+&\text{Subtraction yields:}\\
+\pfrac{\MT}{t}&=\vecd{q}^T\underbrace{\left[\ddt\left(\pfrac{\MT}{\vecd{q}}\right)-\pfrac{\MT}{\vec{q}}\right]}_{\text{Inertial terms of LE}}=\vecd{q}^T\vec{Q}=-\vecd{q}^T\pfrac{\MV}{\vec{q}}=-\frac{d\MV}{dt}\\
+&\text{Therefore}\\
+\frac{d\MT}{dt}&=-\frac{d\MV}{dt}\Longrightarrow\ddt(T+V)=0\Longrightarrow \MT+\MV=\ME
+\end{align*}
+
+Shift coordinates for simplicity: $\vec{q}_{eq}=\vec{0}$ and $\MV(\vec{q}_{eq})=0$ then:
+
+\vspace{3ex}
+
+$\vec{q}_{eq}$ is stable if there exists an energy bound $\ME^+$ such that for $\ME<\ME^+$ given to the system $\MT<\ME\ \forall t$ and $\MT=\ME$ at equilibrium.
+
+\myspic{0.45}{Pictures/VibrationsEquilibrium}
+
+Around equilibrium, for stability it must be $\MV>0$, then $\vec{q}_{eq}$ is a local minimum.
+
+\mportant{$\MV=\onha\vec{q}^T\tvec{K}\vec{q}>0\ \forall\vec{q}$}
+
+For a conservative, stable sceleronomic system the mass and the stiffness matrices are symmetric and positive definite.
+
+\myspic{0.45}{Pictures/VibrationsEquilibrium2}
+
+$\tvec{K}$ symmetric and positive definite: \textbf{All eigenvalues are real positive.}
+
+\subsection{Motion around a stable equilibrium}
+
+\mportant{$\tvec{M}\vecdd{q}+\tvec{K}\vec{q}=\vec{0}$}
+
+The most general solution form is given by:
+
+\mportant{$\vec{q}=\vec{X}e^{\lambda t},\ \vec{X}\in\mathbb{C}^n,\ \lambda\in\mathbb{C}$}
+
+By substitution in the linearized equation:
+
+\mportant{$(\lambda^2\tvec{M}+\tvec{K})\vec{X}=\vec{0}$}
+
+Consider then the eigenvector $\vec{X}$ and its complex conjugate $\vec{X}^\ast$:
+
+\mportant{$\vec{X}=\vec{a}+i\vec{b}\qquad\vec{X}^\ast=\vec{a}-i\vec{b}$}
+
+By pre-multiplying the eigenvalue problem by $\vec{X}^\ast$ the eigenvalues are found as:
+
+\mportant{$\lambda^2=-\frac{(\vec{a}-i\vec{b})^T\tvec{K}(\vec{a}+i\vec{b})}{(\vec{a}-i\vec{b})^T\tvec{M}(\vec{a}+i\vec{b})}$}
+
+Recall that the mass and stiffness matrix are symmetric and positive definite:
+
+\mportant{$\lambda^2=-\frac{\vec{a}^T\tvec{K}\,\vec{a}+\vec{b}^T\tvec{K}\,\vec{b}}{\vec{a}^T\tvec{M}\,\vec{a}+\vec{b}^T\tvec{M}\,\vec{b}}<0$}
+
+Thus:
+
+\important{$\lambda^2<0\Longrightarrow \lambda = i\omega$}
+
+Thus the eigenvector $\vec{X}$ must be real as well and the eigenvalue problem can be rewritten as:
+
+\mportant{$\tvec{K}-\omega^2\tvec{M})\vec{X}=\vec{0}$}
+
+The solutions then are pairs of eigenmodes and eigenfrequencies:
+
+\mportant{$\tvec{K}-\omega_p^2\tvec{M})\vec{X}_p=\vec{0},\ p=1,\ldots,n$}
+
+$\vec{X}_p$ are the eigenmodes of the system.
+
+The associated motion is purely oscillatory:
+
+\important{$\vec{q}(t)=\vec{X}_pe^{i\omega_p t}=\vec{X}_p(\cos\omega_p t+i\sin\omega_p t)$}
+
+
+\subsection{Mode orthogonality}
+
+Consider two pairs of eigensolutions ($\vec{X}_k,\omega_k$) and $(\vec{X}_r,\omega_r)$ with $\omega_r\neq\omega_k$.
+
+\mportant{$\vec{X}_k^T\tvec{K}\,\vec{X}_r=\omega_r^2\vec{X}_k^T\tvec{M}\,\vec{X}_r\qquad[\vec{X}_k^T\tvec{K}\,\vec{X}_r]^T=\vec{X}_r^T\tvec{K}\,\vec{X}_k=\vec{X}_r^T\tvec{K}\,\vec{X}_k$}
+
+and for the second eigensolution:
+
+\mportant{$\vec{X}_r^T\tvec{K}\,\vec{X}_k=\omega_k^2\vec{X}_r^T\tvec{M}\,\vec{X}_k$}
+
+Subtraction and $\tvec{K}=\tvec{K}^T,\ \tvec{M}=\tvec{M}^T$ yield:
+
+\mportant{$(\omega_k^2-\omega_r^2)\vec{X}_r\tvec{M}\,\vec{X}_k=\vec{0}$}
+
+If $\omega_k\neq\omega_r$:
+
+\important{$\vec{X}_r^T\tvec{M}\,\vec{X}_k=0\qquad\vec{X}_r^T\tvec{K}\,\vec{X}_k=0\quad r\neq k$}
+
+Thus eigenmodes are orthogonal with respect to the mass and the stiffness matrix. Thus the modes are not zero when multiplied with the scalar product but actually are orthogonal based on this newly defined mass/stiffness-scalar product!
+
+\importname{Modal mass}{$\vec{X}_k^T\tvec{M}\,\vec{X}_k=\mu_k$}
+
+\importname{Modal stiffness}{$\vec{X}_k^T\tvec{K}\,\vec{X}_k=\gamma_k$}
+
+The modes are only defined up to a constant. The ratio of modal mass and modal stiffness however is well defined!
+
+\importname{Rayleigh quotient}{$\frac{\gamma_k}{\mu_k}=\frac{\vec{X}_k^T\tvec{K}\,\vec{X}_k}{\vec{X}_k^T\tvec{M}\,\vec{X}_k}=\omega_k^2$}
+
+When using a unit modal mass: $\mu_k = 1$
+
+\begin{align*}
+\vec{X}_k^T\tvec{K}\,\vec{X}_r &= \delta_{kr}\\
+\vec{X}_k^T\tvec{M}\,\vec{X}_r&=\omega_k^2\delta_{kr}
+\end{align*}
+
+Note that, if $\omega_k = 0\Longrightarrow \tvec{K}\vec{X}_k=\vec{0}\quad (\tvec{K}-\omega^2\tvec{M})\vec{X}=\vec{0}$, the corresponding $\vec{X}_k$ is called rigid body mode.
+
+The motion associated to one mode is given by:
+
+\mportant{$\vec{q}=\vec{X}_j e^{i\omega_j t}\Longrightarrow\vecdd{q}=-\omega_j^2\vec{X}_j e^{i\omega_j t}$}
+
+Then the orthogonality condition can be read as the work done by the inertial/elastic forces to one mode onto displacements of another mode:
+
+\important{$\textcolor{green}{\vec{X}_j^T}\textcolor{red}{\tvec{K}\,\vec{X}_i}=0\qquad\textcolor{green}{\vec{X}_j^T}\textcolor{blue}{\tvec{M}\omega_i^2\vec{X}_i}=\omega_i^2\vec{X}_j^T\tvec{M}\,\vec{X}_i=0$}
+
+\begin{itemize}
+\item \textcolor{green}{Displacement affine to mode $\vec{X}_j$}
+\item \textcolor{red}{Elastic force produced by mode $\vec{X}_i$}
+\item \textcolor{blue}{Inertia forces produced by mode $\vec{X}_i$}
+\end{itemize}
+
 \subsection{Modal superposition}
-\subsection{Frequency response function}
-\subsection{Damped vibrations}
+
+\mportname{Forced linearized problem}{$\tvec{M}\,\vecdd{q}+\tvec{K}\,\vec{q}=\vec{p}(t)$}
+
+The general solution can be expressed as a superposition of the modal shapes:
+
+\mportant{$\vec{q}(t)=\sum\limits_{i=1}^n\underbrace {\eta_i(t)}_\text{Modal coordinate}\underbrace{\vec{X}_i}_{\text{Mode}}$}
+
+Substitution and projection onto a generic mode $\vec{X}_j$ yields:
+
+\mportant{$\vec{X}_j^T\left[\tvec{M}\sum\limits_{i=1}^n\ddot{\eta}_i(t)\vec{X}_i+\tvec{K}\sum\limits_{i=1}^n\eta_i(t)\vec{X}_i\right]=\vec{X}_j^T\vec{p}$}
+
+Because of orthogonality the projection decouples the equations:
+
+\mportant{$\vec{X}_j^T\tvec{M}\,\vec{X}_j\ddot{\eta}_j(t)+\vec{X}_j^T\tvec{K}\,\vec{X}_j\eta_j(t)=\tvec{X}_j^T\vec{p}\quad j=1,\ldots n$}
+
+More compactly:
+
+\mportant{$\ddot{\eta}_j+\omega_j^2\eta_j=\Phi_j\qquad\Phi_j=\frac{\vec{X}_j^T\,\vec{p}}{\mu_j}\quad j=1,\ldots,n$}
+
+where $\Phi_j$ is the modal participation factor, ie.e. ``how much laod is contained in mode $\vec{X}_j$''.
+
+In matrix form:
+
+\mportant{$\tvec{I}\,\vecdd{\eta}+\tvec{\Omega}^2\vec{\eta}=\vec{\Phi}$}
+
+\mportant{$\tvec{I}=\begin{bmatrix}
+1&&\\&\ddots&\\&&1
+\end{bmatrix}\quad\tvec{\Omega}=\begin{bmatrix}
+\omega_1^2&&\\&\ddots&\\&&\omega_n^2
+\end{bmatrix}\quad\vec{\eta}=\begin{bmatrix}
+\eta_1\\\vdots\\\eta_n
+\end{bmatrix}\quad\vec{\Phi}=\begin{bmatrix}
+\Phi_1\\\vdots\\\Phi_n
+\end{bmatrix}$}
+
+To express the initial conditions in modal shapes:
+
+\mportant{$\vec{q}(0)=\sum\limits_{i=1}^n\vec{X}_i\eta_i(0)\Longrightarrow\vec{X}_j^T\tvec{M}\sum\limits_{i=1}^n\vec{X}_i\eta_i(0)\textcolor{red}{\Longrightarrow}\eta_j(0)=\frac{\vec{X}_j^T\tvec{M}\,\vec{q}_0}{\mu_j}$}
+
+\textcolor{red}{$\qquad\qquad\qquad$ Orthogonality}
+
+\mportant{$\vecd{q}(0)=\sum\limits_{i=1}^n\vec{X}_i\dot{\eta}_i(0)\Longrightarrow\vec{X}_j^T\tvec{M}\vecd{q}_0=\vec{X}_j^T\tvec{M}\sum\limits_{i=1}^n\vec{X}_i\dot{eta}_i(0)\textcolor{red}{\Longrightarrow}\dot{\eta}_j(0)=\frac{\vec{X}_j^T\tvec{M}\,\vecd{q}_0}{\mu_j}$}
+
+If viscous damping is present: $\vecd{q}^T\tvec{C}\,\vecd{q}>0$
+
+\mportant{$\tvec{M}\,\vecdd{q}+\tvec{C}\,\vecd{q}+\tvec{K}\vec{q}=\vec{p}$}
+
+Decoupling cannot be achieved by projecting on modes, as
+
+\mportant{$\vec{X}_i^T\tvec{C}\,\vec{X}_j\neq 0\qquad i\neq j$}
+
+The modal equations would look like:
+
+\mportant{$\ddot{\eta}_j+\sum\limits_{j=1}^n\theta_{ij}\dot{\eta}_j+\omega_i^2\eta_i=\Phi_i\qquad\theta_{ij}=\vec{X}_i^T\tvec{C}\,\vec{X}_j$}
+
+Two remedies are possible:
+
+\begin{enumerate}
+\item Rayleigh/proportional damping: $\tvec{C}=\alpha\tvec{M}+\beta\tvec{K}$
+
+\item Ignore the off-diagonal terms. When is this possible?
+\end{enumerate}
+
+Consider the damped linearized equation
+
+\mportant{$\tvec{M}\vecdd{q}+\tvec{C}\vecd{q}+\tvec{K}\vec{q}=\vec{0}$}
+
+Ansatz: $\vec{q}=\vec{Z}e^{\lambda t}$ which leads to the complex (difficult) eigenvalue problem:
+
+\mportant{$(\lambda^2\tvec{M}+\lambda\tvec{C}+\tvec{K})\vec{Z}=\vec{0}$}
+
+If damping is small: $||\tvec{C}\vecd{q}||<<||\tvec{K}\vec{q}||,||\tvec{M}\vecdd{q}||$ we can assume that:
+
+\begin{flalign*}
+\lambda_k&=\textcolor{green}{i\omega_k}&+&\textcolor{blue}{\Delta\lambda}\\
+\vec{Z}_k&=\underbrace{\textcolor{green}{\vec{X}_k}}_\text{For the undamped system}&+&\underbrace{\textcolor{blue}{\Delta\vec{Z}}}_\text{Small correction}
+\end{flalign*}
+
+Substitution yields
+
+\mportant{$\left[(-\omega_k^2+2i\omega_k\Delta\lambda+(\Delta\lambda)^2\tvec{M}+(i\omega_k+\Delta\lambda)\tvec{C}+\tvec{K}\right](\vec{X}_k+\Delta\vec{Z})=\vec{0}$}
+
+Neglecting second order terms and using $(\tvec{K}-\omega_k^2\tvec{M})\vec{X}_k=\vec{0}$:
+
+\mportant{$(\tvec{K}-\omega_k^2\tvec{M})\Delta\vec{Z}+i\omega_k(\tvec{C}+2\Delta\lambda\tvec{M})\vec{X}_k\simeq\vec{0}$}
+
+Now projection onto $\vec{X}_K$ (same mode) yields:
+
+\mportant{$\vec{X}_k^T(\tvec{C}+2\Delta\lambda\tvec{M})\vec{X}_k\simeq\vec{0}$}
+
+which yields:
+
+\important{$\Delta\lambda=-\frac{\theta_{kk}}{2\mu k}$}
+
+\mportant{$\lambda_k=i\omega_k-\frac{\theta_{kk}}{2\mu k}\qquad \theta_{kk}=\vec{X}_k^T\tvec{C}\,\vec{X}_k$}
+
+\begin{itemize}
+\item The correction to the eigenfrequency is real and negative. (Because $\tvec{C}$ is pos. def.)
+\item First order analysis includes only diagonal terms of the modal damping matrix
+\end{itemize}
+
+For the correction of the mode:
+
+\mportant{$\Delta\vec{Z}=\sum\limits_{s=1,\ s\neq k}^n\alpha_s\vec{X}_s\quad\alpha_s\in\mathbb{C}$}
+
+where $s\neq k$ since correction of a mode with itself is meaningless, it would only stretch it. The direction of the mode is meaningful, the length is not.
+
+Projection onto a generic mode $\vec{X}_j$:
+
+\mportant{$\vec{X}_j^T\left[(\tvec{K}-\omega_k^2\tvec{M})\sum\limits_{s=1\ s\neq k}^n\alpha_s\vec{X}_s+i\omega_k(\tvec{C}+2\Delta\lambda\tvec{M})\vec{X}_k\right]\simeq 0$}
+
+After accounting for all orthogonalities we get:
+
+\mportant{$\alpha_s=\frac{i\omega_k\theta_{ks}}{\mu_s(\omega_k^2-\omega_s^2}$}
+
+This correction now includes off-diagonal terms! Also, if the eigenfrequencies $\omega_k$ and $\omega_s$ are well separated the correction becomes negligible.
+
+If $\Delta Z$ is imaginary, the motion assigned to mode $k$ is:
+
+\mportant{$\vec{q}_k=\vec{Z}_ke^{\lambda_k t}=(\vec{X}_k+i\vec{Q}_k)e^{\Delta\lambda+i\omega_k)t}\qquad \vec{Q}_k=\sum\limits_{p=1\ p\neq k}^n\frac{\omega_k\theta_{kp}}{\omega_k^2-\omega_p^2}\vec{X}_p$}
+
+The motion is not synchronous anymore:
+
+\begin{align*}
+\vec{q}_k&=e^{\Delta\lambda t}e^{i\omega_kt}(\vec{X}_k-i\vec{Q}_k)=e^{\Delta\lambda t}(\cos\omega_k t+i\sin\omega_k t)(\vec{X}_k+i\vec{Q}_k)\\
+&=e^{\Delta\lambda t}[\vec{X}_k\cos\omega_k t-\vec{Q}_k\sin\omega_kt+i\vec{X}_k\sin\omega_kt+i\vec{Q}_k\cos\omega_k t]
+\end{align*}
+
+We are only interested in the real part of the response:
+
+\important{$\vec{q}_k=e^{\Delta\lambda t}[\vec{X}_k\cos\omega_kt-\vec{Q}_k\sin\omega_k t]$}
+
+Thus $\vec{Q}_k$ and $\vec{X}_k$ are $\pi/2$ out of phase!
+
+The modal equations can still be decoupled:
+
+\mportant{$\ddot{\eta}_k+\frac{\theta_{kk}}{\mu_k}\dot{\eta}_k+\omega_k^2\eta_k=\Phi_k$}
+
+which is analog to a single modal spring mass damper system with a spring of stiffness $\omega_k^2$, a damper of $\frac{\theta_{kk}}{\mu_k}$ and a mass of $\mu_k$.
+
+\textcolor{red}{Not sure about the constants}
+
+\vspace{3ex}
+
+Or posing $\Theta_{kk}=2\epsilon_k\omega_k\mu_k$:
+
+\mportant{$\ddot{\eta}_k+2\epsilon_k\omega_k\dot{\eta}_k+\omega_k^2\eta_k=\Phi_k\ \forall k=1,\ldots,n$}
+
+Where typically $\epsilon_k$ are determined from modal testing.
+
+\vspace{3ex}
+
+In practice, a damping model is often available, or too complex to be derived. If one can assume small damping, it is then convenient to express the damping matrix as
+
+\mportant{$\tvec{C}=a\tvec{K}+b\tvec{M}$}
+
+This automatically guarantees orthogonality of the modes w.r.t. the damping matrix, and therefore decoupled modal equations. The corresponding modal damping coefficient is
+
+\mportant{$\theta_k=a\gamma_k+b\mu_k$}
+
+The damping ratio is then easily computed as:
+
+\mportant{$\epsilon_k=\onha\left(a\omega_k+\frac{b}{\omega_k}\right)$}
+
+\subsubsection{Systems with arbitrary damping}
+
+In a general case the state space description is necessary:
+
+\mportant{$\begin{bmatrix}
+\tvec{C}&\tvec{M}\\\tvec{M}&\tvec{0}
+\end{bmatrix}
+\ddt\begin{bmatrix}
+\vec{q}\\\vecd{q}
+\end{bmatrix}
++\begin{bmatrix}
+\tvec{K}&\tvec{0}\\\tvec{0}&-\tvec{M}
+\end{bmatrix}
+\begin{bmatrix}
+\vec{q}\\\vecd{q}
+\end{bmatrix}
+=\begin{bmatrix}
+\vec{p}\\\vec{0}
+\end{bmatrix}
+$}
+
+where
+
+\mportant{$\tvec{A}=\begin{bmatrix}
+\tvec{K}&\tvec{0}\\\tvec{0}&-\tvec{M}
+\end{bmatrix}\quad\tvec{B}=\begin{bmatrix}
+\tvec{C}&\tvec{M}\\\tvec{M}&\tvec{0}
+\end{bmatrix}\quad \vec{r}=\begin{bmatrix}
+\vec{q}\\\vecd{q}
+\end{bmatrix};\quad\vec{s}(t)=\begin{bmatrix}
+\vec{p}(t)\\\vec{0}
+\end{bmatrix}$}
+
+The system can be compactly written as:
+
+\mportant{$\tvec{A}\vec{r}+\tvec{B}\vecd{r}=\vec{s}$}
+
+The autonomous system (no load) can then be written as:
+
+\mportant{$\tvec{A}\vec{r}+\tvec{B}\vecd{r}=\vec{0}$}
+
+and it admits the general solution:
+
+\mportant{$\vec{r}=\vec{y}e^{\lambda t}$}
+
+Which leads to the eigenvalue problem (linear in $\lambda$):
+
+\mportant{$\tvec{A}\vec{r}+\lambda\tvec{B}\vec{r}=\vec{0}$}
+
+The solutions are pairs of complex eigenvalues and eigenvectors:
+
+\mportant{$\lambda_k,\vec{y}_k,\ \forall k=1,\ldots,2n$}
+
+Orthogonality of course still holds:
+
+\mportant{$\vec{y}_j^T\tvec{A}\vec{y}_k=\tilde{\lambda}_k\delta_{jk}\quad\vec{y}_j^T\tvec{B}\vec{y}_k=\tilde{\mu}_k\delta{jk}$}
+
+Note that, since the matrices $\tvec{A}$ and $\tvec{B}$ are real, the complex conjugate of the eigensolution is also an eigensolution
+
+\begin{align*}
+\lambda_k&=\sigma+i\nu\rightarrow\bar{\lambda}_k=\sigma-i\nu\\
+\vec{y}_k&=\vec{u}+i\vec{v}\rightarrow\bar{\vec{y}}_k=\vec{u}-i\vec{v}
+\end{align*}
+
+The eigenvector can be also written as:
+
+\mportant{$\vec{y}_k=\begin{bmatrix}
+\vec{z}_k\\\lambda_k\vec{z}_k
+\end{bmatrix}$}
+
+The second order form of the eigenvalue problem is then:
+
+\mportant{$\left(\lambda_k^2\tvec{M}+\lambda_k\tvec{C}+\tvec{K}\right)\vec{z}_k=\vec{0}$}
+
+Premultiplying by the complex conjugate eigenvector
+
+\mportant{$\bar{\vec{z}}_k^T(\lambda_k^2\tvec{M}+\lambda_k\tvec{C}+\tvec{K})\vec{z}_k=0\rightarrow\lambda_k^2m_k+\lambda_kc_k+k_k=0$}
+
+where
+
+\mportant{$k_k=\vec{\bar{z}}_k^T\tvec{K}\vec{z}_k\quad c_k=\vec{\bar{z}}_k^T\tvec{C}\vec{z}_k\quad m_k=\vec{\bar{z}}_k^T\tvec{M}\vec{z}_k$}
+
+The general solution is:
+
+\mportant{$\lambda_k=\frac{-c_k\pm\sqrt{c_k^2-4k_km_k}}{2m_k}$}
+
+Or compactly
+
+\mportant{$\lambda_k=-\alpha_k+i\omega_k$}
+
+where
+
+\mportant{$\alpha_k=\frac{c_k}{2m_k}\qquad\omega_k=\sqrt{\frac{k_k}{m_k}-\underbrace{\left(\frac{c_k}{2m_k}\right)^2}_\text{2nd order correction for small damping ass.}}$}
+
+If $c_k<2\sqrt{k_km_k}$ the response is underdamped.
+
+\subsection{Response to harmonic excitation}
+
+\mportant{$\tvec{M}\vecdd{q}+\tvec{C}\vecd{q}+\tvec{K}\vec{q}=\vec{p}e^{i\Omega t}$}
+
+where the damping $\tvec{Q}\vecd{q}$ is small.
+
+After a certain time the transient response has died out and the solution is dominated by the particular solution:
+
+\mportant{$\vec{q}=\vec{Z}e^{i\Omega t}$}
+
+Substitute that in the original equation:
+
+\mportant{$[-\Omega^2\tvec{M}+i\Omega\tvec{c}+\tvec{K}]\vec{Z}=\vec{p}$}
+
+Then the solution can be developed as a combination of undamped modes:
+
+\mportant{$\vec{Z}=\sum\limits_{j=1}^n\alpha_j\vec{X}_j$}
+
+Substitution yields:
+
+\mportant{$[-\Omega^2\tvec{M}+i\Omega\tvec{C}+\tvec{K}]\sum\limits_{j=1}^n\alpha_j\vec{X}_j=\vec{p}$}
+
+Pre-multiplication with $\vec{X}_k^T$ yields:
+
+\mportant{$\vec{X}_k^T[-\Omega^2\tvec{M}+i\Omega\tvec{C}+\tvec{C}]\sum\limits_{j=1}^n\alpha_k\vec{X}_j=\vec{X}_k^T\vec{p}$}
+
+Ans assuming small damping off-diagonal terms are neglected:
+
+\mportant{$\alpha_k=\frac{\vec{X}_k^T\vec{p}}{(\omega_k-\Omega^2+2i\epsilon_k\Omega\omega_k)\mu_k}$}
+
+Then the response is given by:
+
+\important{$\vec{q}=\sum\limits_{k=1}^n\frac{\vec{X}_k^T\vec{p}}{(\omega_k^2-\Omega^2+2i\epsilon_k\Omega\omega_k)\mu_k}\vec{X}_k$}
+
+Thus the response is the summation of all responses in modal coordinates transformed back by multiplication with the modal shapes. \textcolor{red}{is this correct?}
+
+\vspace{3ex}
+
+\begin{enumerate}
+\item For $\Omega=0\quad\alpha_k=\frac{\vec{X}_k^T\vec{p}}{\omega_k^2\mu_k}\Rightarrow$ Static response $(F/k)\quad \frac{\vec{X}_k^T\vec{p}}{\frac{\gamma_k}{\mu_k}\mu_k}$
+
+\textcolor{red}{mistake in last fraction?}
+
+\item For $\Omega=\omega_k\quad\alpha_k=\frac{\vec{X}_k^T\vec{p}}{2i\epsilon_k\Omega^2\mu_k}=-i\frac{\vec{X}_k^T\vec{p}}{2\epsilon_k\Omega^2\mu_k}$ Response is $\SI{90}{\degree}$ out of phase
+\item For $\Omega>>\omega_k\quad\alpha_k\simeq-\frac{\vec{X}_k^T\vec{p}}{\Omega^2\mu_k}$ Response is $\SI{180}{\degree}$ out of phase
+\end{enumerate}
+
+\subsection{Anti-Resonance}
+
+Assume the undamped case:
+
+\mportant{$\vec{q}=\sum\limits_{k=1}^n\frac{\vec{X}_k^T\vec{p}}{(\omega_k^2-\Omega^2)\mu_k}\vec{X}_k$}
+
+When a load is applied to the $j_{th}$ dof the ratio between the excitation and the same dof $a_{jj}$ is:
+
+\mportant{$a_{jj}=\frac{q_j}{p_j}=\sum\limits_{k=1}^n\frac{X_{j(k)}^2}{(\omega_{(k)}^2-\Omega^2)\mu_{(k)}}$}
+
+Its derivative w.r.t. the forcing frequency is always positive:
+
+\mportant{$\pfrac{a_{jj}}{\Omega^2}=\sum\limits_{k=1}^n\frac{X_{j(k)}^2}{(\omega_{(k)}^2-\Omega^2)^2\mu_{(k)}}>0,\ \forall\Omega$}
+
+%TODO FILL IN STARTING p 29
+
+\subsection{Response in the Time Domain}
+
+Undamped case in modal equations:
+
+\mportant{$\ddot{\eta}_k+\omega_k^2\eta_k=\Phi_k\quad k=1,\ldots,n\qquad \Phi_k=\frac{\vec{X}_k^T\vec{p}}{\mu_k}$}
+
+Where the initial conditions are given by:
+
+\mportant{$\dot{\eta}_k(0)=\frac{\vec{X}_k^T\tvec{M}\,\vecd{q}_0}{\mu_k}\qquad\eta_k(0)=\frac{\vec{X}_k^T\tvec{M}\,\vec{q}_0}{\mu_k}$}
+
+To find the response the \textbf{Laplace transform} is used:
+
+\important{$\ML(\eta(t))=\bar{\eta}_k(s)=\int_0^\infty e^{-st}\eta_k(t)dt\qquad \ML(\Phi(t))=\bar{\Phi}_k(s)=\int_0^\infty e^{-st}\Phi_k(t)dt$}
+
+Application of the Laplace transform to the modal equation yields:
+
+\mportant{$s^2\bar{\eta}_k-s\eta_k(0)-\dot{\eta}_k(0)+\omega_k^2\bar{\eta}_k=\bar{\Phi}_k$}
+
+Which gives:
+
+\mportant{$\bar{\eta}_k=\frac{s\eta_k(0)+\dot{\eta}_k(0)+\bar{\Phi}_k}{s^2+\omega_k^2}$}
+
+The response will be given by the \textbf{inverse Laplace transform}:
+
+\mportant{$\eta_k(t)=\ML^{-1}\left(\frac{s\eta_k(0)+\dot{\eta}_k(0)+\bar{\Phi}_k}{s^2+\omega_k^2}\right)$}
+
+It can be shown that:
+
+\mportant{$h_k(t)=\ML^{-1}\left(\frac{1}{s^2+\omega_k^2}\right)=\frac{\sin\omega_k t}{\omega_k}\qquad\ML^{-1}\left(\frac{s}{s^2+\omega_k^2}\right)=\cos\omega_k t$}
+
+And therefore the response in time is given as:
+
+\mportant{$\eta_k(t)=\eta_k(0)\cos\omega_k t+\dot{\eta}_k(0)\frac{\sin\omega_k t}{\omega_k}+\ML^{-1}\left(\frac{\bar{\Phi}_k}{s^2+\omega_k^2}\right)$}
+
+\subsubsection{Duhamels integral}
+
+\mportant{$\ddot{\eta}_k(0)+\omega_k^2\eta_k(0)=\Phi(0)\Rightarrow d\dot{\eta}_k(0)=\Phi(0)d\tau$}
+
+The change in velocity due to an applied load at $t=0$ is proportional to the impulse of the load at the same time instant. Now $h_k(t)$ is used to shift the impulse to a generic time $\tau$ such that the whole arbitrary load can be written as a sum of impulses whose influence can be written as the \textbf{Duhamel's integral}:
+
+\mportant{$d\eta_k(t)=\Phi_k(\tau)d\tau h_k(t-\tau)$}
+
+\important{$\eta_k(t)=\int_0^t\Phi_k(\tau)h_k(t-\tau)d\tau$}
+
+Thus the total time response is finally:
+
+\important{$\eta_k(t)=\underbrace{\eta_k(0)\cos\omega_k t}_{\text{initial offset}}+\underbrace{\dot{\eta}_k(0)\frac{\sin\omega_kt}{\omega_k}}_{\text{initial velocity}}+\underbrace{\int_0^t\Phi_k(\tau)h_k(t-\tau)d\tau}_\text{forcing}$}
+
+\subsection{Modal truncation}
+
+Consider a forcing of the form: $\vec{p}=\vec{g}\phi(t)$
+
+The physical response of the system is given by the superposition of the modal contribution as:
+
+\mportant{$\vec{q}(t)=\sum\limits_{j=1}^n\frac{\vec{X}_j\vec{X}_j^T\vec{g}}{\mu_j}\frac{1}{\omega_j}\int_0^t\sin(\omega_j(t-\tau))\phi(\tau)d\tau$}
+
+Now when using only $k<n$ modes for approximation the convergence of the summation is given by two factors:
+
+\vspace{3ex}
+
+\textbf{Spatial convergence:} The spatial distribution of the loads needs to be adequately represented by the retained modes:
+
+\mportant{$\frac{\vec{X}_j\overbrace{\vec{X}_j^T\vec{g}}^\text{Load component along mode $\vec{X}_j$}}{\mu_j}$}
+
+\textbf{Temporal convergence:} The response in time of each mode depend both on the eigenfrequency $\omega_j$ and the frequency content of the time history at which the load is applied:
+
+\mportant{$\vec{r}_j(t)=\frac{1}{\omega_j}\int_0^t\sin(\omega_j(t-\tau))\underbrace{\phi(\tau)}_\text{load time history}d\tau$}
+
+For instance for a step load: $\phi(t)=1,\ t>0$
+
+\mportant{$\vec{r}_j(t)=\frac{1-\cos\omega_j t}{\omega_j^2}$}
+
+The contribution of each mode decays with the square of the eigenfrequency. For the harmonic case $\phi(t)=\cos(\Omega t)$:
+
+\mportant{$\vec{r}_j(t)=\frac{\omega_j\sin\Omega t-\Omega\sin\omega_j t}{\omega_j^2(\omega_j^2-\Omega^2)}$}
+
+\subsection{Modal acceleration}
+
+High frequency modes respond statically to the applied load. Thus only the first k modes are kept:
+
+\mportant{$\xcancel{\ddot{\eta}_j}+\omega_j^2\eta_j=\frac{\vec{X}_j^T\vec{p}}{\mu_j}\rightarrow\omega_j^2\eta_j\approx\frac{\vec{X}_j^T\vec{p}}{\mu_j}\ j=k+1,\ldots,n$}
+
+The response is then written as a superposition of the first k modes:
+
+\mportant{$\vec{q}(t)=\sum\limits_{j=1}^k\vec{X}_j\eta_j(t)+\sum\limits_{j=k+1}^n\vec{X}_j\frac{\vec{X}_j^t\vec{p}(t)}{\omega_j^2\mu_j}$}
+
+The higher frequency modes are typically not computed. The second term of the equation above is thus not available. However the static response of the whole system is given by:
+
+\mportant{$\vec{q}_{stat}(t)=\tvec{K}^{-1}\vec{p}(t)=\sum\limits_{j=1}^n\vec{X}_j\frac{\vec{X}_j^T\vec{p}(t)}{\omega_j^2\mu_j}$}
+
+And therefore the response can be written as:
+
+\important{$\vec{q}(t)=\sum\limits_{j=1}^n\vec{X}_j\eta_j(t)+\tvec{K}^{-1}\vec{p}(t)-\sum\limits_{j=1}^k\vec{X}_j\frac{\vec{X}_j^T\vec{p}(t)}{\omega_j^2\mu_j}$}
+
+\subsection{Response to base motion}
+
+If a motion is prescribed to some of the available DOFs it makes sense to partition the system of differential equations as follows:
+
+\mportant{$\begin{bmatrix}
+M_{11}&M_{12}\\M_{21}&M_{22}
+\end{bmatrix}\begin{bmatrix}
+\ddot{q}_1\\\ddot{q}_2
+\end{bmatrix}+\begin{bmatrix}
+K_{11}&K_{12}\\K_{21}&K_{22}
+\end{bmatrix}\begin{bmatrix}
+q_1\\q_2
+\end{bmatrix}=\begin{bmatrix}
+0\\r_2
+\end{bmatrix}$}
+
+where $r_2$ are the reaction forces to impose the motion.
+
+The first block can be solved as:
+
+\mportant{$M_{11}\ddot{q}_1+K_{11}q_1=-M_{12}\ddot{q}_2-K_{12}q_{2}$}
+
+and then the second for the reaction forces:
+
+\mportant{$r_2=M_{21}\ddot{q}_1+M_{22}\ddot{q}_2+K_{21}q_1+K_{22}q_2$}
+
+This procedure requires the knowledge of the prescribed motion and the acceleration.
+
+A different strategy would be to decompose the motion of the unforced DOFs in
+
+\begin{enumerate}
+\item the static displacement due to the imposed motion $q_2$
+\item its dynamics around the static deflection
+\end{enumerate}
+
+\mportant{$q_1=q_1^{st}+y_1$}
+
+The static deflection can be found by neglecting accelerations in the first block equation:
+
+\mportant{$q_1^{st}=-K_{11}^{-1}K_{12}q_2=\underbrace{S}_\text{Schur's complement}q_2$}
+
+By introducing the transformation:
+
+\mportant{$q(t)=\begin{bmatrix}
+I&S\\0&I
+\end{bmatrix}\begin{bmatrix}
+y_1\\q_2
+\end{bmatrix}\qquad\qquad \ddot{q}(t)=\begin{bmatrix}
+I&S\\0&I
+\end{bmatrix}\begin{bmatrix}
+\ddot{y}_1\\\ddot{q}_2
+\end{bmatrix}$}
+
+One obtains
+
+\mportant{$M_{11}\ddot{y}_1+K_{11}y_1=-[M_{11}S+M_{12}]\ddot{q}_2$}
+
+This expression requires only the imposed acceleration and no the imposed displacements. this las euqation can be solved by modal superposition using few modes relative to the structure with fixed support:
+
+\mportant{$M_{11}\ddot{y}_1+K_{11}y_1=0\rightarrow(-\omega_j^2M_{11}+K_{11})X_j=0$}
+
+%TODO Fill in 39-42
+
 \section{Advanced 3D Rigid Body Dynamics}
 \subsection{Parametrization of rotations}
 \subsection{Euler equations}
