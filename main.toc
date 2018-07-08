@@ -69,27 +69,28 @@
 \contentsline {subsubsection}{\numberline {6.0.1}Generalized Coordinates}{13}{subsubsection.6.0.1}
 \contentsline {subsubsection}{\numberline {6.0.2}Constraints}{14}{subsubsection.6.0.2}
 \contentsline {subsubsection}{\numberline {6.0.3}Showing that a constraint is holonomic}{14}{subsubsection.6.0.3}
-\contentsline {subsection}{\numberline {6.1}Virtual displacements}{14}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}Sceleronomic constraint}{14}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}Rheonomic constraint}{14}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.0.4}Example: Rolling without slipping in 3D}{14}{subsubsection.6.0.4}
+\contentsline {subsection}{\numberline {6.1}Virtual displacements}{15}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Sceleronomic constraint}{15}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Rheonomic constraint}{15}{subsubsection.6.1.2}
 \contentsline {subsubsection}{\numberline {6.1.3}Kinematical method to compute virtual displacements}{15}{subsubsection.6.1.3}
 \contentsline {subsection}{\numberline {6.2}D'alemberts principle}{15}{subsection.6.2}
 \contentsline {subsubsection}{\numberline {6.2.1}Reaction forces}{15}{subsubsection.6.2.1}
 \contentsline {subsubsection}{\numberline {6.2.2}Projected Newton's equations}{15}{subsubsection.6.2.2}
-\contentsline {subsubsection}{\numberline {6.2.3}Generalized forces}{15}{subsubsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.3}Generalized forces}{16}{subsubsection.6.2.3}
 \contentsline {subsection}{\numberline {6.3}Lagrange equations}{16}{subsection.6.3}
 \contentsline {subsubsection}{\numberline {6.3.1}Potential active forces}{16}{subsubsection.6.3.1}
-\contentsline {subsubsection}{\numberline {6.3.2}Example: Equation of motion of a 2D rigid body: D'alembert's principle}{16}{subsubsection.6.3.2}
-\contentsline {subsubsection}{\numberline {6.3.3}Equation of motion of a 2D rigid body: Lagrange equations}{17}{subsubsection.6.3.3}
+\contentsline {subsubsection}{\numberline {6.3.2}Example: Equation of motion of a 2D rigid body: D'alembert's principle}{17}{subsubsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.3}Equation of motion of a 2D rigid body: Lagrange equations}{18}{subsubsection.6.3.3}
 \contentsline {subsubsection}{\numberline {6.3.4}Lagrange equations for a 3D rigid body}{18}{subsubsection.6.3.4}
 \contentsline {subsubsection}{\numberline {6.3.5}Lagrange equations for constrained coordinates}{18}{subsubsection.6.3.5}
-\contentsline {subsubsection}{\numberline {6.3.6}Non-holonomic constraints}{18}{subsubsection.6.3.6}
+\contentsline {subsubsection}{\numberline {6.3.6}Non-holonomic constraints}{19}{subsubsection.6.3.6}
 \contentsline {subsection}{\numberline {6.4}Hamiltons principle}{19}{subsection.6.4}
 \contentsline {subsubsection}{\numberline {6.4.1}Hamilton's principle for continuous systems}{19}{subsubsection.6.4.1}
 \contentsline {section}{\numberline {7}Rotations and angular velocity}{20}{section.7}
 \contentsline {subsection}{\numberline {7.1}Eigenvalues and eigenvectors of a rotation matrix}{20}{subsection.7.1}
 \contentsline {subsection}{\numberline {7.2}Angle-axis representation}{21}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Exponential map}{21}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.3}Exponential map}{22}{subsection.7.3}
 \contentsline {subsection}{\numberline {7.4}Small rotations}{22}{subsection.7.4}
 \contentsline {subsection}{\numberline {7.5}Cartesian Representation of Rotations}{22}{subsection.7.5}
 \contentsline {subsection}{\numberline {7.6}Euler Angles}{23}{subsection.7.6}
@@ -101,12 +102,12 @@
 \contentsline {subsection}{\numberline {7.9}Derivative of a vector in a moving frame}{25}{subsection.7.9}
 \contentsline {subsection}{\numberline {7.10}Euler equations}{25}{subsection.7.10}
 \contentsline {section}{\numberline {8}Equations of Motion of a 3D rigid body using Lagrange Formalism}{25}{section.8}
-\contentsline {section}{\numberline {9}Linearization}{25}{section.9}
-\contentsline {subsection}{\numberline {9.1}Equilibrium and stability}{25}{subsection.9.1}
-\contentsline {subsubsection}{\numberline {9.1.1}Definition of equilibrium}{25}{subsubsection.9.1.1}
+\contentsline {section}{\numberline {9}Linearization}{26}{section.9}
+\contentsline {subsection}{\numberline {9.1}Equilibrium and stability}{26}{subsection.9.1}
+\contentsline {subsubsection}{\numberline {9.1.1}Definition of equilibrium}{26}{subsubsection.9.1.1}
 \contentsline {subsubsection}{\numberline {9.1.2}Equilibrium for sceleronomic systems}{26}{subsubsection.9.1.2}
 \contentsline {subsubsection}{\numberline {9.1.3}Newton-Raphson method}{26}{subsubsection.9.1.3}
-\contentsline {subsubsection}{\numberline {9.1.4}Equilibrium for rheonomic systems}{26}{subsubsection.9.1.4}
+\contentsline {subsubsection}{\numberline {9.1.4}Equilibrium for rheonomic systems}{27}{subsubsection.9.1.4}
 \contentsline {subsubsection}{\numberline {9.1.5}Linearized equations}{27}{subsubsection.9.1.5}
 \contentsline {subsection}{\numberline {9.2}Linearized equations for sceleronomic systems}{27}{subsection.9.2}
 \contentsline {subsubsection}{\numberline {9.2.1}Linearized equations for rheonomic systems}{28}{subsubsection.9.2.1}

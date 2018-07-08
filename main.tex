@@ -1145,9 +1145,62 @@ What remains to be showed is that:
 
 The condition for partial derivatives to be integrable
 
-\mportant{$\frac{\partial^2f(\vec{q},t)}{\partial q_k\partial q_i}=\frac{\partial^2f(\vec{q},t)}{\partial q_i\partial q_k}\Rightarrow\frac{\partial C a_i}{\partial q_k=\partial C a_i}{\partial q_i}\quad;\quad \frac{\partial Cb}{\partial q_k}=\frac{\partial Ca_i}{\partial t}$}
+\mportant{$\frac{\partial^2f(\vec{q},t)}{\partial q_k\partial q_i}=\frac{\partial^2f(\vec{q},t)}{\partial q_i\partial q_k}\Rightarrow\frac{\partial C a_i}{\partial q_k}=\frac{\partial C a_i}{\partial q_i}\quad;\quad \frac{\partial Cb}{\partial q_k}=\frac{\partial Ca_i}{\partial t}$}
 
 If $C=0$ the integration constant does not exist, the trivial solution of the problem is found. Thus the constraint is non-holonomic.
+
+\subsubsection{Example: Rolling without slipping in 3D}
+
+\myspic{0.5}{RollingWithoutSlipping}
+
+First we need to define a set of generalized coordinates:
+
+\mportant{$\vec{q} = \begin{bmatrix}
+x_C&y_C&\varphi&\alpha
+\end{bmatrix}$}
+
+Then the rolling without slipping constraint is defined:
+
+\mportant{$\begin{matrix}
+f_1(\vec{q},\vecd{q})&\dot{x}_C-R\dot{\varphi}\sin\alpha=0\\
+f_2(\vec{q},\vecd{q})&\dot{y}_C-R\dot{\varphi}\cos\alpha=0
+\end{matrix}$}
+
+In linear velocity form:
+
+\mportant{$\begin{matrix}
+a_{11}\dot{x}_C+a_{12}\dot{y}_C+a_{13}\dot{\varphi}+a_{14}\dot{\alpha}+b_1=0\\
+a_{21}\dot{x}_C+a_{22}\dot{y}_C+a_{23}\dot{\varphi}+a_{24}\dot{\alpha}+b_2=0
+\end{matrix}$}
+
+where the coefficients are given by:
+
+\mportant{$\begin{matrix}
+a_{11} = 1;&a_{12} = 0;&a_{13}=-R\sin\alpha;&a_{14}=0;&b_1=0\\
+a_{21} = 0;&a_{22} = 1;&a_{13}=-R\cos\alpha;&a_{14}=0;&b_2=0
+\end{matrix}$}
+
+Now if there exists a $C(\vec{q},t)$ that fulfils for the partial derivatives to be integrable, the considered constraints are holonomic. Therefore we evaluate $\pfrac{Ca_i}{q_k}=\pfrac{Ca_k}{q_i}$ to find $C(\vec{q},t)$:
+
+For $f_1(\vec{q},t)$:
+
+\mportant{$a_{12}=0\Rightarrow \pfrac{Ca_{12}}{x_C}=\pfrac{Ca_{11}}{y_C} = 0\Rightarrow \pfrac{C}{y_C}=0$}
+
+For which reason $C(\vec{q},t)$ is independent of $y_C$.
+
+Similarly:
+
+\mportant{$a_{14}=0\Rightarrow \pfrac{Ca_{14}}{x_C}=\pfrac{Ca_{11}}{\alpha}=0\Rightarrow\pfrac{C}{\alpha}=0$}
+
+Therefore $C(\vec{q},t)$ is independent of $\alpha$.
+
+Now since $a_{14}=0$ we can say that:
+
+\mportant{$\pfrac{C(x_C,\varphi)R\sin\alpha}{\alpha}=\pfrac{C(x_c,\varphi)a_{14}}{\varphi}=0$}
+
+But $\pfrac{C(x_C,\varphi)R\sin\alpha}{\alpha}= C(x_C,\varphi)R\cos\alpha\neq0$ unless $C(x_C,\varphi)=0$
+
+\textbf{Therefore this constraint is not holonomic!}
 
 \subsection{Virtual displacements}
 \subsubsection{Sceleronomic constraint}
