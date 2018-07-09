@@ -1118,7 +1118,7 @@ If non-holonomic constraints can be integrated, they will become holonomic and a
 
 Every holonomic constraint can be given in \textbf{Pfaffian form} (exact differential):
 
-\important{$f(\vec{q},t)=0\quad\rightarrow\quad df=\sum\limits_{i=1}^n\frac{\partial f(\vec{q},t)}{\partial q_i}+\frac{\partial f(\vec{q},t)}{\partial t}dt=0$}
+\important{$f(\vec{q},t)=0\quad\rightarrow\quad df=\sum\limits_{i=1}^n\frac{\partial f(\vec{q},t)}{\partial q_i}dq_i+\frac{\partial f(\vec{q},t)}{\partial t}dt=0$}
 \end{define}
 
 \begin{define}
@@ -1145,7 +1145,7 @@ What remains to be showed is that:
 
 The condition for partial derivatives to be integrable
 
-\mportant{$\frac{\partial^2f(\vec{q},t)}{\partial q_k\partial q_i}=\frac{\partial^2f(\vec{q},t)}{\partial q_i\partial q_k}\Rightarrow\frac{\partial C a_i}{\partial q_k}=\frac{\partial C a_i}{\partial q_i}\quad;\quad \frac{\partial Cb}{\partial q_k}=\frac{\partial Ca_i}{\partial t}$}
+\mportant{$\frac{\partial^2f(\vec{q},t)}{\partial q_k\partial q_i}=\frac{\partial^2f(\vec{q},t)}{\partial q_i\partial q_k}\Rightarrow\frac{\partial C a_i}{\partial q_k}=\frac{\partial C a_k}{\partial q_i}\quad;\quad \frac{\partial Cb}{\partial q_k}=\frac{\partial Ca_i}{\partial t}$}
 
 If $C=0$ the integration constant does not exist, the trivial solution of the problem is found. Thus the constraint is non-holonomic.
 
