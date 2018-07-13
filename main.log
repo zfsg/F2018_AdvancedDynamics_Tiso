@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.5)  9 JUL 2018 14:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.5)  13 JUL 2018 18:26
 entering extended mode
 **./main.tex
 (main.tex
@@ -2871,7 +2871,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 113--113
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [2] <Pictures/CartesianCoordinates.png, id=749, 699.36281pt x 555.57562pt>
+ [2] <Pictures/CartesianCoordinates.png, id=738, 699.36281pt x 555.57562pt>
 File: Pictures/CartesianCoordinates.png Graphic file (type png)
 
 <use Pictures/CartesianCoordinates.png>
@@ -2879,7 +2879,7 @@ Package pdftex.def Info: Pictures/CartesianCoordinates.png used on input line 3
 3.
 (pdftex.def)             Requested size: 180.202pt x 143.1492pt.
 
-<Pictures/CylindricalCoordinates.png, id=751, 626.34pt x 529.98pt>
+<Pictures/CylindricalCoordinates.png, id=740, 626.34pt x 529.98pt>
 File: Pictures/CylindricalCoordinates.png Graphic file (type png)
 
 <use Pictures/CylindricalCoordinates.png>
@@ -2888,7 +2888,7 @@ Package pdftex.def Info: Pictures/CylindricalCoordinates.png used on input line
 (pdftex.def)             Requested size: 180.202pt x 152.47723pt.
 
 (Pictures/SphericalCoordinates.pdf_tex
-<Pictures/SphericalCoordinates.pdf, id=752, page=1, 835.62187pt x 417.67625pt>
+<Pictures/SphericalCoordinates.pdf, id=741, page=1, 835.62187pt x 417.67625pt>
 File: Pictures/SphericalCoordinates.pdf Graphic file (type pdf)
 
 <use Pictures/SphericalCoordinates.pdf, page 1>
@@ -2896,7 +2896,7 @@ Package pdftex.def Info: Pictures/SphericalCoordinates.pdf, page1 used on input
  line 52.
 (pdftex.def)             Requested size: 400.4516pt x 200.16367pt.
 
-<Pictures/SphericalCoordinates.pdf, id=753, page=2, 835.62187pt x 417.67625pt>
+<Pictures/SphericalCoordinates.pdf, id=742, page=2, 835.62187pt x 417.67625pt>
 File: Pictures/SphericalCoordinates.pdf Graphic file (type pdf)
 
 <use Pictures/SphericalCoordinates.pdf, page 2>
@@ -2904,7 +2904,7 @@ Package pdftex.def Info: Pictures/SphericalCoordinates.pdf, page2 used on input
  line 57.
 (pdftex.def)             Requested size: 400.4516pt x 200.16367pt.
 
-<Pictures/SphericalCoordinates.pdf, id=754, page=3, 835.62187pt x 417.67625pt>
+<Pictures/SphericalCoordinates.pdf, id=743, page=3, 835.62187pt x 417.67625pt>
 File: Pictures/SphericalCoordinates.pdf Graphic file (type pdf)
 
 <use Pictures/SphericalCoordinates.pdf, page 3>
@@ -2912,7 +2912,7 @@ Package pdftex.def Info: Pictures/SphericalCoordinates.pdf, page3 used on input
  line 59.
 (pdftex.def)             Requested size: 400.4516pt x 200.16367pt.
 
-<Pictures/SphericalCoordinates.pdf, id=755, page=4, 835.62187pt x 417.67625pt>
+<Pictures/SphericalCoordinates.pdf, id=744, page=4, 835.62187pt x 417.67625pt>
 File: Pictures/SphericalCoordinates.pdf Graphic file (type pdf)
 
 <use Pictures/SphericalCoordinates.pdf, page 4>
@@ -2940,7 +2940,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 121.
- [4] <Pictures/AngularMomentum.png, id=780, 887.56593pt x 615.80063pt>
+ [4] <Pictures/AngularMomentum.png, id=769, 887.56593pt x 615.80063pt>
 File: Pictures/AngularMomentum.png Graphic file (type png)
 
 <use Pictures/AngularMomentum.png>
@@ -2956,14 +2956,14 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 221.
 
 [5 <./Pictures/AngularMomentum.png>]
-<Pictures/Rocket.png, id=788, 327.47343pt x 573.64313pt>
+<Pictures/Rocket.png, id=777, 327.47343pt x 573.64313pt>
 File: Pictures/Rocket.png Graphic file (type png)
 
 <use Pictures/Rocket.png>
 Package pdftex.def Info: Pictures/Rocket.png used on input line 326.
 (pdftex.def)             Requested size: 80.0891pt x 140.29433pt.
  (Pictures/NonInertial.pdf_tex
-<Pictures/NonInertial.pdf, id=789, page=1, 531.17024pt x 552.27171pt>
+<Pictures/NonInertial.pdf, id=778, page=1, 531.17024pt x 552.27171pt>
 File: Pictures/NonInertial.pdf Graphic file (type pdf)
 
 <use Pictures/NonInertial.pdf, page 1>
@@ -2971,7 +2971,7 @@ Package pdftex.def Info: Pictures/NonInertial.pdf, page1 used on input line 52.
 
 (pdftex.def)             Requested size: 160.18124pt x 166.54234pt.
 
-<Pictures/NonInertial.pdf, id=790, page=2, 531.17024pt x 552.27171pt>
+<Pictures/NonInertial.pdf, id=779, page=2, 531.17024pt x 552.27171pt>
 File: Pictures/NonInertial.pdf Graphic file (type pdf)
 
 <use Pictures/NonInertial.pdf, page 2>
@@ -2979,7 +2979,7 @@ Package pdftex.def Info: Pictures/NonInertial.pdf, page2 used on input line 55.
 
 (pdftex.def)             Requested size: 160.18124pt x 166.54234pt.
 
-<Pictures/NonInertial.pdf, id=791, page=3, 531.17024pt x 552.27171pt>
+<Pictures/NonInertial.pdf, id=780, page=3, 531.17024pt x 552.27171pt>
 File: Pictures/NonInertial.pdf Graphic file (type pdf)
 
 <use Pictures/NonInertial.pdf, page 3>
@@ -2987,7 +2987,7 @@ Package pdftex.def Info: Pictures/NonInertial.pdf, page3 used on input line 59.
 
 (pdftex.def)             Requested size: 160.18124pt x 166.54234pt.
 
-<Pictures/NonInertial.pdf, id=792, page=4, 531.17024pt x 552.27171pt>
+<Pictures/NonInertial.pdf, id=781, page=4, 531.17024pt x 552.27171pt>
 File: Pictures/NonInertial.pdf Graphic file (type pdf)
 
 <use Pictures/NonInertial.pdf, page 4>
@@ -3022,7 +3022,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 (hyperref)                than one, level fixed on input line 570.
 
 [8]
-<Pictures/InstantaneousAxisOfRotation.png, id=814, 938.00438pt x 525.46312pt>
+<Pictures/InstantaneousAxisOfRotation.png, id=803, 938.00438pt x 525.46312pt>
 File: Pictures/InstantaneousAxisOfRotation.png Graphic file (type png)
 
 <use Pictures/InstantaneousAxisOfRotation.png>
@@ -3204,7 +3204,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 913.
 
-[11] <Pictures/ForcedVibrations.png, id=829, 587.19376pt x 836.3747pt>
+[11] <Pictures/ForcedVibrations.png, id=818, 587.19376pt x 836.3747pt>
 File: Pictures/ForcedVibrations.png Graphic file (type png)
 
 <use Pictures/ForcedVibrations.png>
@@ -3228,7 +3228,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1038.
 
 [12 <./Pictures/ForcedVibrations.png>]
-<Pictures/AmplificationFactor.png, id=835, 1125.45468pt x 638.385pt>
+<Pictures/AmplificationFactor.png, id=824, 1125.45468pt x 638.385pt>
 File: Pictures/AmplificationFactor.png Graphic file (type png)
 
 <use Pictures/AmplificationFactor.png>
@@ -3244,7 +3244,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 (hyperref)                than one, level fixed on input line 1093.
 
 [13 <./Pictures/AmplificationFactor.png>]
-<Pictures/RollingWithoutSlipping.png, id=845, 602.25pt x 336.0555pt>
+<Pictures/RollingWithoutSlipping.png, id=834, 602.25pt x 336.0555pt>
 File: Pictures/RollingWithoutSlipping.png Graphic file (type png)
 
 <use Pictures/RollingWithoutSlipping.png>
@@ -3252,7 +3252,7 @@ Package pdftex.def Info: Pictures/RollingWithoutSlipping.png used on input line
  1154.
 (pdftex.def)             Requested size: 200.2258pt x 111.72423pt.
  [14 <./Pictures/RollingWithoutSlipping.png>] [15] <Pictures/Dalembert2D.png, i
-d=874, 206.57175pt x 148.75575pt>
+d=863, 206.57175pt x 148.75575pt>
 File: Pictures/Dalembert2D.png Graphic file (type png)
 
 <use Pictures/Dalembert2D.png>
@@ -3265,29 +3265,29 @@ LaTeX Font Warning: Command \tiny invalid in math mode on input line 1623.
 
 LaTeX Font Warning: Command \tiny invalid in math mode on input line 1623.
 
-[19] [20] <Pictures/RotationVect.png, id=923, 169.23225pt x 168.02776pt>
+[19] [20] <Pictures/RotationVect.png, id=912, 169.23225pt x 168.02776pt>
 File: Pictures/RotationVect.png Graphic file (type png)
 
 <use Pictures/RotationVect.png>
 Package pdftex.def Info: Pictures/RotationVect.png used on input line 1754.
 (pdftex.def)             Requested size: 180.202pt x 178.93158pt.
  [21 <./Pictures/RotationVect.png>]
-<Pictures/CartesianRepresentation.png, id=931, 227.6505pt x 148.75575pt>
+<Pictures/CartesianRepresentation.png, id=920, 227.6505pt x 148.75575pt>
 File: Pictures/CartesianRepresentation.png Graphic file (type png)
 
 <use Pictures/CartesianRepresentation.png>
 Package pdftex.def Info: Pictures/CartesianRepresentation.png used on input lin
 e 1827.
 (pdftex.def)             Requested size: 200.2258pt x 130.83961pt.
- [22 <./Pictures/CartesianRepresentation.png>] <Pictures/EulerAngles.png, id=93
-7, 217.41225pt x 191.5155pt>
+ [22 <./Pictures/CartesianRepresentation.png>] <Pictures/EulerAngles.png, id=92
+6, 217.41225pt x 191.5155pt>
 File: Pictures/EulerAngles.png Graphic file (type png)
 
 <use Pictures/EulerAngles.png>
 Package pdftex.def Info: Pictures/EulerAngles.png used on input line 1904.
 (pdftex.def)             Requested size: 200.2258pt x 176.38048pt.
  [23 <./Pictures/EulerAngles.png>]
-<Pictures/EulerAnglesJacobian.png, id=947, 254.1495pt x 210.18526pt>
+<Pictures/EulerAnglesJacobian.png, id=936, 254.1495pt x 210.18526pt>
 File: Pictures/EulerAnglesJacobian.png Graphic file (type png)
 
 <use Pictures/EulerAnglesJacobian.png>
@@ -3295,43 +3295,49 @@ Package pdftex.def Info: Pictures/EulerAnglesJacobian.png used on input line 21
 01.
 (pdftex.def)             Requested size: 200.2258pt x 165.59232pt.
  [24 <./Pictures/EulerAnglesJacobian.png>] [25] [26] [27]
-<Pictures/VibrationsEquilibrium.png, id=977, 330.63525pt x 107.2005pt>
+<Pictures/VibrationsEquilibrium.png, id=966, 330.63525pt x 107.2005pt>
 File: Pictures/VibrationsEquilibrium.png Graphic file (type png)
 
 <use Pictures/VibrationsEquilibrium.png>
 Package pdftex.def Info: Pictures/VibrationsEquilibrium.png used on input line 
-2490.
+2515.
 (pdftex.def)             Requested size: 180.202pt x 58.42719pt.
 
-<Pictures/VibrationsEquilibrium2.png, id=978, 325.215pt x 151.16475pt>
+<Pictures/VibrationsEquilibrium2.png, id=967, 325.215pt x 151.16475pt>
 File: Pictures/VibrationsEquilibrium2.png Graphic file (type png)
 
 <use Pictures/VibrationsEquilibrium2.png>
 Package pdftex.def Info: Pictures/VibrationsEquilibrium2.png used on input line
- 2498.
+ 2523.
 (pdftex.def)             Requested size: 180.202pt x 83.76132pt.
- [28 <./Pictures/VibrationsEquilibrium.png> <./Pictures/VibrationsEquilibrium2.
-png>] [29] [30] [31] [32] [33]
-[34]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3083.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3083.
+ [28] [29 <./Pictures/VibrationsEquilibrium.png> <./Pictures/VibrationsEquilibr
+ium2.png>] [30] [31] [32] [33]
+[34] <Pictures/ComplexPlane.png, id=1007, 732.93825pt x 324.0105pt>
+File: Pictures/ComplexPlane.png Graphic file (type png)
+
+<use Pictures/ComplexPlane.png>
+Package pdftex.def Info: Pictures/ComplexPlane.png used on input line 3121.
+(pdftex.def)             Requested size: 240.27339pt x 106.2168pt.
+ [35 <./Pictures/ComplexPlane.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3144.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3144.
  (main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3083.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3083.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3144.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3144.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 649BEFA3B397ED3DA5D6DDDBA5C14F69;11203.
+(rerunfilecheck)             Checksum: DAB1CDFC489F199664AE50B6AFBF5FDF;11046.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3083.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3144.
  ) 
 Here is how much of TeX's memory you used:
- 26103 strings out of 493323
- 485519 string characters out of 3130016
+ 26109 strings out of 493323
+ 485639 string characters out of 3130016
  679072 words of memory out of 3000000
- 29065 multiletter control sequences out of 15000+200000
+ 29067 multiletter control sequences out of 15000+200000
  548141 words of font info for 101 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,20n,65p,10432b,1348s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -3372,9 +3378,9 @@ onts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/gam19/AppData/Local/Programs
 Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/line10.pfb><C:/Users/g
 am19/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm
 10.pfb>
-Output written on main.pdf (34 pages, 1080783 bytes).
+Output written on main.pdf (35 pages, 1109717 bytes).
 PDF statistics:
- 1165 PDF objects out of 1200 (max. 8388607)
- 235 named destinations out of 1000 (max. 500000)
- 1148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1164 PDF objects out of 1200 (max. 8388607)
+ 238 named destinations out of 1000 (max. 500000)
+ 1137 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2227,9 +2227,34 @@ m_{tot}\left[\dot{v}_3+v_2\omega_1-v_1\omega_2\right]&=F_3
 \end{align*}
 \mportant{Translational Euler Equations}
 
-To find the orientation of the body, the relation between the angular velocity and the rates of the rotation parameters have to be found $\rightarrow$ 
+To find the orientation of the body, the relation between the angular velocity and the rates of the rotation parameters have to be found:
 
-%TODO complete this paragraph
+\mportant{$\vec{\omega}^B=\begin{bmatrix}
+-\sin\theta\cos\Phi&\sin\Phi&0\\
+-\sin\theta\sin\Phi&\cos\Phi&0\\
+\cos\theta&0&-1
+\end{bmatrix}\begin{bmatrix}
+\dot{\Psi}\\\dot{\theta}\\\dot{\Phi}
+\end{bmatrix}=\tvec{J}_\omega(\vec{q})\vecd{q}$}
+
+The above needs to be inverted and integrated in time in order to find the rotation parameters. This can be difficult or even impossible. For example when $\theta =k\pi\ k=0,1,\ldots$ the relation becomes singular:
+
+\mportant{$\vec{\omega}=\begin{bmatrix}
+0&\sin\Phi&0\\
+0&\cos\Phi&0\\
+\pm1&0&-1
+\end{bmatrix}\begin{bmatrix}
+\dot{\Psi}\\
+\dot{\theta}\\
+\dot{\Phi}
+\end{bmatrix}$}
+
+Since in that case the relation can not be inverted. Therefore the Euler angle rates are not deducible form the angular velocity components. Possible remedies are:
+
+\begin{itemize}
+\item Choose another sequence of rotation such that the singularity is not occurring in the range of interest.
+\item Use redundant (singularity free) formulation i.e. quaternions.
+\end{itemize}
 
 \section{Equations of Motion of a 3D rigid body using Lagrange Formalism}
 
@@ -2915,7 +2940,12 @@ Its derivative w.r.t. the forcing frequency is always positive:
 
 \mportant{$\pfrac{a_{jj}}{\Omega^2}=\sum\limits_{k=1}^n\frac{X_{j(k)}^2}{(\omega_{(k)}^2-\Omega^2)^2\mu_{(k)}}>0,\ \forall\Omega$}
 
-%TODO FILL IN STARTING p 29
+At anti-resonance, the forcing applied to the degree of freedom of interest is in fact providing the necessary reaction force to keep this degree of freedom fixed.
+
+\begin{itemize}
+\item The rest of the system is moving.
+\item The anti-resonance frequencies depend on the specific degree of freedom under consideration and the load.
+\end{itemize}
 
 \subsection{Response in the Time Domain}
 
@@ -3072,12 +3102,43 @@ This expression requires only the imposed acceleration and no the imposed displa
 
 \mportant{$M_{11}\ddot{y}_1+K_{11}y_1=0\rightarrow(-\omega_j^2M_{11}+K_{11})X_j=0$}
 
-%TODO Fill in 39-42
+\subsection{Force appropriation testing}
 
-\section{Advanced 3D Rigid Body Dynamics}
-\subsection{Parametrization of rotations}
-\subsection{Euler equations}
-\subsection{Lagrangian Dynamics for 3D multibody systems}
+To find modes, eigenfrequencies and damping ratios experimentally, a certain force $\vec{p}$  is applied to the system harmonically. For small damping:
+
+\mportant{$[-\Omega^2\tvec{M}+i\Omega\tvec{C}+\tvec{K}]\vec{Z}=\vec{p}$}
+
+By this we want to find a load distribution such that the $k^{th}$ undamped eigenmode $\vec{X}_k$ is excited $\Longrightarrow\ \Omega=\omega_k$ where $\vec{p}=\vec{p}_k$ is an excitation distribution that allows to excite $\vec{X}_k$.
+
+\mportant{$[\tvec{K}-\omega_k^2\tvec{M}+i\omega_k\tvec{C}]\vec{X}_k=\vec{p}_k$}
+
+As the result of the eigenvalue problem for the undamped system we know that ${[\tvec{K}-\omega_k^2\tvec{M}]\vec{X}_k=\vec{0}}$. Therefore:
+
+\important{$\vec{p}_k=i\omega_k\tvec{C}\vec{X}_k$}
+
+which means that we can force the system in such a way that the excitation force balances the damping force and the system oscillates as if undamped. Also since the system response is purely real and the excitation force is purely imaginary the excitation force is $\SI{90}{\degree}$ delayed. With time both forces will rotate in the complex plane but remain perpendicular to each other.
+
+\myspic{0.6}{ComplexPlane}
+
+\subsection{Non Appropriation Testing}
+
+\begin{enumerate}
+\item The structure is excited either by sine-sweep or by impact hammer at discrete points. Note that the impact hammer is supposed to implement a dirac-delta peak which by mathematical definition (using fft) is a uniform combination of all frequencies.
+\item The response at discrete locations is measured.
+\item The FFT of the excitation and the response gives the value of the frequency transfer function at the measured points.
+\item One then tries to fit a FRF with the obtained measured data and determines
+
+\mportant{$\vec{X}_k,\ \omega_k,\ \mu_k,\ \epsilon_k$}
+
+\mportant{$\vec{q}=\sum\limits_{k=1}^n\frac{\vec{X}_k^T\vec{p}}{(\omega_k^2-\Omega^2+2i\epsilon_k\Omega\omega_k)\mu_k}\vec{X}_k$}
+
+\begin{itemize}
+\item This assumes linearity of the response.
+\item The order of the model needs to be decided. Typically, the order is increased until the modes of interest have converged.
+\item Requires much less equipment (hammer and a few accelerometers) but numerical and fitting techniques.
+\end{itemize}
+\end{enumerate}
+
 \end{multicols*}
 
 \end{document}
