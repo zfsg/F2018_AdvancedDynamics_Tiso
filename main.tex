@@ -127,9 +127,9 @@ Givens rotation matrices define a rotation about one of the three coordinate dir
 
 \begin{equation*}
 \begin{aligned}
-\tvec{R}_x&=\begin{pmatrix}1&0&0\\0&\cos\alpha&\sin\alpha\\0&-\sin\alpha&\cos\alpha\end{pmatrix}\\
+\tvec{R}_x&=\begin{pmatrix}1&0&0\\0&\cos\alpha&-\sin\alpha\\0&\sin\alpha&\cos\alpha\end{pmatrix}\\
 \tvec{R}_y&=\begin{pmatrix}\cos\beta&0&-\sin\beta\\0&1&1\\\sin\beta&0&\cos\beta\end{pmatrix}\\
-\tvec{R}_z&=\begin{pmatrix}\cos\gamma&\sin\gamma&0\\-\sin\gamma&\cos\gamma&0\\0&0&1\end{pmatrix}
+\tvec{R}_z&=\begin{pmatrix}\cos\gamma&-\sin\gamma&0\\\sin\gamma&\cos\gamma&0\\0&0&1\end{pmatrix}
 \end{aligned}
 \end{equation*}
 
@@ -1588,6 +1588,26 @@ The Hamilton's principle can be stated as: The real trajectory of a system is su
 
 stays stationary with respect to any compatible virtual displacement which vanishes at the end of the considered time interval. The integral above is called the \textbf{action}, thus the Hamilon's principle is referred to as the \textbf{principle of stationary action}.
 
+\subsubsection{Example: Pendulum}
+
+\mportant{$\mathcal{L}=\mathcal{T}-\mathcal{V}=\onha mL^2\dot{\theta}^2+mgL\cos\theta$}
+
+The Hamilton's principle then writes:
+
+\mportant{$\delta\int_{t_1}^{t_2}\mathcal{L}dt=\int_{t_1}^{t_2}\delta\mathcal{L}dt=\int_{t_1}^{t_2}\delta\left(\onha mL^2\dot{\theta}^2+mgL\cos\theta\right)dt=0$}
+
+The action becomes:
+
+\mportant{$\int_{t_1}^{t_2}\left(mL^2\dot{\theta}\delta\dot{\theta}-mgL\sin\theta\delta\theta\right)dt=0$}
+
+The equation of motion can not be easily seen at this point since the action still depends on $\dot{\theta}$ and thus setting the integral equal to zero does not simplify it. For that reason an integration by part is made:
+
+\mportant{$\left[mL^2\dot{\theta}\delta\dot{\theta}\right]_{t_1}^{t_2}-\int_{t_1}^{t_2}\left(mL^2\ddot{\theta}+mgL\sin\theta\right)\delta\theta dt = 0$}
+
+Now the integral has to vanish for any arbitrary virtual rotation and thus the argument of the integral has to be zero, which leads to the pendulum equation:
+
+\important{$mL^2\ddot{\theta}+mgL\sin\theta=0$}
+
 \subsubsection{Hamilton's principle for continuous systems}
 
 Let us consider a 1D continuum body of length $l$, laying on the x axis and assume that
@@ -1910,8 +1930,8 @@ x'\\y'\\z'
 X\\Y\\Z
 \end{bmatrix}
 =\begin{bmatrix}
-\cos\Psi&\sin\Psi&0\\
--\sin\Psi&\cos\Psi&0\\
+\cos\Psi&-\sin\Psi&0\\
+\sin\Psi&\cos\Psi&0\\
 0&0&1
 \end{bmatrix}
 \begin{bmatrix}
@@ -1947,8 +1967,8 @@ x'\\y'\\z'
 \end{bmatrix}
 =
 \begin{bmatrix}
-\cos\theta&\sin\theta&0\\
--\sin\theta&\cos\theta&0\\
+\cos\theta&-\sin\theta&0\\
+\sin\theta&\cos\theta&0\\
 0&0&1
 \end{bmatrix}
 \begin{bmatrix}
@@ -2327,8 +2347,12 @@ $T_0$, the transport kinetic energy describes the KE only due to the imposed ove
 
 When no imposed motion is present the general velocity reduces to:
 
-\mportant{$\vec{r}_k=\pfrac{\vec{r}_k}{\vec{q}}\vecd{q}=\tvec{A}_k(\vec{q},\vecd{q},t)\vecd{q}$}
-\textcolor{red}{CORRECtION needed in next formula}
+\mportant{$\vec{r}_k=\pfrac{\vec{r}_k}{\vec{q}}\vecd{q}=\tvec{A}_k(\vec{q},t)\vecd{q}$}
+
+\begin{footnotesize}
+Note that $\frac{\partial \vec{r}_k}{\partial \vec{q}}$ represents a mapping from the generalized coordinate space to the cartesian coordinate space.
+\end{footnotesize}
+
 \mportant{$\Longrightarrow \MT = T_2 = \onha\vecd{q}^T\tvec{M}(\vec{q},t)\vecd{q}\quad \tvec{M}(\vec{q}=\sum\left(\pfrac{\vec{r}_k}{\vecd{q}}\right)^T\left(\pfrac{\vec{r}_k}{\vecd{q}}\right)$}
 
 Consider a conservative system:
@@ -2476,7 +2500,7 @@ The mass matrix is left unchanged.
 
 The damping is found as:
 
-\important{$\tilde{\tvec{D}}=\pfrac{\vec{f}_\MT}{\vecd{q}}=\pfrac{}{\vecd{q}}\left[\ddt\pfrac{(T_0+T_1+T_2)}{\vecd{q}}-\pfrac{(T_0+T_1+T_2)}{\vec{q}}\right]=\ldots=\left.\frac{\partial^2T_2}{\partial\vecd{q}\partial\vec{q}}-\frac{\partial^2T_1}{\partial\vec{q}\partial\vecd{q}}\right|_{eq}\neq\tvec{0}$}
+\important{$\tilde{\tvec{D}}=\pfrac{\vec{f}_\MT}{\vecd{q}}=\pfrac{}{\vecd{q}}\left[\ddt\pfrac{(T_0+T_1+T_2)}{\vecd{q}}-\pfrac{(T_0+T_1+T_2)}{\vec{q}}\right]=\ldots=\left.\frac{\partial^2T_1}{\partial\vecd{q}\partial\vec{q}}-\frac{\partial^2T_1}{\partial\vec{q}\partial\vecd{q}}\right|_{eq}\neq\tvec{0}$}
 
 The damping matrix is skew symmetric. (\textbf{Gyroscopic matrix}) It is usually called $\tvec{G}$.
 
@@ -2554,11 +2578,11 @@ Thus:
 
 Thus the eigenvector $\vec{X}$ must be real as well and the eigenvalue problem can be rewritten as:
 
-\mportant{$\tvec{K}-\omega^2\tvec{M})\vec{X}=\vec{0}$}
+\mportant{$(\tvec{K}-\omega^2\tvec{M})\vec{X}=\vec{0}$}
 
 The solutions then are pairs of eigenmodes and eigenfrequencies:
 
-\mportant{$\tvec{K}-\omega_p^2\tvec{M})\vec{X}_p=\vec{0},\ p=1,\ldots,n$}
+\mportant{$(\tvec{K}-\omega_p^2\tvec{M})\vec{X}_p=\vec{0},\ p=1,\ldots,n$}
 
 $\vec{X}_p$ are the eigenmodes of the system.
 
@@ -2594,6 +2618,10 @@ Thus eigenmodes are orthogonal with respect to the mass and the stiffness matrix
 The modes are only defined up to a constant. The ratio of modal mass and modal stiffness however is well defined!
 
 \importname{Rayleigh quotient}{$\frac{\gamma_k}{\mu_k}=\frac{\vec{X}_k^T\tvec{K}\,\vec{X}_k}{\vec{X}_k^T\tvec{M}\,\vec{X}_k}=\omega_k^2$}
+
+Note that the Rayleigh quotient is \emph{stationary} with respect to the vector. In other words, if the error in the estimated eigenvector is of order $\epsilon$, the error in the corresponding eigenfrequency is of order $\epsilon^2$:
+
+\mportant{$R(\vec{X}_r)=\frac{\gamma_r+\mathcal{O}(\epsilon^2)}{\mu_r+\mathcal{O}(\epsilon^2)}\approx\frac{\gamma_r}{\mu_r}+\mathcal{O}(\epsilon^2)=\omega_r^2+\mathcal{O}(\epsilon^2)$}
 
 When using a unit modal mass: $\mu_k = 1$
 
@@ -2660,7 +2688,7 @@ To express the initial conditions in modal shapes:
 
 \textcolor{red}{$\qquad\qquad\qquad$ Orthogonality}
 
-\mportant{$\vecd{q}(0)=\sum\limits_{i=1}^n\vec{X}_i\dot{\eta}_i(0)\Longrightarrow\vec{X}_j^T\tvec{M}\vecd{q}_0=\vec{X}_j^T\tvec{M}\sum\limits_{i=1}^n\vec{X}_i\dot{eta}_i(0)\textcolor{red}{\Longrightarrow}\dot{\eta}_j(0)=\frac{\vec{X}_j^T\tvec{M}\,\vecd{q}_0}{\mu_j}$}
+\mportant{$\vecd{q}(0)=\sum\limits_{i=1}^n\vec{X}_i\dot{\eta}_i(0)\Longrightarrow\vec{X}_j^T\tvec{M}\vecd{q}_0=\vec{X}_j^T\tvec{M}\sum\limits_{i=1}^n\vec{X}_i\dot{\eta}_i(0)\textcolor{red}{\Longrightarrow}\dot{\eta}_j(0)=\frac{\vec{X}_j^T\tvec{M}\,\vecd{q}_0}{\mu_j}$}
 
 If viscous damping is present: $\vecd{q}^T\tvec{C}\,\vecd{q}>0$
 
@@ -2677,10 +2705,11 @@ The modal equations would look like:
 Two remedies are possible:
 
 \begin{enumerate}
-\item Rayleigh/proportional damping: $\tvec{C}=\alpha\tvec{M}+\beta\tvec{K}$
-
 \item Ignore the off-diagonal terms. When is this possible?
+\item Rayleigh/proportional damping: $\tvec{C}=\alpha\tvec{M}+\beta\tvec{K}$
 \end{enumerate}
+
+\subsubsection{Including off-diagonal Terms}
 
 Consider the damped linearized equation
 
@@ -2693,8 +2722,8 @@ Ansatz: $\vec{q}=\vec{Z}e^{\lambda t}$ which leads to the complex (difficult) ei
 If damping is small: $||\tvec{C}\vecd{q}||<<||\tvec{K}\vec{q}||,||\tvec{M}\vecdd{q}||$ we can assume that:
 
 \begin{flalign*}
-\lambda_k&=\textcolor{green}{i\omega_k}&+&\textcolor{blue}{\Delta\lambda}\\
-\vec{Z}_k&=\underbrace{\textcolor{green}{\vec{X}_k}}_\text{For the undamped system}&+&\underbrace{\textcolor{blue}{\Delta\vec{Z}}}_\text{Small correction}
+\lambda_k&=\textcolor{green}{i\omega_k}+\textcolor{blue}{\Delta\lambda}\\
+\vec{Z}_k&=\underbrace{\textcolor{green}{\vec{X}_k}}_\text{For the undamped system}+\underbrace{\textcolor{blue}{\Delta\vec{Z}}}_\text{Small correction}
 \end{flalign*}
 
 Substitution yields
@@ -2711,7 +2740,7 @@ Now projection onto $\vec{X}_K$ (same mode) yields:
 
 which yields:
 
-\important{$\Delta\lambda=-\frac{\theta_{kk}}{2\mu k}$}
+\important{$\Delta\lambda=-\frac{\theta_{kk}}{2\mu_k}$}
 
 \mportant{$\lambda_k=i\omega_k-\frac{\theta_{kk}}{2\mu k}\qquad \theta_{kk}=\vec{X}_k^T\tvec{C}\,\vec{X}_k$}
 
@@ -2732,7 +2761,7 @@ Projection onto a generic mode $\vec{X}_j$:
 
 After accounting for all orthogonalities we get:
 
-\mportant{$\alpha_s=\frac{i\omega_k\theta_{ks}}{\mu_s(\omega_k^2-\omega_s^2}$}
+\mportant{$\alpha_s=\frac{i\omega_k\theta_{ks}}{\mu_s(\omega_k^2-\omega_s^2)}$}
 
 This correction now includes off-diagonal terms! Also, if the eigenfrequencies $\omega_k$ and $\omega_s$ are well separated the correction becomes negligible.
 
@@ -2753,15 +2782,34 @@ We are only interested in the real part of the response:
 
 Thus $\vec{Q}_k$ and $\vec{X}_k$ are $\pi/2$ out of phase!
 
-The modal equations can still be decoupled:
+The modal equations can still be decoupled, if $||c||$ is small and the frequencies are well separated:
 
 \mportant{$\ddot{\eta}_k+\frac{\theta_{kk}}{\mu_k}\dot{\eta}_k+\omega_k^2\eta_k=\Phi_k$}
 
 which is analog to a single modal spring mass damper system with a spring of stiffness $\omega_k^2$, a damper of $\frac{\theta_{kk}}{\mu_k}$ and a mass of $\mu_k$.
 
-\textcolor{red}{Not sure about the constants}
+\subsubsection{Integration of the modal equations}
 
-\vspace{3ex}
+For integration with \verb+ode45+ the equation needs to be transformed to a system of first order equations:
+
+\begin{align*}
+A\vec{z}+\vec{\Phi}_k&=\vecd{z}\\
+\vec{z}&=\begin{bmatrix}
+\dot{\eta}_k\\\eta_k
+\end{bmatrix}\\
+\begin{bmatrix}
+\ddot{\eta}_k\\\dot{\eta}_k
+\end{bmatrix}
+&=\begin{bmatrix}
+-\theta_kk/\mu_k&-\omega_k^2\\1&0
+\end{bmatrix}\begin{bmatrix}
+\dot{\eta}_k\\\eta_k
+\end{bmatrix}+\begin{bmatrix}
+\Phi_k\\0
+\end{bmatrix}
+\end{align*}
+
+\subsubsection{Damping Ratio}
 
 Or posing $\Theta_{kk}=2\epsilon_k\omega_k\mu_k$:
 
@@ -2769,9 +2817,9 @@ Or posing $\Theta_{kk}=2\epsilon_k\omega_k\mu_k$:
 
 Where typically $\epsilon_k$ are determined from modal testing.
 
-\vspace{3ex}
+\subsubsection{Rayleigh/Proportional Damping}
 
-In practice, a damping model is often available, or too complex to be derived. If one can assume small damping, it is then convenient to express the damping matrix as
+In practice, a damping model is often not available, or too complex to be derived. If one can assume small damping, it is then convenient to express the damping matrix as
 
 \mportant{$\tvec{C}=a\tvec{K}+b\tvec{M}$}
 
@@ -2782,6 +2830,8 @@ This automatically guarantees orthogonality of the modes w.r.t. the damping matr
 The damping ratio is then easily computed as:
 
 \mportant{$\epsilon_k=\onha\left(a\omega_k+\frac{b}{\omega_k}\right)$}
+
+Those can match up to two modes exactly, the rest will be estimated too highly or too lowly.
 
 \subsubsection{Systems with arbitrary damping}
 
@@ -2883,7 +2933,7 @@ If $c_k<2\sqrt{k_km_k}$ the response is underdamped.
 
 \mportant{$\tvec{M}\vecdd{q}+\tvec{C}\vecd{q}+\tvec{K}\vec{q}=\vec{p}e^{i\Omega t}$}
 
-where the damping $\tvec{Q}\vecd{q}$ is small.
+where the damping $\tvec{C}\vecd{q}$ is small.
 
 After a certain time the transient response has died out and the solution is dominated by the particular solution:
 
@@ -2913,14 +2963,12 @@ Then the response is given by:
 
 \important{$\vec{q}=\sum\limits_{k=1}^n\frac{\vec{X}_k^T\vec{p}}{(\omega_k^2-\Omega^2+2i\epsilon_k\Omega\omega_k)\mu_k}\vec{X}_k$}
 
-Thus the response is the summation of all responses in modal coordinates transformed back by multiplication with the modal shapes. \textcolor{red}{is this correct?}
+Thus the response is the summation of all responses in modal coordinates transformed back by multiplication with the modal shapes.
 
 \vspace{3ex}
 
 \begin{enumerate}
 \item For $\Omega=0\quad\alpha_k=\frac{\vec{X}_k^T\vec{p}}{\omega_k^2\mu_k}\Rightarrow$ Static response $(F/k)\quad \frac{\vec{X}_k^T\vec{p}}{\frac{\gamma_k}{\mu_k}\mu_k}$
-
-\textcolor{red}{mistake in last fraction?}
 
 \item For $\Omega=\omega_k\quad\alpha_k=\frac{\vec{X}_k^T\vec{p}}{2i\epsilon_k\Omega^2\mu_k}=-i\frac{\vec{X}_k^T\vec{p}}{2\epsilon_k\Omega^2\mu_k}$ Response is $\SI{90}{\degree}$ out of phase
 \item For $\Omega>>\omega_k\quad\alpha_k\simeq-\frac{\vec{X}_k^T\vec{p}}{\Omega^2\mu_k}$ Response is $\SI{180}{\degree}$ out of phase
@@ -3002,6 +3050,18 @@ Consider a forcing of the form: $\vec{p}=\vec{g}\phi(t)$
 The physical response of the system is given by the superposition of the modal contribution as:
 
 \mportant{$\vec{q}(t)=\sum\limits_{j=1}^n\frac{\vec{X}_j\vec{X}_j^T\vec{g}}{\mu_j}\frac{1}{\omega_j}\int_0^t\sin(\omega_j(t-\tau))\phi(\tau)d\tau$}
+
+\definitiontable{
+$\vec{X}_j$&The mode itself\\
+$\vec{X}_j^T\vec{g}$&Projection onto the mode\\
+$\frac{1}{\mu_j}$&Normalization by the normal mass
+}
+
+Together that makes the participation factor, that defines how important modes are for the modal truncation.
+
+\begin{equation*}
+\frac{\vec{X}_j\vec{g}}{\mu_j}
+\end{equation*}
 
 Now when using only $k<n$ modes for approximation the convergence of the summation is given by two factors:
 
